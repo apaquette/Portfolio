@@ -2,10 +2,16 @@
    .debug{
         @* border: 3px dotted red; *@
    }
+
+   .max-width{
+        max-width: 800px;
+   }
 </style>
 
 <div class="d-flex flex-column align-items-center">
-    <div class="d-flex justify-content-center debug" >
+
+    @* Header *@
+    <div class="d-flex justify-content-center debug max-width" >
         <div class="flex-shrink-0 me-4">
             <img src="headshot.jpg" class="rounded-circle debug" style="width: 150px; height: 150px;" />
         </div>
@@ -14,24 +20,23 @@
             <h3>Software Developer | BSc (Honours)</h3>
         </div>
     </div>
-    <div class="pt-5 d-flex justify-content-center debug" style="max-width: 800px; width: 100%; margin: 0 auto;">
-        <div class="debug">
-            <div>
-                <h3>Professional Summary</h3>
-                <p>
-                Software Developer with over 1 year of experience in Ireland and Canada designing and building software. 
-                Demonstrated ability to design robust software solutions with clean, scalable code. Skilled in version control 
-                tools such as Git, GitHub, and GitLab for effective code management. Proven success in team collaboration to 
-                develop software projects and improve system performance.
-                </p>
-            </div>
-            @* image here ?*@
+
+    @* Professional Summary *@
+    <div class="pt-5 d-flex flex-wrap justify-content-center debug max-width">
+        <div class="pe-5 flex-fill" style="margin: 0 auto;">
+            <h3>💼 Professional Summary</h3>
+            <p>
+            Software Developer with over 1 year of experience in Ireland and Canada designing and building software. 
+            Demonstrated ability to design robust software solutions with clean, scalable code. Skilled in version control 
+            tools such as Git, GitHub, and GitLab for effective code management. Proven success in team collaboration to 
+            develop software projects and improve system performance.
+            </p>
         </div>
-        <div style="height: 150px; width: 300px; border: 3px solid purple;">placeholder</div>
     </div>
 
-    <div class="pt-5 debug" style="max-width: 800px; width: 100%;">
-        <h3>About Me</h3>
+    @* About Me *@
+    <div class="pt-5 debug max-width">
+        <h3>🌟 About Me</h3>
         <p>
         Software Developer with over 1 year of experience in Ireland and Canada designing and building software. 
         Demonstrated ability to design robust software solutions with clean, scalable code. Skilled in version control 
