@@ -2,20 +2,21 @@
 @* Singular project *@
 
 @if(Project is not null){
-    <div class="card m-3" style="width: 300px;">
+    <div class="card m-2" style="width: 300px;">
         <div class="card-body">
-            <h5 class="card-title">@Project.Title</h5>
+            <a href=@Project.GitHubLink>
+                <h5 class="card-title">@Project.Title</h5>
+            </a>
             @* TechStack *@
+            <p class="card-text m-1">@Project.Description</p>
                 @foreach(string tech in Project.TechStack){
                     <span class="me-1 badge rounded-pill>" style="background: black; color: white;">@tech</span>
                 }
-            <p class="card-text m-1 fs-5">@Project.Description</p>
-            <div>
-                
-                @* GitHub Icon/link *@
-                <a href=@Project.GitHubLink class="card-link"><i class="bi bi-github fs-3" style="color: black;" /></a>
-            </div>
         </div>
+        @* GitHub Icon/link *@
+        @* <div class="card-footer">
+            <a href=@Project.GitHubLink class="card-link"><i class="bi bi-github fs-3" style="color: black;" /></a>
+        </div> *@
     </div>
 }
 
