@@ -1,5 +1,5 @@
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 h1:focus {
@@ -113,6 +113,10 @@ code {
     text-align: start;
 }
 
-.max-width{
+h3{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.section{
     max-width: 800px;
 }
