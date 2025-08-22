@@ -1,0 +1,25 @@
+@using Models
+@* Singular project *@
+
+@if(Project is not null){
+    <div class="card m-3" style="width: 300px;">
+        <div class="card-body">
+            <h5 class="card-title">@Project.Title</h5>
+            @* TechStack *@
+                @foreach(string tech in Project.TechStack){
+                    <span class="me-1 badge rounded-pill>" style="background: black; color: white;">@tech</span>
+                }
+            <p class="card-text m-1">@Project.Description</p>
+            <div>
+                
+                @* GitHub Icon/link *@
+                <a href=@Project.GitHubLink class="card-link"><i class="bi bi-github fs-3" style="color: black;" /></a>
+            </div>
+        </div>
+    </div>
+}
+
+@code{
+    [Parameter]
+    public Project? Project {get; set;}
+}
