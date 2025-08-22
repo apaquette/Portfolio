@@ -1,5 +1,6 @@
 html, body {
     font-family: 'Inter', sans-serif;
+    background-color: #FAF9F6;
 }
 
 h1:focus {
@@ -118,5 +119,5 @@ h3{
 }
 
 .section{
-    max-width: 800px;
+    max-width: 1080px;
 }
