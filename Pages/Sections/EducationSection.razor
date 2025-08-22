@@ -1,0 +1,30 @@
+@using Models
+<div class="p-3 m-3 section bg-light border rounded">
+    <h3>🎓 Education</h3>
+        @foreach(Degree degree in Degrees.Values){
+            <h5>@degree.Diploma</h5>
+            <a href=@degree.Website>
+                <p>@degree.Institution</p>
+            </a>
+        }
+</div>
+
+@code{
+    //keeps degrees in order or most recently acquired
+    SortedDictionary<DateTime, Degree> Degrees = new(new ReverseDateTimeComparer());
+
+    protected override void OnInitialized(){
+        Degree canadore = new() {Diploma = "Advanced Diploma in Computer Programming", GraduationDate = new(2023, 06, 01), Institution = "Canadore College", Website = "https://www.canadorecollege.ca/", Logo = ""};
+        Degree setu = new() {Diploma = "Bachelor of Science (Honours) in Software Development", GraduationDate = new(2024, 06, 01), Institution = "South East Technological University", Website = "https://www.setu.ie/", Logo = ""};
+        Degrees.Add(canadore.GraduationDate, canadore);
+        Degrees.Add(setu.GraduationDate, setu);
+    }
+
+    class ReverseDateTimeComparer : IComparer<DateTime>
+    {
+        public int Compare(DateTime x, DateTime y)
+        {
+            return y.CompareTo(x);
+        }
+    }
+}
