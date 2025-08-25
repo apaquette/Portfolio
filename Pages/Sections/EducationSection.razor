@@ -1,15 +1,10 @@
 @using Models
+@using Portfolio.Pages.Components
+
 <div class="p-3 m-3 section bg-light border rounded">
     <h3 class="fw-bold"><i class="bi bi-mortarboard-fill" /> Education</h3>
-        @foreach(var degree in Degrees){
-            DateTime gradDate = degree.Key;
-            Degree gradInfo = degree.Value;
-            <h5>@gradInfo.Diploma</h5>
-            <p>@gradDate.ToString("MMMM yyyy")</p>
-            <a href=@gradInfo.Website>
-                <img src=@gradInfo.Logo style="width: 30px;" />
-                <p>@gradInfo.Institution</p>
-            </a>
+        @foreach(var degree in Degrees.Values){
+            <EducationComponent Degree="@degree" />
         }
 </div>
 

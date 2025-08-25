@@ -1,0 +1,22 @@
+@using Models
+@using System.ComponentModel.DataAnnotations
+
+@if(Degree is not null){
+    <div class="card m-2">
+        <div class="card-body">
+            <h5 class="card-title">@Degree.Diploma</h5>
+            <div class="d-flex justify-content-start">
+                <a href=@Degree.Website class="d-flex" >
+                    <img src=@Degree.Logo class="me-2" style="width: 30px; height: 30px;" />
+                    <div>@Degree.Institution</div>
+                </a>
+            </div>
+            <p class="align-self-end">Graduate: @Degree.GraduationDate.ToString("MMMM yyyy")</p>
+        </div>
+    </div>
+}
+
+@code{
+    [Parameter][Required]
+    public Degree? Degree {get; set;}
+}
