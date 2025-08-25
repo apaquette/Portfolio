@@ -15,10 +15,36 @@
     List<Project> Projects = new();
 
         protected override void OnInitialized(){
-            Projects.Add(new Project("Verification Project", "This project demonstrates my ability to create unit tests and follow test-driven development.", new(){"Java", "JUnit", "Unit Testing", "TDD"}, "https://github.com/apaquette/Verification-Project", ""));
-            Projects.Add(new Project("Jenkins Project", "This project demonstrates my ability to produce pipelines using Jenkins for Continuous Integration and Continuous Delivery.", new(){"Java", "Jenkins", "CI/CD", "DevOps"}, "https://github.com/apaquette/Jenkins-Project", ""));
-            Projects.Add(new Project("Secure App Development Project", "This project demonstrates all mitigation techniques learned during the module to secure web apps.", new(){"PHP", "PHPUnit", "SQL"}, "https://github.com/apaquette/Secure-App-Develoment-Project", ""));
-            Projects.Add(new Project("Wator Project", "This project demonstrates tiling and parallelization with the Wator simulation.", new(){"C++", "Doxyfile", "Linux"}, "https://github.com/apaquette/Wator-Project", ""));
-            Projects.Add(new Project("ML Notebooks", "This project contains a collection of notebooks demonstrating my learning process in ML and NN algorithms.", new(){"Python", "ML", "SKlearn", "Tensorflow", "Jupyter"}, "https://github.com/apaquette/Machine-Learning-Notebooks", ""));
+            Projects.Add(
+                new()
+                {   
+                    Title = "Verification Project", Description = "This project demonstrates my ability to create unit tests and follow test-driven development.", 
+                    TechStack = new(){ "Java", "JUnit", "Unit Testing", "TDD" }, Link = "https://github.com/apaquette/Verification-Project"
+                }
+            );
+            Projects.Add(
+                new(){
+                    Title = "Jenkins Project", Description = "This project demonstrates my ability to produce pipelines using Jenkins for Continuous Integration and Continuous Delivery.", 
+                    TechStack = new(){ "Java", "Jenkins", "CI/CD", "DevOps" }, Link = "https://github.com/apaquette/Jenkins-Project"
+                }
+            );
+            Projects.Add(
+                new(){
+                    Title = "Secure App Development Project", Description = "This project demonstrates all mitigation techniques learned during the module to secure web apps.", 
+                    TechStack = new(){ "PHP", "PHPUnit", "SQL" }, Link = "https://github.com/apaquette/Secure-App-Develoment-Project"
+                }
+            );
+            Projects.Add(
+                new(){
+                    Title = "Wator Project", Description = "This project demonstrates tiling and parallelization with the Wator simulation.", 
+                    TechStack = new(){ "C++", "Doxyfile", "Linux" }, Link = "https://github.com/apaquette/Wator-Project"
+                }
+            );
+            Projects.Add(
+                new(){
+                    Title = "ML Notebooks", Description = "This project contains a collection of notebooks demonstrating my learning process in ML and NN algorithms.", 
+                    TechStack = new(){ "Python", "ML", "SKlearn", "Tensorflow", "Jupyter" }, Link = "https://github.com/apaquette/Machine-Learning-Notebooks"
+                }
+            );
         }
 }
