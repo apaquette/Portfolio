@@ -1,10 +1,13 @@
 @using Models
 <div class="p-3 m-3 section bg-light border rounded">
     <h3 class="fw-bold"><i class="bi bi-mortarboard-fill" /> Education</h3>
-        @foreach(Degree degree in Degrees.Values){
-            <h5>@degree.Diploma</h5>
-            <a href=@degree.Website>
-                <p>@degree.Institution</p>
+        @foreach(var degree in Degrees){
+            DateTime gradDate = degree.Key;
+            Degree gradInfo = degree.Value;
+            <h5>@gradInfo.Diploma</h5>
+            <p>@gradDate</p>
+            <a href=@gradInfo.Website>
+                <p>@gradInfo.Institution</p>
             </a>
         }
 </div>
