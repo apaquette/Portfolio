@@ -1,5 +1,7 @@
 @using Models
 @using Portfolio.Pages.Components
+@using System.Text.Json
+@using System.ComponentModel.DataAnnotations
 
 <div class="p-3 m-3 section bg-light border rounded">
     <h3 class="fw-bold"><i class="bi bi-mortarboard-fill" /> Education</h3>
@@ -10,23 +12,12 @@
 
 @code{
     //keeps degrees in order or most recently acquired
-    SortedDictionary<DateTime, Degree> Degrees = new(new ReverseDateTimeComparer());
-
-    protected override void OnInitialized(){
-        Degree canadore = new() 
-        {   Diploma = "Advanced Diploma in Computer Programming", GraduationDate = new(2023, 06, 01), 
-            Institution = "Canadore College", Website = "https://www.canadorecollege.ca/", Logo = "icons/chevron-red.png"
-        };
-        Degree setu = new() 
-        {   Diploma = "Bachelor of Science (Honours) in Software Development", GraduationDate = new(2024, 06, 01), 
-            Institution = "South East Technological University", Website = "https://www.setu.ie/", Logo = "icons/favicon_wit.png"
-        };
-        Degrees.Add(canadore.GraduationDate, canadore);
-        Degrees.Add(setu.GraduationDate, setu);
-    }
-
-    class ReverseDateTimeComparer : IComparer<DateTime>
-    {
-        public int Compare(DateTime x, DateTime y) => y.CompareTo(x);
+    private SortedDictionary<DateTime, Degree> Degrees = new(new ReverseDateTimeComparer());
+    [Inject]
+    private HttpClient? Http { get; set; }
+    protected override async Task OnInitializedAsync(){
+        string data = await Http.GetStringAsync("data/degrees.json");
+        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
+        Degrees = JsonSerializer.Deserialize<SortedDictionary<DateTime, Degree>>(data, options) ?? new(new ReverseDateTimeComparer());
     }
 }
