@@ -1,7 +1,6 @@
 @using Models
 @using Portfolio.Pages.Components
 @using System.Text.Json
-@using System.ComponentModel.DataAnnotations
 
 <div class="p-3 m-3 section bg-light border rounded">
     <h3 class="fw-bold"><i class="bi bi-mortarboard-fill" /> Education</h3>
@@ -16,7 +15,10 @@
     [Inject]
     private HttpClient? Http { get; set; }
     protected override async Task OnInitializedAsync(){
-        string data = await Http.GetStringAsync("data/degrees.json");
+        string data = "";
+        if(Http is not null){
+            data = await Http.GetStringAsync("data/degrees.json");
+        }
         JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
         Degrees = JsonSerializer.Deserialize<SortedDictionary<DateTime, Degree>>(data, options) ?? new(new ReverseDateTimeComparer());
     }
