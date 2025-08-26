@@ -15,11 +15,15 @@
     [Inject]
     private HttpClient? Http { get; set; }
     protected override async Task OnInitializedAsync(){
-        string data = "";
-        if(Http is not null){
-            data = await Http.GetStringAsync("data/degrees.json");
+        string data = Http is not null ? await Http.GetStringAsync("data/degrees.json") : "";
+        var deserializedDegrees = JsonSerializer.Deserialize<Dictionary<DateTime, Degree>>(data, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        
+        if (deserializedDegrees is not null)
+        {
+            foreach (var kvp in deserializedDegrees)
+            {
+                Degrees.Add(kvp.Key, kvp.Value);
+            }
         }
-        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
-        Degrees = JsonSerializer.Deserialize<SortedDictionary<DateTime, Degree>>(data, options) ?? new(new ReverseDateTimeComparer());
     }
 }
