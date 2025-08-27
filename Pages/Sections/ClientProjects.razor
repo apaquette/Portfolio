@@ -13,12 +13,11 @@
 
 @code{
     private List<Project> Projects = new();
-    
-    protected override void OnInitialized(){
-        Projects.Add(new()
-        {
-            Title = "Heisenberg Forest Prodcuts", Description = "Engineered and launched a bespoke website for a client, amplifying their online presence and effectively showcasing their offerings. Proactively collaborated with the client to ensure alignment and satisfaction throughout the project.",
-            TechStack = new(){"Blazor", ".NET 7", "Radzen", "Linux", "C#", "HTML", "CSS", "GitHub", "Apache"}, Link = "https://breakingwood.com/"
-        });
+    [Inject]
+    private HttpClient? Http { get; set; }
+    protected override async Task OnInitializedAsync(){
+        string data = Http is not null ? await Http.GetStringAsync("data/clientProjects.json") : "";
+        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
+        Projects = JsonSerializer.Deserialize<List<Project>>(data, options) ?? new();
     }
 }
