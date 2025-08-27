@@ -4,7 +4,7 @@
 
 @* All projects *@
 <div class="p-3 m-3 section bg-light border rounded">
-    <h3 class="fw-bold"><i class="bi bi-folder-fill" /> Projects</h3>
+    <h3 class="fw-bold"><i class="bi bi-folder-fill" /> Personal Projects</h3>
     <div class="d-flex flex-wrap justify-content-center">
         @foreach(Project project in Projects){
             <ProjectComponent Project=@project />
@@ -17,9 +17,9 @@
     [Inject]
     private HttpClient? Http { get; set; }
     
-        protected override async Task OnInitializedAsync(){
-            string data = Http is not null ? await Http.GetStringAsync("data/personalProjects.json") : "";
-            JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
-            Projects = JsonSerializer.Deserialize<List<Project>>(data, options) ?? new();
-        }
+    protected override async Task OnInitializedAsync(){
+        string data = Http is not null ? await Http.GetStringAsync("data/personalProjects.json") : "";
+        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
+        Projects = JsonSerializer.Deserialize<List<Project>>(data, options) ?? new();
+    }
 }
