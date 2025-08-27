@@ -13,10 +13,23 @@
 @code{
     List<Experience> WorkExperiences = new();
     protected override void OnInitialized(){
+        WorkExperiences.Add(new(){  Title = "Software Engineer", Company = "Lyric Canvas (now Starilum)", JobStart = new(2024, 8,1), JobEnd = new (2024, 12,31),
+                Description = "Integrate data pipelines into the main system to interface with the AI model and data dashboard. Employ test-driven development to ensure reliable software infrastructure and prioritize development to produce an MVP for the client. Collaborate with teammates to integrate solutions into the codebase and ensure compatibility.",
+                Skills = new(){"pytest", "TDD", "Unit Testing", "GitHub", "Python"}, Location = "Ireland",
+                EmployerSite = "https://www.starilum.com/"
+            });
         WorkExperiences.Add(new(){  Title = "Software Developer", Company = "Savage Data Systems", JobStart = new(2022, 10,1), JobEnd = new (2023, 8,31),
                 Description = "Transformed the company's core product by converting it from a legacy VB.NET desktop application to a .NET 8 Blazor web platform, significantly enhancing accessibility and user experience. Spearheaded targeted research to identify optimal solutions, boosting competitiveness and market penetration. Integrated innovative technologies to elevate product performance and functionality, ensuring alignment with industry standards.",
-                Skills = new(){".NET", "C#", "Blazor", "Radzen", "JavaScript", "Visual Basic", "git", "API", "SQL", "GitLab"}, Location = "North Bay, Ontario, Canada",
+                Skills = new(){".NET", "C#", "Blazor", "Radzen", "JavaScript", "Visual Basic", "Git", "API", "SQL", "GitLab"}, Location = "North Bay, Ontario, Canada",
                 EmployerSite = "https://www.savagedata.com/"
             });
+        WorkExperiences.Add(new(){  Title = "Computer Programmer Analyst", Company = "Bravocado Speech Solutions", JobStart = new(2022, 9,1), JobEnd = new (2023, 2,28),
+            Description = "Steered a startup through critical early-stage development, shaping the project vision and laying a solid foundation for success. Orchestrated planning, requirements gathering, system proposal, and design phases, delivering invaluable insights for future development.",
+            Skills = new(){"UI Design", "Data Design", "Requirements Gathering"}, Location = "North Bay, Ontario, Canada"
+        });
+        WorkExperiences.Add(new(){  Title = "Computer Repair Technician", Company = "Paragon Bay Group (Lenovo Repair Depot)", JobStart = new(2017, 3,1), JobEnd = new (2022, 4,30),
+            Description = "Strong understanding of computer operating systems and hardware. Solve problems quickly and effectively. Setup and perform quality assurance testing. Document repair and testing actions in a clear way for other technicians to pick up where repairs are left off. Apply software and hardware solutions to resolve customer problems.",
+            Skills = new(){"QA Testing", "Computer Repair", "Technical Support", "Customer Service", "Problem Solving"}, Location = "North Bay, Ontario, Canada"
+        });
     }
 }
