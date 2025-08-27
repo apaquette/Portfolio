@@ -1,0 +1,23 @@
+@using Models
+@using Portfolio.Pages.Components
+@using System.ComponentModel.DataAnnotations
+
+@if(WorkExperience is not null){
+    <div>@WorkExperience.Title</div>
+    if(WorkExperience.EmployerSite is not null){
+        <a href=@WorkExperience.EmployerSite>@WorkExperience.Company</a>
+    }else{
+        <div>@WorkExperience.Company</div>
+    }
+    <div>@WorkExperience.JobStart.ToString("MMM yyyy") - @(WorkExperience.JobEnd?.ToString("MMM yyyy") ?? "Present") (@WorkExperience.Duration())</div>
+    <div>@WorkExperience.Location</div>
+    <div>@WorkExperience.Description</div>
+    @foreach(string skill in WorkExperience.Skills){
+        <SkillComponent Skill="@skill" />
+    }
+}
+
+@code{
+    [Parameter][Required]
+    public Experience? WorkExperience {get; set;}
+}
