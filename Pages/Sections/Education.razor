@@ -2,12 +2,11 @@
 @using Portfolio.Pages.Components
 @using System.Text.Json
 
-<div class="p-3 m-3 section bg-light border rounded">
-    <h3 class="fw-bold"><i class="bi bi-mortarboard-fill" /> Education</h3>
-        @foreach(var degree in Degrees.Values){
+<SectionComponent Title="Education" Icon="bi bi-mortarboard-fill">
+     @foreach(var degree in Degrees.Values){
             <EducationComponent Degree="@degree" />
         }
-</div>
+</SectionComponent>
 
 @code{
     //keeps degrees in order or most recently acquired

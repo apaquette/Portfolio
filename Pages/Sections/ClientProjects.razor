@@ -2,14 +2,13 @@
 @using Portfolio.Pages.Components
 @using System.Text.Json
 
-<div class="p-3 m-3 section bg-light border rounded">
-    <h3 class="fw-bold"><i class="bi bi-trophy-fill" /> Client Projects</h3>
+<SectionComponent Title="Client Projects" Icon="bi bi-trophy-fill">
     <div class="d-flex flex-wrap justify-content-center">
         @foreach(Project project in Projects){
             <ProjectComponent Project=@project />
         }
     </div>
-</div>
+</SectionComponent>
 
 @code{
     private List<Project> Projects = new();

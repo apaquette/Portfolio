@@ -2,14 +2,11 @@
 @using Portfolio.Pages.Components
 @using System.Text.Json
 
-<div class="p-3 m-3 section bg-light border rounded">
-    <h3 class="fw-bold"><i class="bi bi-briefcase-fill" /> Work History</h3>
-    <div>
-        @foreach(Experience job in WorkExperiences){
-            <WorkExperienceComponent WorkExperience=@job />
-        }
-    </div>
-</div>
+<SectionComponent Title="Work History" Icon="bi bi-briefcase-fill">
+    @foreach(Experience job in WorkExperiences){
+        <WorkExperienceComponent WorkExperience=@job />
+    }
+</SectionComponent>
 
 @code{
     List<Experience> WorkExperiences = new();

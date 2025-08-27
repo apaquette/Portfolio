@@ -3,14 +3,13 @@
 @using System.Text.Json
 
 @* All projects *@
-<div class="p-3 m-3 section bg-light border rounded">
-    <h3 class="fw-bold"><i class="bi bi-folder-fill" /> Personal Projects</h3>
+<SectionComponent Title="Personal Projects" Icon="bi bi-folder-fill">
     <div class="d-flex flex-wrap justify-content-center">
         @foreach(Project project in Projects){
             <ProjectComponent Project=@project />
         }
     </div>
-</div>
+</SectionComponent>
 
 @code{
     private List<Project> Projects = new();
