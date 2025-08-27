@@ -1,0 +1,24 @@
+@using Models
+@using Portfolio.Pages.Components
+@using System.Text.Json
+
+<div class="p-3 m-3 section bg-light border rounded">
+    <h3 class="fw-bold"><i class="bi bi-trophy-fill" /> Client Projects</h3>
+    <div class="d-flex flex-wrap justify-content-center">
+        @foreach(Project project in Projects){
+            <ProjectComponent Project=@project />
+        }
+    </div>
+</div>
+
+@code{
+    private List<Project> Projects = new();
+    
+    protected override void OnInitialized(){
+        Projects.Add(new()
+        {
+            Title = "Heisenberg Forest Prodcuts", Description = "Engineered and launched a bespoke website for a client, amplifying their online presence and effectively showcasing their offerings. Proactively collaborated with the client to ensure alignment and satisfaction throughout the project.",
+            TechStack = new(){"Blazor", ".NET 7", "Radzen", "Linux", "C#", "HTML", "CSS", "GitHub", "Apache"}, Link = "www.breakingwood.com"
+        });
+    }
+}
