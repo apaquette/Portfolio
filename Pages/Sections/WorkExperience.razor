@@ -1,6 +1,22 @@
+@using Models
+@using Portfolio.Pages.Components
+
 <div class="p-3 m-3 section bg-light border rounded">
     <h3 class="fw-bold"><i class="bi bi-briefcase-fill" /> Work History</h3>
     <div>
-        
+        @foreach(Experience job in WorkExperiences){
+            <WorkExperienceComponent WorkExperience=@job />
+        }
     </div>
 </div>
+
+@code{
+    List<Experience> WorkExperiences = new();
+    protected override void OnInitialized(){
+        WorkExperiences.Add(new(){  Title = "Software Developer", Company = "Savage Data Systems", JobStart = new(2022, 10,1), JobEnd = new (2023, 8,31),
+                Description = "Transformed the company's core product by converting it from a legacy VB.NET desktop application to a .NET 8 Blazor web platform, significantly enhancing accessibility and user experience. Spearheaded targeted research to identify optimal solutions, boosting competitiveness and market penetration. Integrated innovative technologies to elevate product performance and functionality, ensuring alignment with industry standards.",
+                Skills = new(){".NET", "C#", "Blazor", "Radzen", "JavaScript", "Visual Basic", "git", "API", "SQL", "GitLab"}, Location = "North Bay, Ontario, Canada",
+                EmployerSite = "https://www.savagedata.com/"
+            });
+    }
+}
