@@ -1,1 +1,16 @@
-{"2024-06-01T00:00:00":{"Diploma":"Bachelor of Science (Honours) in Software Development","Institution":"South East Technological University","GraduationDate":"2024-06-01T00:00:00","Logo":"icons/favicon_wit.png","Website":"https://www.setu.ie/"},"2023-06-01T00:00:00":{"Diploma":"Advanced Diploma in Computer Programming","Institution":"Canadore College","GraduationDate":"2023-06-01T00:00:00","Logo":"icons/chevron-red.png","Website":"https://www.canadorecollege.ca/"}}
+{
+    "2024-06-01T00:00:00": {
+        "Diploma": "Bachelor of Science (Honours) in Software Development",
+        "Institution": "South East Technological University",
+        "GraduationDate": "2024-06-01T00:00:00",
+        "Logo": "icons/favicon_wit.png",
+        "Website": "https://www.setu.ie/"
+    },
+    "2023-06-01T00:00:00": {
+        "Diploma": "Advanced Diploma in Computer Programming",
+        "Institution": "Canadore College",
+        "GraduationDate": "2023-06-01T00:00:00",
+        "Logo": "icons/chevron-red.png",
+        "Website": "https://www.canadorecollege.ca/"
+    }
+}
