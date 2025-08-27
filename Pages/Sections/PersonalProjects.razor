@@ -18,10 +18,7 @@
     private HttpClient? Http { get; set; }
     
         protected override async Task OnInitializedAsync(){
-            string data = "";
-            if(Http is not null){
-                data = await Http.GetStringAsync("data/personalProjects.json");
-            }
+            string data = Http is not null ? await Http.GetStringAsync("data/personalProjects.json") : "";
             JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
             Projects = JsonSerializer.Deserialize<List<Project>>(data, options) ?? new();
         }
