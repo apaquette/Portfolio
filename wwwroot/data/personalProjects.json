@@ -1,1 +1,62 @@
-[{"Title":"Verification Project","Description":"This project demonstrates my ability to create unit tests and follow test-driven development.","TechStack":["Java","JUnit","Unit Testing","TDD"],"Link":"https://github.com/apaquette/Verification-Project","ImageSource":null},{"Title":"Jenkins Project","Description":"This project demonstrates my ability to produce pipelines using Jenkins for Continuous Integration and Continuous Delivery.","TechStack":["Java","Jenkins","CI/CD","DevOps"],"Link":"https://github.com/apaquette/Jenkins-Project","ImageSource":null},{"Title":"Secure App Development Project","Description":"This project demonstrates all mitigation techniques learned during the module to secure web apps.","TechStack":["PHP","PHPUnit","SQL"],"Link":"https://github.com/apaquette/Secure-App-Develoment-Project","ImageSource":null},{"Title":"Wator Project","Description":"This project demonstrates tiling and parallelization with the Wator simulation.","TechStack":["C\u002B\u002B","Doxyfile","Linux"],"Link":"https://github.com/apaquette/Wator-Project","ImageSource":null},{"Title":"ML Notebooks","Description":"This project contains a collection of notebooks demonstrating my learning process in ML and NN algorithms.","TechStack":["Python","ML","SKlearn","Tensorflow","Jupyter"],"Link":"https://github.com/apaquette/Machine-Learning-Notebooks","ImageSource":null}]
+[
+    {
+        "Title": "Verification Project",
+        "Description": "This project demonstrates my ability to create unit tests and follow test-driven development.",
+        "TechStack": [
+            "Java",
+            "JUnit",
+            "Unit Testing",
+            "TDD"
+        ],
+        "Link": "https://github.com/apaquette/Verification-Project",
+        "ImageSource": null
+    },
+    {
+        "Title": "Jenkins Project",
+        "Description": "This project demonstrates my ability to produce pipelines using Jenkins for Continuous Integration and Continuous Delivery.",
+        "TechStack": [
+            "Java",
+            "Jenkins",
+            "CI/CD",
+            "DevOps"
+        ],
+        "Link": "https://github.com/apaquette/Jenkins-Project",
+        "ImageSource": null
+    },
+    {
+        "Title": "Secure App Development Project",
+        "Description": "This project demonstrates all mitigation techniques learned during the module to secure web apps.",
+        "TechStack": [
+            "PHP",
+            "PHPUnit",
+            "SQL"
+        ],
+        "Link": "https://github.com/apaquette/Secure-App-Develoment-Project",
+        "ImageSource": null
+    },
+    {
+        "Title": "Wator Project",
+        "Description": "This project demonstrates tiling and parallelization with the Wator simulation.",
+        "TechStack": [
+            "C\u002B\u002B",
+            "Doxyfile",
+            "Linux",
+            "Parallel Programming"
+        ],
+        "Link": "https://github.com/apaquette/Wator-Project",
+        "ImageSource": null
+    },
+    {
+        "Title": "ML Notebooks",
+        "Description": "This project contains a collection of notebooks demonstrating my learning process in ML and NN algorithms.",
+        "TechStack": [
+            "Python",
+            "ML",
+            "SKlearn",
+            "Tensorflow",
+            "Jupyter"
+        ],
+        "Link": "https://github.com/apaquette/Machine-Learning-Notebooks",
+        "ImageSource": null
+    }
+]
