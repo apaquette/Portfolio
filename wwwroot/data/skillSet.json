@@ -1,0 +1,87 @@
+{
+    "Programming Languages": [
+        "C",
+        "C#",
+        "C\u002B\u002B",
+        "Python",
+        "Java",
+        "JavaScript",
+        "PHP",
+        "R",
+        "TypeScript",
+        "Visual Basic"
+    ],
+    "Frameworks and Libraries": [
+        ".NET Framework",
+        "Blazor",
+        "Bootstrap",
+        "Entity Framework",
+        "Node.js",
+        "Radzen",
+        "Razor Pages",
+        "React",
+        "SKlearn",
+        "Tensorflow"
+    ],
+    "Testing and Quality Assurance": [
+        "JUnit",
+        "nUnit",
+        "PHPUnit",
+        "Pytest",
+        "Unit Testing"
+    ],
+    "Version Control": [
+        "Bitbucket",
+        "Git",
+        "GitHub",
+        "GitLab"
+    ],
+    "Development Methodologies": [
+        "Agile Development",
+        "CI/CD",
+        "Concurrent Programming",
+        "Design Patterns",
+        "DevOps",
+        "Functional Programming",
+        "Object-Oriented Programming",
+        "Test-Driven Development"
+    ],
+    "Databases and Data Management": [
+        "Data Design",
+        "MS SQL Server",
+        "MySQL",
+        "Postgres",
+        "Relational Databases",
+        "SQL",
+        "SQLite"
+    ],
+    "Web Development": [
+        "API Development",
+        "Back End Development",
+        "CSS",
+        "Front End Development",
+        "HTML",
+        "Web Apps",
+        "Web Design"
+    ],
+    "Tools and Platforms": [
+        "CodeBlocks",
+        "Doxygen",
+        "Figma",
+        "IntelliJ",
+        "Jenkins",
+        "Jupyter",
+        "NetBeans",
+        "Postman",
+        "Power BI",
+        "Vercel",
+        "Visual Studio"
+    ],
+    "Additional Technical Skills": [
+        "Data Visualization",
+        "Documentation",
+        "Machine Learning",
+        "Requirements Gathering",
+        "Secure App Development"
+    ]
+}

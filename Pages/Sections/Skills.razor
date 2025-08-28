@@ -19,17 +19,12 @@
 
 @code{
     private Dictionary<string, List<string>> SkillSet = new();
-    
-    protected override void OnInitialized(){
-        SkillSet.Add("Programming Languages", new(){"C", "C#", "C++", "Python", "Java", "JavaScript", "PHP", "R", "TypeScript", "Visual Basic"});
-        SkillSet.Add("Frameworks and Libraries", new(){".NET Framework", "Blazor", "Bootstrap", "Entity Framework", "Node.js", "Radzen", "Razor Pages", "React", "SKlearn", "Tensorflow"});
-        SkillSet.Add("Testing and Quality Assurance", new(){"JUnit", "nUnit", "PHPUnit", "Pytest", "Unit Testing"});
-        SkillSet.Add("Version Control", new(){"Bitbucket", "Git", "GitHub", "GitLab"});
-        SkillSet.Add("Development Methodologies", new(){"Agile Development", "CI/CD", "Concurrent Programming", "Design Patterns", "DevOps", "Functional Programming", "Object-Oriented Programming", "Test-Driven Development"});
-        SkillSet.Add("Databases and Data Management", new(){"Data Design", "MS SQL Server", "MySQL", "Postgres", "Relational Databases", "SQL", "SQLite"});
-        SkillSet.Add("Web Development", new(){"API Development", "Back End Development", "CSS", "Front End Development", "HTML", "Web Apps", "Web Design"});
-        SkillSet.Add("Tools and Platforms", new(){"CodeBlocks", "Doxygen", "Figma", "IntelliJ", "Jenkins", "Jupyter", "NetBeans", "Postman", "Power BI", "Vercel", "Visual Studio"});
-        SkillSet.Add("Additional Technical Skills", new(){"Data Visualization", "Documentation", "Machine Learning", "Requirements Gathering", "Secure App Development"});
+    [Inject]
+    private HttpClient? Http { get; set; }
+    protected override async Task OnInitializedAsync(){
+        string data = Http is not null ? await Http.GetStringAsync("data/skillSet.json") : "";
+        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
+        SkillSet = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(data, options) ?? new();
     }
 
 }
