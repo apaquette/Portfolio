@@ -1,0 +1,35 @@
+@using Models
+@using Portfolio.Pages.Components
+@using System.Text.Json
+
+<SectionComponent Title="Skills" Icon="bi bi-tools">
+    <div class="d-flex flex-wrap justify-content-center">
+        @foreach(var kvp in SkillSet){
+            <div class="card m-2" style="width: 300px;">
+                <div class="card-body">
+                    <h5>@kvp.Key</h5>
+                    @foreach(string skill in kvp.Value){
+                        <SkillComponent Skill=@skill />
+                    } 
+                </div>
+            </div>
+        }
+    </div>
+</SectionComponent>
+
+@code{
+    private Dictionary<string, List<string>> SkillSet = new();
+    
+    protected override void OnInitialized(){
+        SkillSet.Add("Programming Languages", new(){"C", "C#", "C++", "Python", "Java", "JavaScript", "PHP", "R", "TypeScript", "Visual Basic"});
+        SkillSet.Add("Frameworks and Libraries", new(){".NET Framework", "Blazor", "Bootstrap", "Entity Framework", "Node.js", "Radzen", "Razor Pages", "React", "SKlearn", "Tensorflow"});
+        SkillSet.Add("Testing and Quality Assurance", new(){"JUnit", "nUnit", "PHPUnit", "Pytest", "Unit Testing"});
+        SkillSet.Add("Version Control", new(){"Bitbucket", "Git", "GitHub", "GitLab"});
+        SkillSet.Add("Development Methodologies", new(){"Agile Development", "CI/CD", "Concurrent Programming", "Design Patterns", "DevOps", "Functional Programming", "Object-Oriented Programming", "Test-Driven Development"});
+        SkillSet.Add("Databases and Data Management", new(){"Data Design", "MS SQL Server", "MySQL", "Postgres", "Relational Databases", "SQL", "SQLite"});
+        SkillSet.Add("Web Development", new(){"API Development", "Back End Development", "CSS", "Front End Development", "HTML", "Web Apps", "Web Design"});
+        SkillSet.Add("Tools and Platforms", new(){"CodeBlocks", "Doxygen", "Figma", "IntelliJ", "Jenkins", "Jupyter", "NetBeans", "Postman", "Power BI", "Vercel", "Visual Studio"});
+        SkillSet.Add("Additional Technical Skills", new(){"Data Visualization", "Documentation", "Machine Learning", "Requirements Gathering", "Secure App Development"});
+    }
+
+}
