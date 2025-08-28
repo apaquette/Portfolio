@@ -122,3 +122,13 @@ h3{
     max-width: 1080px;
     width: 100%;
 }
+
+.fixed-top{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Ensure it is above other content */
+    height: 50px;
+    background-color: rgb(248,249,250);
+    border-bottom: 1px solid #ededf0;
+}

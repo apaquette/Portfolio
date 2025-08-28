@@ -2,7 +2,7 @@
 @using Portfolio.Pages.Components
 @using System.Text.Json
 
-<SectionComponent Title="Education" Icon="bi bi-mortarboard-fill">
+<SectionComponent Title="Education" Id="education" Icon="bi bi-mortarboard-fill">
      @foreach(var degree in Degrees.Values){
             <EducationComponent Degree="@degree" />
         }

@@ -2,7 +2,7 @@
 @using Portfolio.Pages.Components
 @using System.Text.Json
 
-<SectionComponent Title="Client Projects" Icon="bi bi-trophy-fill">
+<SectionComponent Title="Client Projects" Id="clients" Icon="bi bi-trophy-fill">
     <div class="d-flex flex-wrap justify-content-center">
         @foreach(Project project in Projects){
             <ProjectComponent Project=@project />

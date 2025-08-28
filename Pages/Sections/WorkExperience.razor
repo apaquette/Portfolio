@@ -2,7 +2,7 @@
 @using Portfolio.Pages.Components
 @using System.Text.Json
 
-<SectionComponent Title="Work History" Icon="bi bi-briefcase-fill">
+<SectionComponent Title="Work History" Id="work" Icon="bi bi-briefcase-fill">
     @foreach(Experience job in WorkExperiences){
         <WorkExperienceComponent WorkExperience=@job />
     }

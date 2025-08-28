@@ -2,7 +2,7 @@
 @using Portfolio.Pages.Components
 @using System.Text.Json
 
-<SectionComponent Title="Skills" Icon="bi bi-tools">
+<SectionComponent Title="Skills" Id="skills" Icon="bi bi-tools">
     <div class="d-flex flex-wrap justify-content-center">
         @foreach(var kvp in SkillSet){
             <SkillSetComponent SkillSet="@kvp" />

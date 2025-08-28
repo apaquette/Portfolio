@@ -3,7 +3,7 @@
 @using System.Text.Json
 
 @* All projects *@
-<SectionComponent Title="Personal Projects" Icon="bi bi-folder-fill">
+<SectionComponent Title="Personal Projects" Id="projects" Icon="bi bi-folder-fill">
     <div class="d-flex flex-wrap justify-content-center">
         @foreach(Project project in Projects){
             <ProjectComponent Project=@project />
