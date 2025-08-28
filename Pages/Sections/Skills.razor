@@ -5,14 +5,7 @@
 <SectionComponent Title="Skills" Icon="bi bi-tools">
     <div class="d-flex flex-wrap justify-content-center">
         @foreach(var kvp in SkillSet){
-            <div class="card m-2" style="width: 300px;">
-                <div class="card-body">
-                    <h5>@kvp.Key</h5>
-                    @foreach(string skill in kvp.Value){
-                        <SkillComponent Skill=@skill />
-                    } 
-                </div>
-            </div>
+            <SkillSetComponent SkillSet="@kvp" />
         }
     </div>
 </SectionComponent>
@@ -26,5 +19,4 @@
         JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
         SkillSet = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(data, options) ?? new();
     }
-
 }

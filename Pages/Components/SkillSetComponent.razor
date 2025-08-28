@@ -1,0 +1,14 @@
+@using System.ComponentModel.DataAnnotations
+<div class="card m-2" style="width: 300px;">
+    <div class="card-body">
+        <h5>@SkillSet.Key</h5>
+        @foreach(string skill in SkillSet.Value){
+            <SkillComponent Skill=@skill />
+        } 
+    </div>
+</div>
+
+@code{
+    [Parameter][Required]
+    public KeyValuePair<string, List<string>> SkillSet {get;set;}
+}
