@@ -58,5 +58,20 @@
         ],
         "Link": "https://github.com/apaquette/Machine-Learning-Notebooks",
         "ImageSource": null
+    },
+    {
+        "Title": "Code By Alex",
+        "Description": "This is my personal professional portfolio which includes my past work experience, education, skillset, and list of projects I've completed. ",
+        "TechStack": [
+            ".NET",
+            "Azure",
+            "Blazor",
+            "BootStrap 5",
+            "C#",
+            "CSS",
+            "DevOps"
+        ],
+        "Link": null,
+        "ImageSource": null
     }
 ]
