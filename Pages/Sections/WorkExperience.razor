@@ -1,0 +1,20 @@
+@using Models
+@using Portfolio.Pages.Components
+@using System.Text.Json
+
+<SectionComponent Title="Work History" Id="work" Icon="bi bi-briefcase-fill">
+    @foreach(Experience job in WorkExperiences){
+        <WorkExperienceComponent WorkExperience=@job />
+    }
+</SectionComponent>
+
+@code{
+    List<Experience> WorkExperiences = new();
+    [Inject]
+    private HttpClient? Http { get; set; }
+    protected override async Task OnInitializedAsync(){
+        string data = Http is not null ? await Http.GetStringAsync("data/workExperience.json") : "";
+        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
+        WorkExperiences = JsonSerializer.Deserialize<List<Experience>>(data, options) ?? new();
+    }
+}

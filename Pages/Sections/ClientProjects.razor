@@ -1,0 +1,22 @@
+@using Models
+@using Portfolio.Pages.Components
+@using System.Text.Json
+
+<SectionComponent Title="Client Projects" Id="clients" Icon="bi bi-trophy-fill">
+    <div class="d-flex flex-wrap justify-content-center">
+        @foreach(Project project in Projects){
+            <ProjectComponent Project=@project />
+        }
+    </div>
+</SectionComponent>
+
+@code{
+    private List<Project> Projects = new();
+    [Inject]
+    private HttpClient? Http { get; set; }
+    protected override async Task OnInitializedAsync(){
+        string data = Http is not null ? await Http.GetStringAsync("data/clientProjects.json") : "";
+        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
+        Projects = JsonSerializer.Deserialize<List<Project>>(data, options) ?? new();
+    }
+}

@@ -1,5 +1,9 @@
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
+    background-color: #FAF9F6;
+}
+[id]{
+    scroll-margin-top: 80px;
 }
 
 h1:focus {
@@ -111,4 +115,23 @@ code {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
+}
+
+h3{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.section{
+    max-width: 1080px;
+    width: 100%;
+}
+
+.fixed-top{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Ensure it is above other content */
+    height: 50px;
+    background-color: rgb(248,249,250);
+    border-bottom: 1px solid #ededf0;
 }

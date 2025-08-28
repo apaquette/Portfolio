@@ -1,0 +1,28 @@
+@using Models
+@using Portfolio.Pages.Components
+@using System.Text.Json
+
+<SectionComponent Title="Education" Id="education" Icon="bi bi-mortarboard-fill">
+     @foreach(var degree in Degrees.Values){
+            <EducationComponent Degree="@degree" />
+        }
+</SectionComponent>
+
+@code{
+    //keeps degrees in order or most recently acquired
+    private SortedDictionary<DateTime, Degree> Degrees = new(new ReverseDateTimeComparer());
+    [Inject]
+    private HttpClient? Http { get; set; }
+    protected override async Task OnInitializedAsync(){
+        string data = Http is not null ? await Http.GetStringAsync("data/degrees.json") : "";
+        var deserializedDegrees = JsonSerializer.Deserialize<Dictionary<DateTime, Degree>>(data, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+        
+        if (deserializedDegrees is not null)
+        {
+            foreach (var kvp in deserializedDegrees)
+            {
+                Degrees.Add(kvp.Key, kvp.Value);
+            }
+        }
+    }
+}

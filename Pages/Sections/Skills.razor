@@ -1,0 +1,22 @@
+@using Models
+@using Portfolio.Pages.Components
+@using System.Text.Json
+
+<SectionComponent Title="Skills" Id="skills" Icon="bi bi-tools">
+    <div class="d-flex flex-wrap justify-content-center">
+        @foreach(var kvp in SkillSet){
+            <SkillSetComponent SkillSet="@kvp" />
+        }
+    </div>
+</SectionComponent>
+
+@code{
+    private Dictionary<string, List<string>> SkillSet = new();
+    [Inject]
+    private HttpClient? Http { get; set; }
+    protected override async Task OnInitializedAsync(){
+        string data = Http is not null ? await Http.GetStringAsync("data/skillSet.json") : "";
+        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
+        SkillSet = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(data, options) ?? new();
+    }
+}
