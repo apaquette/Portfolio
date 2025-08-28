@@ -39,6 +39,7 @@ To view the portfolio locally, follow these steps:
 - [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 - [C#](https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29)
 - [CSS](https://en.wikipedia.org/wiki/CSS)
+- [Azure](https://azure.microsoft.com/en-us/get-started/azure-portal/)
 
 ## License
 
