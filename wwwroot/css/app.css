@@ -13,7 +13,7 @@ a, .btn-link {
     text-decoration: none;
 }
 
-a:hover{
+a:hover, .nav-link:hover{
     color: #06B6D4;
     text-decoration: underline;
 }
