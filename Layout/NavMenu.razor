@@ -2,26 +2,14 @@
 
 <nav id="navbar" class="navbar navbar-light bg-light px-3">
     <ul class="nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
-        </li>
-        @* <li class="nav-item">
-            <a class="nav-link" href="#education">Education</a>
-        </li> *@
-        <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#projects">Projects</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#work">Work</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#clients">Clients</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#skills">Skills</a>
-        </li>
+        @foreach(string link in links){
+            <li class="nav-item">
+                <a class="nav-link" href="#@link.ToLower()">@link</a>
+            </li>
+        }
     </ul>
 </nav>
+
+@code{
+    private string[] links = ["Home", "About", "Projects", "Work", "Clients", "Skills"];
+}
