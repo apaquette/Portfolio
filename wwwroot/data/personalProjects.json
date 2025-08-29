@@ -1,6 +1,6 @@
 [
     {
-        "Title": "Verification Project",
+        "Title": "TDD Verification",
         "Description": "This project demonstrates my ability to create unit tests and follow test-driven development.",
         "TechStack": [
             "Java",
@@ -13,7 +13,7 @@
         "Completed": "2023-11-06"
     },
     {
-        "Title": "Jenkins Project",
+        "Title": "Jenkins Pipeline",
         "Description": "This project demonstrates my ability to produce pipelines using Jenkins for Continuous Integration and Continuous Delivery.",
         "TechStack": [
             "Java",
@@ -26,7 +26,7 @@
         "Completed": "2023-11-29"
     },
     {
-        "Title": "Secure App Development Project",
+        "Title": "Secure App Development",
         "Description": "This project demonstrates all mitigation techniques learned during the module to secure web apps.",
         "TechStack": [
             "PHP",
@@ -38,7 +38,7 @@
         "Completed": "2024-04-29"
     },
     {
-        "Title": "Wator Project",
+        "Title": "Wator",
         "Description": "This project demonstrates tiling and parallelization with the Wator simulation.",
         "TechStack": [
             "C\u002B\u002B",
