@@ -1,17 +1,19 @@
-<div class="d-flex">
-    <h3 class="m-1">
-        <a href="mailto:alexandre.d.paquette@gmail.com">
-            <i class="bi bi-envelope-fill" />
-        </a>
-    </h3>
-    <h3 class="m-1">
-        <a href="https://www.linkedin.com/in/apaquette0/">
-            <i class="bi bi-linkedin" />
-        </a>
-    </h3>
-    <h3 class="m-1">
-        <a href="https://github.com/apaquette">
-            <i class="bi bi-github" />
-        </a>
-    </h3>
+<div class="d-flex me-3">
+    @foreach(string[] contact in contacts){
+        string link = contact[0];
+        string icon = contact[1];
+        <h2 class="ms-4">
+            <a href="@link">
+                <i class="bi bi-@icon" />
+            </a>
+        </h2>
+    }
 </div>
+
+@code{
+    string[][] contacts = [
+        ["mailto:alexandre.d.paquette@gmail.com", "envelope-fill"], 
+        ["https://www.linkedin.com/in/apaquette0/", "linkedin"], 
+        ["https://github.com/apaquette", "github"]
+    ];
+}
