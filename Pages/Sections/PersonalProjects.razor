@@ -2,7 +2,7 @@
 @using Portfolio.Pages.Components
 @using System.Text.Json
 
-@* All projects *@
+@* ToDo: Sort projects by date (newest first) *@
 <SectionComponent Title="Personal Projects" Id="projects" Icon="bi bi-folder-fill">
     <div class="d-flex flex-wrap justify-content-center">
         @foreach(Project project in Projects){
@@ -20,8 +20,5 @@
         string data = Http is not null ? await Http.GetStringAsync("data/personalProjects.json") : "";
         JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
         Projects = JsonSerializer.Deserialize<List<Project>>(data, options) ?? new();
-        foreach(Project project in Projects){
-            project.TechStack.Sort();
-        }
     }
 }

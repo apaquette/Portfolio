@@ -7,7 +7,7 @@ public class Experience
     public DateTime JobStart { get; set; }
     public DateTime? JobEnd { get; set; }
     public string? Description { get; set; }
-    public List<string> Skills { get; set; } = new();
+    public SortedSet<string> Skills { get; set; } = new();
     public string? Location { get; set; }
     public string? EmployerSite { get; set; }
 

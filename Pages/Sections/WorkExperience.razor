@@ -16,8 +16,5 @@
         string data = Http is not null ? await Http.GetStringAsync("data/workExperience.json") : "";
         JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
         WorkExperiences = JsonSerializer.Deserialize<List<Experience>>(data, options) ?? new();
-        foreach(Experience experience in WorkExperiences){
-            experience.Skills.Sort();
-        }
     }
 }
