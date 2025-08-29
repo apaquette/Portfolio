@@ -20,5 +20,8 @@
         string data = Http is not null ? await Http.GetStringAsync("data/personalProjects.json") : "";
         JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
         Projects = JsonSerializer.Deserialize<List<Project>>(data, options) ?? new();
+        foreach(Project project in Projects){
+            project.TechStack.Sort();
+        }
     }
 }

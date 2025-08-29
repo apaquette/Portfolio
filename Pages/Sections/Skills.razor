@@ -18,5 +18,8 @@
         string data = Http is not null ? await Http.GetStringAsync("data/skillSet.json") : "";
         JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
         SkillSet = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(data, options) ?? new();
+        foreach(var kvp in SkillSet){
+            kvp.Value.Sort();
+        }
     }
 }
