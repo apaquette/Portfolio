@@ -63,7 +63,7 @@
         "Title": "Code By Alex",
         "Description": "This is my personal professional portfolio which includes my past work experience, education, skillset, and list of projects I've completed. ",
         "TechStack": [
-            ".NET",
+            ".NET 9",
             "Azure",
             "Blazor",
             "BootStrap 5",
