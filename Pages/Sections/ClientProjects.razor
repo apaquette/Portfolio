@@ -11,12 +11,12 @@
 </SectionComponent>
 
 @code{
-    private List<Project> Projects = new();
+    private SortedSet<Project> Projects = new();
     [Inject]
     private HttpClient? Http { get; set; }
     protected override async Task OnInitializedAsync(){
         string data = Http is not null ? await Http.GetStringAsync("data/clientProjects.json") : "";
         JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
-        Projects = JsonSerializer.Deserialize<List<Project>>(data, options) ?? new();
+        Projects = JsonSerializer.Deserialize<SortedSet<Project>>(data, options) ?? new();
     }
 }
