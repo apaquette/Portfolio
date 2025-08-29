@@ -168,3 +168,17 @@ h1, h2, h3, p{
 .text-muted{
     color: #374151 !important;
 }
+
+
+
+@media(max-width: 699px){
+    .desktop{
+        display: none;
+    }
+}
+
+@media(min-width: 699px){
+    .dropdown{
+        display: none;
+    }
+}
