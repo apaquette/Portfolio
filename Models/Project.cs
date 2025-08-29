@@ -11,6 +11,7 @@ public class Project : IComparable<Project>
 
     public int CompareTo(Project? other)
     {
+        if (other is null) return 1;
         return other.Completed.CompareTo(Completed);
     }
 }
