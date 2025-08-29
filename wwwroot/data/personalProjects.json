@@ -9,7 +9,8 @@
             "TDD"
         ],
         "Link": "https://github.com/apaquette/Verification-Project",
-        "ImageSource": null
+        "ImageSource": null,
+        "Completed": "2023-11-06"
     },
     {
         "Title": "Jenkins Project",
@@ -21,7 +22,8 @@
             "DevOps"
         ],
         "Link": "https://github.com/apaquette/Jenkins-Project",
-        "ImageSource": null
+        "ImageSource": null,
+        "Completed": "2023-11-29"
     },
     {
         "Title": "Secure App Development Project",
@@ -32,7 +34,8 @@
             "SQL"
         ],
         "Link": "https://github.com/apaquette/Secure-App-Develoment-Project",
-        "ImageSource": null
+        "ImageSource": null,
+        "Completed": "2024-04-29"
     },
     {
         "Title": "Wator Project",
@@ -44,7 +47,8 @@
             "Parallel Programming"
         ],
         "Link": "https://github.com/apaquette/Wator-Project",
-        "ImageSource": null
+        "ImageSource": null,
+        "Completed": "2023-11-20"
     },
     {
         "Title": "ML Notebooks",
@@ -57,7 +61,8 @@
             "Jupyter"
         ],
         "Link": "https://github.com/apaquette/Machine-Learning-Notebooks",
-        "ImageSource": null
+        "ImageSource": null,
+        "Completed": "2024-04-15"
     },
     {
         "Title": "Code By Alex",
@@ -72,6 +77,7 @@
             "DevOps"
         ],
         "Link": null,
-        "ImageSource": null
+        "ImageSource": null,
+        "Completed": "2024-08-28"
     }
 ]
