@@ -11,6 +11,7 @@ public class Degree : IComparable<Degree>
 
     public int CompareTo(Degree? other)
     {
+        if(other is null) return 1;
         return other.GraduationDate.CompareTo(GraduationDate);
     }
 }
