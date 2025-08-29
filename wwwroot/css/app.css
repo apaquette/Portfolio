@@ -2,9 +2,7 @@ html, body {
     font-family: 'Inter', sans-serif;
     background-color: #FAF9F6;
 }
-[id]{
-    scroll-margin-top: 80px;
-}
+
 
 h1:focus {
     outline: none;
@@ -134,4 +132,17 @@ h3{
     height: 50px;
     background-color: rgb(248,249,250);
     border-bottom: 1px solid #ededf0;
+}
+
+[id]{
+    scroll-margin-top: 80px;
+}
+
+.nav-link{
+    color: black;
+    font-weight: bold;
+}
+
+.nav-link.active{
+    background-color: black !important; /*Make the nav icons black to match the pills*/
 }
