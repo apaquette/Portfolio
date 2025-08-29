@@ -6,7 +6,7 @@
         "JobEnd": "2024-12-31T00:00:00",
         "Description": "Integrate data pipelines into the main system to interface with the AI model and data dashboard. Employ test-driven development to ensure reliable software infrastructure and prioritize development to produce an MVP for the client. Collaborate with teammates to integrate solutions into the codebase and ensure compatibility.",
         "Skills": [
-            "pytest",
+            "Pytest",
             "TDD",
             "Unit Testing",
             "GitHub",
