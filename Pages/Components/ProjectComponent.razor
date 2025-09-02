@@ -7,13 +7,13 @@
     <div class="card m-2 scale" style="width: 300px;">
         <div class="card-body">
             @if(link is not null){
-                <a href=@Project.Link class="stretched-link">
-                    <h5 class="card-title lh-1" style="margin-bottom: 0;">@Project.Title</h5>
+                <a href=@Project.Link class="stretched-link card-link">
+                    <h5 class="card-title" style="margin-bottom: 0;">@Project.Title</h5>
                 </a>
             }else{
-                <h5 class="card-title lh-1" style="margin-bottom: 0;">@Project.Title</h5>
+                <h5 class="card-title" style="margin-bottom: 0;">@Project.Title</h5>
             }
-            <div card="card-subtitle lh-1 text-muted">@Project.Completed.ToString("MMM d yyyy")</div>
+            <div card="card-subtitle" style="font-style: italic;">@Project.Completed.ToString("MMM d yyyy")</div>
             @* TechStack *@
             <p class="card-text m-1">@Project.Description</p>
                 @foreach(string tech in Project.TechStack){

@@ -29,12 +29,25 @@ html, body {
     border: 3px solid var(--primary-color);
 }
 
+.card{
+    background-color: lightgrey;
+    border-radius: 0.8rem;
+}
 
-/* h1:focus {
-    outline: none;
-} */
+.card-title{
+    font-family: 'Open Sans';
+    font-size: 1.3em;
+}
 
-a, .btn-link {
+.card-link, .card-link:hover, .badge{
+    color: black;
+}
+
+.badge{
+    background-color: var(--primary-color);
+}
+
+a{
     color: #53f4ff;
     text-decoration: none;
 }
@@ -44,31 +57,9 @@ a:hover{
     text-decoration: underline;
 }
 
-/* .btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-} */
-
-/* .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-} */
-
 .content {
     padding-top: 1.1rem;
 }
-
-/* .valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
-}
-
-.invalid {
-    outline: 1px solid red;
-}
-
-.validation-message {
-    color: red;
-} */
 
 #blazor-error-ui {
     color-scheme: light only;
@@ -135,19 +126,6 @@ a:hover{
         content: var(--blazor-load-percentage-text, "Loading");
     }
 
-
-/* .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-    color: var(--bs-secondary-color);
-    text-align: end;
-} */
-
-/* .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-    text-align: start;
-} */
-
-/* h3{
-    font-family: 'Montserrat', sans-serif !important;
-} */
 
 .section{
     max-width: 1080px;

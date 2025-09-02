@@ -3,8 +3,8 @@
 @using System.Text.Json
 
 @* ToDo: Sort projects by date (newest first) *@
-<SectionComponent Title="Personal Projects" Id="projects" Icon="bi bi-folder-fill">
-    <div class="d-flex flex-wrap justify-content-center">
+<SectionComponent Title="Personal Projects" Id="projects">
+    <div class="d-flex flex-wrap justify-content-start">
         @foreach(Project project in Projects){
             <ProjectComponent Project=@project />
         }
