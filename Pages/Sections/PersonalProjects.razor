@@ -4,7 +4,7 @@
 
 @* ToDo: Sort projects by date (newest first) *@
 <SectionComponent Title="Personal Projects" Id="projects">
-    <div class="d-flex flex-wrap justify-content-start">
+    <div class="d-flex flex-wrap justify-content-start" style="margin-left: -0.5rem;">
         @foreach(Project project in Projects){
             <ProjectComponent Project=@project />
         }
