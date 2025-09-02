@@ -3,9 +3,11 @@
 @using System.Text.Json
 
 <SectionComponent Title="Work History" Id="work" Icon="bi bi-briefcase-fill">
-    @foreach(Experience job in WorkExperiences){
-        <WorkExperienceComponent WorkExperience=@job />
-    }
+    <div style="margin-left: -0.5rem;">
+        @foreach(Experience job in WorkExperiences){
+            <WorkExperienceComponent WorkExperience=@job />
+        }
+    </div>
 </SectionComponent>
 
 @code{
