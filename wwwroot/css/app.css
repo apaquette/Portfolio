@@ -169,17 +169,17 @@ a:hover{
 }
 
 .card{
-    background-color: #F1F5F9 !important;
-    border: 1px solid #E2E8F0 !important;
+    background-color: var(--secondary-color) !important;
+    /* border: 1px solid #E2E8F0 !important; */
 }
 
 h1, h2, h3, p{
-    color: #111827;
+    color: var(--background-color);
 }
 
-.text-muted{
+/* .text-muted{
     color: #374151 !important;
-}
+} */
 
 .scale:has(a.stretched-link):hover{
     transition: transform 0.3s ease;
