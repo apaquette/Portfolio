@@ -10,15 +10,15 @@
                     <h5 class="card-title pe-3" style="margin-bottom: 0;">
                         @WorkExperience.Title
                     </h5>
-                    <div class="text-muted pe-1 lh-1">@WorkExperience.JobStart.ToString("MMM yyyy") - @(WorkExperience.JobEnd?.ToString("MMM yyyy") ?? "Present")</div>
-                    <div class="text-muted lh-1">(@WorkExperience.Duration())</div>
+                    <div class="mt-1 text-muted pe-1">@WorkExperience.JobStart.ToString("MMM yyyy") - @(WorkExperience.JobEnd?.ToString("MMM yyyy") ?? "Present")</div>
+                    <div class="text-muted ">(@WorkExperience.Duration())</div>
                 </div>
-                <div class="text-muted lh-1 text-end">
+                <div class="text-muted text-end">
                     <i class="bi bi-geo-alt-fill"></i>
                     @WorkExperience.Location
                 </div>
             </div>
-            <div class="card-subtitle text-muted lh-1">
+            <div class="card-subtitle text-muted lh-1 pt-1">
                 @if(WorkExperience.EmployerSite is not null){
                     <a style="width: fit-content;" href=@WorkExperience.EmployerSite>@WorkExperience.Company</a>
                 }else{
