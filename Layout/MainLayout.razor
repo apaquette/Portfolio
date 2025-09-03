@@ -1,5 +1,6 @@
 ﻿@inherits LayoutComponentBase
 @using Portfolio.Pages.Components
+@inject IJSRuntime JS
 
 <div class="page">
     <main>
@@ -14,3 +15,14 @@
         </article>
     </main>
 </div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("getHeaderIds");
+        }
+    }
+}
+}

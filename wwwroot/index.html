@@ -15,7 +15,7 @@
     <link href="Portfolio.styles.css" rel="stylesheet" />
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="300" tabindex="0">
+<body>
     <div id="app">
         <svg class="loading-progress">
             <circle r="40%" cx="50%" cy="50%" />
@@ -31,6 +31,39 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        function getHeaderIds(){
+            const sections = document.querySelectorAll("section[id]");
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            console.log(sections.length);
+            sections.forEach((entry) => {
+                console.log(entry);
+            });
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if(entry.isIntersecting){
+                            // Clear existing active states
+                            navLinks.forEach((link) => link.classList.remove("active"));
+
+                            // Find matching nav link
+                            const activeLink = document.querySelector(
+                                `.nav-link[href="#${entry.target.id}"]`
+                            );
+                            if(activeLink) activeLink.classList.add("active");
+                        }
+                    });
+                },
+                {
+                    root: null,
+                    threshold: 0.9, // active when 50% in view
+                }
+            );
+            sections.forEach((section) => observer.observe(section));
+        }
+    </script>
 </body>
 
 </html>
