@@ -11,15 +11,12 @@
 </SectionComponent>
 
 @code{
-    private Dictionary<string, List<string>> SkillSet = new();
+    private Dictionary<string, SortedSet<string>> SkillSet = new();
     [Inject]
     private HttpClient? Http { get; set; }
     protected override async Task OnInitializedAsync(){
         string data = Http is not null ? await Http.GetStringAsync("data/skillSet.json") : "";
         JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
-        SkillSet = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(data, options) ?? new();
-        foreach(var kvp in SkillSet){
-            kvp.Value.Sort();
-        }
+        SkillSet = JsonSerializer.Deserialize<Dictionary<string, SortedSet<string>>>(data, options) ?? new();
     }
 }
