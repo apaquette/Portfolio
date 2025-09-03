@@ -58,7 +58,8 @@
                 },
                 {
                     root: null,
-                    threshold: 0.9, // active when 50% in view
+                    threshold: 0.5,
+                    rootMargin: `50px 0px 0px 0px`
                 }
             );
             sections.forEach((section) => observer.observe(section));

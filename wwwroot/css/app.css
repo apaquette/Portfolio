@@ -170,16 +170,11 @@ a:hover{
 
 .card{
     background-color: var(--secondary-color) !important;
-    /* border: 1px solid #E2E8F0 !important; */
 }
 
 h1, h2, h3, p{
     color: var(--background-color);
 }
-
-/* .text-muted{
-    color: #374151 !important;
-} */
 
 .scale:has(a.stretched-link):hover{
     transition: transform 0.3s ease;
@@ -188,15 +183,32 @@ h1, h2, h3, p{
 }
 
 
-
+/* mobile layout */
 @media(max-width: 699px){
-    .desktop{
-        display: none;
+    .nav-container{
+        order: 2;
+    }
+    .contact{
+        order: 1;
     }
 }
 
+
+/* desktop layout */
 @media(min-width: 699px){
-    .dropdown{
-        display: none;
+     .mobile{
+        display: none !important;
+    }
+    .nav-container{
+        order: 1;
+    }
+    .dropdown-menu{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        background: none;
+    }
+    .contact{
+        order: 2;
     }
 }
