@@ -10,6 +10,7 @@
                     <h5 class="card-title" style="margin-bottom: 0;">
                         @WorkExperience.Title
                     </h5>
+                    @* Fix mobile styling (overflow beneath title) *@
                     <div class="text-muted ps-3">@WorkExperience.JobStart.ToString("MMM yyyy") - @(WorkExperience.JobEnd?.ToString("MMM yyyy") ?? "Present") (@WorkExperience.Duration())</div>
                 </div>
                 <div class="text-muted lh-1">
@@ -19,7 +20,7 @@
             </div>
             <div class="card-subtitle text-muted lh-1">
                 @if(WorkExperience.EmployerSite is not null){
-                    <a href=@WorkExperience.EmployerSite>@WorkExperience.Company</a>
+                    <a style="width: fit-content;" href=@WorkExperience.EmployerSite>@WorkExperience.Company</a>
                 }else{
                     <div>@WorkExperience.Company</div>
                 }

@@ -1,5 +1,5 @@
 :root{
-    --primary-color: #FCA311;
+    --primary-color: #FF9E00;
     --secondary-color: #c4c4c4;
     --background-color: #14213D;
 }
@@ -40,17 +40,27 @@ html, body {
 }
 
 .card-link, .card-link:hover, .badge{
-    color: black;
+    color: var(--background-color);
 }
 
 .badge{
     background-color: var(--primary-color);
 }
 
+
+.card-subtitle > a{
+    color: #0098df;
+}
+
+.card-subtitle:hover > a:hover{
+    color: #05a700;
+}
+
 a{
     color: #53f4ff;
     text-decoration: none;
 }
+
 
 a:hover{
     color: #10ff6c;
@@ -179,7 +189,7 @@ h1, h2, h3, p{
 .scale:has(a.stretched-link):hover{
     transition: transform 0.3s ease;
     transform: scale(1.04);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 5px 5px rgba(16, 255, 108, 0.8);
 }
 
 
@@ -191,6 +201,18 @@ h1, h2, h3, p{
     .contact{
         order: 1;
     }
+
+    
+
+    /* .scale:has(a.stretched-link){
+        color: #0098df;
+    } */
+
+    /* put blue link on cards when in mobile to indicate clickable*/
+    
+    /* #aaa this is for the mobile nav links*/
+
+
 }
 
 
