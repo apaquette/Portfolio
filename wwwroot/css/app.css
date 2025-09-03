@@ -202,15 +202,9 @@ h1, h2, h3, p{
         order: 1;
     }
 
+    /*TODO: put blue link on cards when in mobile to indicate clickable*/
     
-
-    /* .scale:has(a.stretched-link){
-        color: #0098df;
-    } */
-
-    /* put blue link on cards when in mobile to indicate clickable*/
-    
-    /* #aaa this is for the mobile nav links*/
+    /*TODO: #aaa this is for the mobile nav links*/
 
 
 }
