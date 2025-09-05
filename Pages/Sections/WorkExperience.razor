@@ -1,22 +1,7 @@
-@using Models
-@using System.Text.Json
-
 <SectionComponent Title="Work History" Id="work" Icon="bi bi-briefcase-fill">
     <div style="margin-left: -0.5rem;">
-        @foreach(Experience job in WorkExperiences){
+        @foreach(var job in WorkExperiences){
             <WorkExperienceComponent WorkExperience=@job />
         }
     </div>
 </SectionComponent>
-
-@code{
-    @* TODO: change list to autosorted set by date *@
-    List<Experience> WorkExperiences = new();
-    [Inject]
-    private HttpClient? Http { get; set; }
-    protected override async Task OnInitializedAsync(){
-        string data = Http is not null ? await Http.GetStringAsync("data/workExperience.json") : "";
-        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
-        WorkExperiences = JsonSerializer.Deserialize<List<Experience>>(data, options) ?? new();
-    }
-}
