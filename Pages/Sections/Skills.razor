@@ -1,7 +1,3 @@
-@using Models
-@using Portfolio.Pages.Components
-@using System.Text.Json
-
 <SectionComponent Title="Skills" Id="skills" Icon="bi bi-tools">
     <div class="d-flex flex-wrap justify-content-start" style="margin-left: -0.5rem;">
         @foreach(var kvp in SkillSet){
@@ -9,14 +5,3 @@
         }
     </div>
 </SectionComponent>
-
-@code{
-    private Dictionary<string, SortedSet<string>> SkillSet = new();
-    [Inject]
-    private HttpClient? Http { get; set; }
-    protected override async Task OnInitializedAsync(){
-        string data = Http is not null ? await Http.GetStringAsync("data/skillSet.json") : "";
-        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
-        SkillSet = JsonSerializer.Deserialize<Dictionary<string, SortedSet<string>>>(data, options) ?? new();
-    }
-}
