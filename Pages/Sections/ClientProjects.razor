@@ -2,7 +2,7 @@
 @using Portfolio.Pages.Components
 @using System.Text.Json
 @* ToDo: Sort projects by date (newest first) *@
-<SectionComponent Title="Client Projects" Id="clients" Icon="bi bi-trophy-fill">
+<SectionComponent Title="Products" Id="products" Icon="bi bi-trophy-fill">
     <div class="d-flex flex-wrap justify-content-start" style="margin-left: -0.5rem;">
         @foreach(Project project in Projects){
             <ProjectComponent Project=@project />
