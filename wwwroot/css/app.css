@@ -6,7 +6,9 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('/fonts/open-sans.bold.ttf');
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/open-sans.bold.ttf') format('truetype');
 }
 
 html, body {
