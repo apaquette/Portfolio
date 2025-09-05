@@ -35,12 +35,7 @@
         function getHeaderIds(){
             const sections = document.querySelectorAll("section[id]");
             const navLinks = document.querySelectorAll('.nav-link');
-
-            console.log(sections.length);
-            sections.forEach((entry) => {
-                console.log(entry);
-            });
-
+            const isMobile = window.matchMedia("(max-width: 699px)").matches;
             const observer = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
@@ -58,7 +53,7 @@
                 },
                 {
                     root: null,
-                    threshold: 0.5,
+                    threshold: isMobile ? 0.5 : 0.75,
                     rootMargin: `50px 0px 0px 0px`
                 }
             );
