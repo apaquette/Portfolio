@@ -1,5 +1,5 @@
 namespace Models;
-
+//TODO: Implement unit tests
 public class Degree : IComparable<Degree>
 {
 
