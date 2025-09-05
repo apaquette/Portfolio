@@ -1,6 +1,6 @@
 namespace Models;
 
-public class Experience
+public class Experience : IComparable<Experience>
 {
     public string? Title { get; set; }
     public string? Company { get; set; }
@@ -10,6 +10,12 @@ public class Experience
     public SortedSet<string> Skills { get; set; } = new();
     public string? Location { get; set; }
     public string? EmployerSite { get; set; }
+
+    public int CompareTo(Experience? other)
+    {
+        if (other is null) return 1;
+        return other.JobEnd?.CompareTo(JobEnd) ?? 1;
+    }
 
     public string Duration()
     {
