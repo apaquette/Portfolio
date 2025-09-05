@@ -1,13 +1,5 @@
-@using Models
-@using Portfolio.Pages.Components
-@using System.Text.Json
-
 <SectionComponent Title="Education">
      @foreach(var degree in Degrees){
             <EducationComponent Degree="@degree" />
         }
 </SectionComponent>
-
-@code{
-    
-}
