@@ -9,6 +9,11 @@ public class Project : IComparable<Project>
     public string? ImageSource { get; set; }
     public DateOnly Completed { get; set; }
 
+    public Project(DateOnly date)
+    {
+        Completed = date;
+    }
+
     public int CompareTo(Project? other)
     {
         if (other is null) return 1;
