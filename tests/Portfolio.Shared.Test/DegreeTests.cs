@@ -61,9 +61,12 @@ public class DegreeTests
             Website = "canadore.ca"
         };
 
-        Assert.That(degree.Diploma.Equals("BSc (hons)"));
-        Assert.That(degree.Institution.Equals("Canadore"));
-        Assert.That(degree.Logo.Equals("path/to/logo.jpg"));
-        Assert.That(degree.Website.Equals("canadore.ca"));
+        Assert.Multiple(() =>
+        {
+            Assert.That(degree.Diploma, Is.EqualTo("BSc (hons)"));
+            Assert.That(degree.Institution, Is.EqualTo("Canadore"));
+            Assert.That(degree.Logo, Is.EqualTo("path/to/logo.jpg"));
+            Assert.That(degree.Website, Is.EqualTo("canadore.ca"));
+        });
     }
 }
