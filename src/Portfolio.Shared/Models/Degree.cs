@@ -1,7 +1,6 @@
 using Exceptions;
 
 namespace Models;
-//TODO: Implement unit tests
 public class Degree : IComparable<Degree>
 {
     public Degree(DateOnly? gradDate)

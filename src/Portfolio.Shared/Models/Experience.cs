@@ -1,7 +1,6 @@
 using Exceptions;
 
 namespace Models;
-//TODO: Implement unit tests
 public class Experience : IComparable<Experience>
 {
     public string? Title { get; set; }
