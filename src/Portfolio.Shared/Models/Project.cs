@@ -1,3 +1,5 @@
+using Exceptions;
+
 namespace Models;
 //TODO: Implement unit tests
 public class Project : IComparable<Project>
@@ -9,9 +11,9 @@ public class Project : IComparable<Project>
     public string? ImageSource { get; set; }
     public DateOnly Completed { get; set; }
 
-    public Project(DateOnly date)
+    public Project(DateOnly? date)
     {
-        Completed = date;
+        Completed = date ?? throw new MissingDateException("Project must have a completion date.");
     }
 
     public int CompareTo(Project? other)

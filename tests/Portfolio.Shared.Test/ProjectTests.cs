@@ -48,6 +48,12 @@ public class ProjectTests
     }
 
     [Test]
+    public void CompletionDateIsMissing_ThrowsException()
+    {
+        Assert.Throws<MissingDateException>(() => new Project(null));
+    }
+
+    [Test]
     public void PropertiesMatch()
     {
         DateOnly completed = new(2022, 6, 1);
