@@ -6,7 +6,7 @@ public class Degree : IComparable<Degree>
 {
     public Degree(DateOnly? gradDate)
     {
-        GraduationDate = gradDate ?? throw new MissingGradDateException();
+        GraduationDate = gradDate ?? throw new MissingDateException("Degree must contain a graduation date.");
     }
     public string? Diploma { get; set; }
     public string? Institution { get; set; }
