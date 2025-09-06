@@ -1,3 +1,5 @@
+using Exceptions;
+
 namespace Models;
 //TODO: Implement unit tests
 public class Experience : IComparable<Experience>
@@ -10,6 +12,11 @@ public class Experience : IComparable<Experience>
     public SortedSet<string> Skills { get; set; } = new();
     public string? Location { get; set; }
     public string? EmployerSite { get; set; }
+
+    public Experience(DateTime? date)
+    {
+        JobStart = date ?? throw new MissingDateException("Experience needs a start date.");
+    }
 
     public int CompareTo(Experience? other)
     {
