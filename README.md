@@ -15,9 +15,9 @@ This portfolio is designed to provide an overview of my work and background. It 
 - **Professional Summary**
 - **Education**
 - **About Me**
-- **Personal Projects**
+- **Projects**
 - **Work History**
-- **Client Projects**
+- **Products**
 - **Skills** 
 
 ## Features
@@ -40,6 +40,7 @@ To view the portfolio locally, follow these steps:
 - [C#](https://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29)
 - [CSS](https://en.wikipedia.org/wiki/CSS)
 - [Azure](https://azure.microsoft.com/en-us/get-started/azure-portal/)
+- [NUnit](https://nunit.org/)
 
 ## License
 
