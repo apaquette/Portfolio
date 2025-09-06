@@ -50,7 +50,7 @@ public class ProjectTests
     [Test]
     public void CompletionDateIsMissing_ThrowsException()
     {
-        Assert.Throws<MissingDateException>(() => new Project(null));
+        Assert.Throws<MissingDateException>(() => new Project(default));
     }
 
     [Test]

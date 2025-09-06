@@ -46,7 +46,7 @@ public class DegreeTests
     [Test]
     public void GraduationIsMissing_ThrowsException()
     {
-        Assert.Throws<MissingDateException>(() => new Degree(null));
+        Assert.Throws<MissingDateException>(() => new Degree(default));
     }
 
     [Test]

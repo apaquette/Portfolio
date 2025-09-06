@@ -1,12 +1,30 @@
 using Exceptions;
+using System.Text.Json.Serialization;
 
 namespace Models;
 public class Experience : IComparable<Experience>
 {
+    private DateTime jobStart;
+    private DateTime? jobEnd;
+    [JsonConstructor]
+    public Experience(DateTime jobStart)
+    {
+        JobStart = jobStart;
+    }
     public string? Title { get; set; }
     public string? Company { get; set; }
-    private DateTime? jobEnd;
-    public DateTime JobStart { get; set; }
+    [JsonPropertyName("jobStart")]
+    public DateTime JobStart
+    {
+        get => jobStart;
+        set
+        {
+            if (value == default)
+                throw new MissingDateException("Experience needs a start date.");
+            jobStart = value;
+        }
+    }
+    
     public DateTime? JobEnd
     {
         get { return jobEnd; }
@@ -21,10 +39,6 @@ public class Experience : IComparable<Experience>
     public string? Location { get; set; }
     public string? EmployerSite { get; set; }
 
-    public Experience(DateTime? date)
-    {
-        JobStart = date ?? throw new MissingDateException("Experience needs a start date.");
-    }
 
     public int CompareTo(Experience? other)
     {

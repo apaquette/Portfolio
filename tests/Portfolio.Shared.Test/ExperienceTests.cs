@@ -84,7 +84,7 @@ public class ExperienceTests
     [Test]
     public void JobStartIsMissing_ThrowsException()
     {
-        Assert.Throws<MissingDateException>(() => new Experience(null));
+        Assert.Throws<MissingDateException>(() => new Experience(default));
     }
 
     [Test]

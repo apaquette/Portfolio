@@ -1,15 +1,28 @@
+using System.Text.Json.Serialization;
 using Exceptions;
 
 namespace Models;
 public class Degree : IComparable<Degree>
 {
-    public Degree(DateOnly? gradDate)
+    private DateOnly graduationDate;
+    [JsonConstructor]
+    public Degree(DateOnly graduationDate)
     {
-        GraduationDate = gradDate ?? throw new MissingDateException("Degree must contain a graduation date.");
+        GraduationDate = graduationDate;
     }
     public string? Diploma { get; set; }
     public string? Institution { get; set; }
-    public DateOnly GraduationDate { get; set; }
+    [JsonPropertyName("graduationDate")]
+    public DateOnly GraduationDate
+    {
+        get => graduationDate;
+        set
+        {
+            if (value == default)
+                throw new MissingDateException("Degree must contain a graduation date.");
+            graduationDate = value;
+        }
+    }
     public string? Logo { get; set; }
     public string? Website { get; set; }
 
