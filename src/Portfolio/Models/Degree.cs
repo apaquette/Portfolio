@@ -2,7 +2,10 @@ namespace Models;
 //TODO: Implement unit tests
 public class Degree : IComparable<Degree>
 {
-
+    public Degree(DateOnly? gradDate)
+    {
+        GraduationDate = gradDate ?? throw new MissingGradDateException();
+    }
     public string? Diploma { get; set; }
     public string? Institution { get; set; }
     public DateOnly GraduationDate { get; set; }

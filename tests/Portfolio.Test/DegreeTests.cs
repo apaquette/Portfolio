@@ -7,11 +7,10 @@ public class DegreeTests
     [Test]
     public void GradDateRequired()
     {
-        Degree degree = new()
+        Degree degree = new(new DateOnly(2022, 6, 1))
         {
             Diploma = "BSc",
-            Institution = "Test University",
-            GraduationDate = new DateOnly(2022, 6, 1)
+            Institution = "Test University"
         };
 
         Assert.That(degree.GraduationDate, Is.EqualTo(new DateOnly(2022, 6, 1)));
@@ -19,8 +18,8 @@ public class DegreeTests
     [Test]
     public void GraduationIsMoreRecent_ReturnsBeforeOther()
     {
-        Degree newer = new() { GraduationDate = new DateOnly(2023, 6, 1) };
-        Degree older = new() { GraduationDate = new DateOnly(2020, 6, 1) };
+        Degree newer = new(new DateOnly(2023, 6, 1));
+        Degree older = new(new DateOnly(2020, 6, 1));
 
         Assert.That(newer.CompareTo(older), Is.LessThan(0)); // newer first
     }
@@ -28,8 +27,8 @@ public class DegreeTests
     [Test]
     public void GraduationIsLessRecent_ReturnsAfterOther()
     {
-        Degree newer = new() { GraduationDate = new DateOnly(2023, 6, 1) };
-        Degree older = new() { GraduationDate = new DateOnly(2020, 6, 1) };
+        Degree newer = new(new DateOnly(2023, 6, 1));
+        Degree older = new(new DateOnly(2020, 6, 1));
 
         Assert.That(older.CompareTo(newer), Is.GreaterThan(0)); // newer first
     }
@@ -37,8 +36,8 @@ public class DegreeTests
     [Test]
     public void GraduationDatesAreEqual_ReturnsZero()
     {
-        Degree d1 = new() { GraduationDate = new DateOnly(2022, 6, 1) };
-        Degree d2 = new() { GraduationDate = new DateOnly(2022, 6, 1) };
+        Degree d1 = new(new DateOnly(2022, 6, 1));
+        Degree d2 = new(new DateOnly(2022, 6, 1));
 
         Assert.That(d1.CompareTo(d2), Is.EqualTo(0));
     }
@@ -46,6 +45,6 @@ public class DegreeTests
     [Test]
     public void GraduationIsMissing_ThrowsException()
     {
-        Assert.Throws<MissingGradDateException>(() => new Degree());
+        Assert.Throws<MissingGradDateException>(() => new Degree(null));
     }
 }
