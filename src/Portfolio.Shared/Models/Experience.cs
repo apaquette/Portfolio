@@ -6,8 +6,17 @@ public class Experience : IComparable<Experience>
 {
     public string? Title { get; set; }
     public string? Company { get; set; }
+    private DateTime? jobEnd;
     public DateTime JobStart { get; set; }
-    public DateTime? JobEnd { get; set; }
+    public DateTime? JobEnd
+    {
+        get { return jobEnd; }
+        set
+        {
+            if (value <= JobStart) throw new InvalidDateException("JobEnd cannot be before or equal to JobStart");
+            jobEnd = value;
+        }
+    }
     public string? Description { get; set; }
     public SortedSet<string> Skills { get; set; } = new();
     public string? Location { get; set; }
