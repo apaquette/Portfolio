@@ -6,7 +6,7 @@ namespace Portfolio.Shared.Test;
 public class DegreeTests
 {
     [Test]
-    public void GradDateRequired()
+    public void GradDate_Required()
     {
         Degree degree = new(new DateOnly(2022, 6, 1))
         {
@@ -46,7 +46,7 @@ public class DegreeTests
     [Test]
     public void GraduationIsMissing_ThrowsException()
     {
-        Assert.Throws<MissingGradDateException>(() => new Degree(null));
+        Assert.Throws<MissingDateException>(() => new Degree(null));
     }
 
     [Test]
