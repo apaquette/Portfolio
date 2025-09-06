@@ -5,7 +5,7 @@ namespace Portfolio.Test;
 public class DegreeTests
 {
     [Test]
-    public void GraduationDate_ShouldBeRequired()
+    public void GradDateRequired()
     {
         Degree degree = new()
         {
@@ -23,6 +23,15 @@ public class DegreeTests
         Degree older = new() { GraduationDate = new DateOnly(2020, 6, 1) };
 
         Assert.That(newer.CompareTo(older), Is.LessThan(0)); // newer first
+    }
+
+    [Test]
+    public void GraduationIsLessRecent_ReturnsAfterOther()
+    {
+        Degree newer = new() { GraduationDate = new DateOnly(2023, 6, 1) };
+        Degree older = new() { GraduationDate = new DateOnly(2020, 6, 1) };
+
+        Assert.That(older.CompareTo(newer), Is.GreaterThan(0)); // newer first
     }
 
     [Test]
