@@ -48,4 +48,22 @@ public class DegreeTests
     {
         Assert.Throws<MissingGradDateException>(() => new Degree(null));
     }
+
+    [Test]
+    public void PropertiesMatch()
+    {
+        DateOnly gradDate = new(2022, 6, 1);
+        Degree degree = new(gradDate)
+        {
+            Diploma = "BSc (hons)",
+            Institution = "Canadore",
+            Logo = "path/to/logo.jpg",
+            Website = "canadore.ca"
+        };
+
+        Assert.That(degree.Diploma.Equals("BSc (hons)"));
+        Assert.That(degree.Institution.Equals("Canadore"));
+        Assert.That(degree.Logo.Equals("path/to/logo.jpg"));
+        Assert.That(degree.Website.Equals("canadore.ca"));
+    }
 }
