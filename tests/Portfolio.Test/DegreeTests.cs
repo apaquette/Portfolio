@@ -42,4 +42,10 @@ public class DegreeTests
 
         Assert.That(d1.CompareTo(d2), Is.EqualTo(0));
     }
+
+    [Test]
+    public void GraduationIsMissing_ThrowsException()
+    {
+        Assert.Throws<MissingGradDateException>(() => new Degree());
+    }
 }
