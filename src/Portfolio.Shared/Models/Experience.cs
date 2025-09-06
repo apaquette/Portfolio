@@ -1,0 +1,64 @@
+using Exceptions;
+using System.Text.Json.Serialization;
+
+namespace Models;
+public class Experience : IComparable<Experience>
+{
+    private DateTime jobStart;
+    private DateTime? jobEnd;
+    [JsonConstructor]
+    public Experience(DateTime jobStart)
+    {
+        JobStart = jobStart;
+    }
+    public string? Title { get; set; }
+    public string? Company { get; set; }
+    [JsonPropertyName("jobStart")]
+    public DateTime JobStart
+    {
+        get => jobStart;
+        set
+        {
+            if (value == default)
+                throw new MissingDateException("Experience needs a start date.");
+            jobStart = value;
+        }
+    }
+    
+    public DateTime? JobEnd
+    {
+        get { return jobEnd; }
+        set
+        {
+            if (value <= JobStart) throw new InvalidDateException("JobEnd cannot be before or equal to JobStart");
+            jobEnd = value;
+        }
+    }
+    public string? Description { get; set; }
+    public SortedSet<string> Skills { get; set; } = new();
+    public string? Location { get; set; }
+    public string? EmployerSite { get; set; }
+
+
+    public int CompareTo(Experience? other)
+    {
+        if (other is null) return 1;
+        DateTime otherDate = other.JobEnd ?? DateTime.Today;
+        DateTime date = JobEnd ?? DateTime.Today;
+
+        return otherDate.CompareTo(date);
+    }
+
+    public string Duration()
+    {
+        TimeSpan duration = (JobEnd ?? DateTime.Now) - JobStart;
+        int totalDays = (int)duration.TotalDays;
+        int years = totalDays / 365;
+        int remainingDays = totalDays % 365;
+        int months = remainingDays / 30;
+        string yearDuration = years >= 1 ? $"{years} yrs" : "";
+        string monthDuration = months > 0 ? $"{months} mos" : "";
+        string space = yearDuration != "" && monthDuration != "" ? " ": "";
+        return $"{yearDuration}{space}{monthDuration}";
+    } 
+}

@@ -1,0 +1,7 @@
+<SectionComponent Title="Projects" Id="projects">
+    <div class="d-flex flex-wrap justify-content-start" style="margin-left: -0.5rem;">
+        @foreach(var project in Projects){
+            <ProjectComponent Project=@project />
+        }
+    </div>
+</SectionComponent>

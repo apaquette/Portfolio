@@ -4,8 +4,19 @@
 
 <SectionComponent Title="Projects" Id="projects">
     <div class="d-flex flex-wrap justify-content-start" style="margin-left: -0.5rem;">
-        @foreach(var project in Projects){
+        @foreach(Project project in Projects){
             <ProjectComponent Project=@project />
         }
     </div>
 </SectionComponent>
+
+@code{
+    private SortedSet<Project> Projects = new();
+    [Inject]
+    private HttpClient? Http { get; set; }
+    
+    protected override async Task OnInitializedAsync(){
+        string data = Http is not null ? await Http.GetStringAsync("data/personalProjects.json") : "";
+        Projects = JsonSerializer.Deserialize<SortedSet<Project>>(data, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }) ?? new();
+    }
+}
