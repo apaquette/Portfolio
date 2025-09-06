@@ -12,6 +12,7 @@ public class ExperienceTests
         Assert.That(exp.Skills, Is.Not.Null);
         Assert.That(exp.Skills, Is.Empty);
     }
+    private static readonly string[] expected = ["Apple", "Monkey", "Zebra"];
 
     [Test]
     public void Skills_WhenAdded_ShouldBeSortedAlphabetically()
@@ -19,7 +20,7 @@ public class ExperienceTests
         var exp = new Experience(DateTime.Today) { JobStart = DateTime.Today, Skills = new() { "Zebra", "Apple", "Monkey" } };
 
         var sorted = exp.Skills.ToList();
-        Assert.That(sorted, Is.EqualTo(new[] { "Apple", "Monkey", "Zebra" }));
+        Assert.That(sorted, Is.EqualTo(expected));
     }
 
     [Test]
