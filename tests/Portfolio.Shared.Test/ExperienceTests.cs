@@ -1,4 +1,5 @@
 using Models;
+using Exceptions;
 
 namespace Portfolio.Shared.Test;
 
@@ -24,8 +25,8 @@ public class ExperienceTests
     [Test]
     public void CompareTo_WhenThisJobEndMoreRecent_ReturnsBeforeOther()
     {
-        var older = new Experience(new DateTime(2019,1,1)) { JobStart = new DateTime(2019, 1, 1), JobEnd = new DateTime(2020, 1, 1) };
-        var newer = new Experience(new DateTime(2020,1,1)) { JobStart = new DateTime(2020, 1, 1), JobEnd = new DateTime(2023, 1, 1) };
+        var older = new Experience(new DateTime(2019, 1, 1)) { JobStart = new DateTime(2019, 1, 1), JobEnd = new DateTime(2020, 1, 1) };
+        var newer = new Experience(new DateTime(2020, 1, 1)) { JobStart = new DateTime(2020, 1, 1), JobEnd = new DateTime(2023, 1, 1) };
 
         Assert.That(newer.CompareTo(older), Is.LessThan(0));
     }
@@ -33,8 +34,8 @@ public class ExperienceTests
     [Test]
     public void CompareTo_WhenJobEndIsNull_TreatedAsOngoing()
     {
-        var past = new Experience(new DateTime(2019,1,1)) { JobStart = new DateTime(2019, 1, 1), JobEnd = new DateTime(2020, 1, 1) };
-        var ongoing = new Experience(new DateTime(2021,1,1)) { JobStart = new DateTime(2021, 1, 1), JobEnd = null };
+        var past = new Experience(new DateTime(2019, 1, 1)) { JobStart = new DateTime(2019, 1, 1), JobEnd = new DateTime(2020, 1, 1) };
+        var ongoing = new Experience(new DateTime(2021, 1, 1)) { JobStart = new DateTime(2021, 1, 1), JobEnd = null };
 
         Assert.That(ongoing.CompareTo(past), Is.LessThan(0));
     }
@@ -79,5 +80,27 @@ public class ExperienceTests
     {
         Experience exp = new(new DateTime(2022, 6, 1));
         Assert.That(exp.JobStart, Is.EqualTo(new DateTime(2022, 6, 1)));
+    }
+
+    [Test]
+    public void JobStartIsMissing_ThrowsException()
+    {
+        Assert.Throws<MissingDateException>(() => new Experience(null));
+    }
+    
+    [Test]
+    public void JobEnd_SetBeforeJobStart_ShouldThrowException()
+    {
+        var exp = new Experience(new DateTime(2022,1,1));
+        Assert.Throws <InvalidDateException>(() => exp.JobEnd = new DateTime(2021, 12, 31));
+    }
+
+    [Test]
+    public void JobEnd_SetEqualToJobStart_ShouldThrowException()
+    {
+        var date = new DateTime(2022, 1, 1);
+        var exp = new Experience(date);
+
+        Assert.Throws <InvalidDateException>(() => exp.JobEnd = date);
     }
 }
