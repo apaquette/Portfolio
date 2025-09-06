@@ -1,6 +1,7 @@
 ﻿using Models;
+using Exceptions;
 
-namespace Portfolio.Test;
+namespace Portfolio.Shared.Test;
 
 public class DegreeTests
 {

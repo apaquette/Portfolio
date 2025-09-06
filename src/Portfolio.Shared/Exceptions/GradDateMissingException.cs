@@ -1,4 +1,4 @@
-namespace Models;
+namespace Exceptions;
 
 public class MissingGradDateException : Exception
 {
