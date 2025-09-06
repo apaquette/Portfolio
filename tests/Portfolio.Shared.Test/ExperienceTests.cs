@@ -38,4 +38,29 @@ public class ExperienceTests
 
         Assert.That(ongoing.CompareTo(past), Is.LessThan(0));
     }
+
+    [Test]
+    public void CompareTo_BothNullJobEnd_ShouldBeEqual()
+    {
+        var e1 = new Experience { JobStart = new DateTime(2020, 1, 1), JobEnd = null };
+        var e2 = new Experience { JobStart = new DateTime(2019, 1, 1), JobEnd = null };
+
+        Assert.That(e1.CompareTo(e2), Is.EqualTo(0));
+    }
+
+
+    //TODO: Add edge case testing
+    [TestCase("2020-01-01", "2022-01-01", "2 yrs")]
+    [TestCase("2020-01-01", "2022-04-01", "2 yrs 3 mos")]
+    [TestCase("2021-01-01", "2021-06-01", "5 mos")]
+    public void Duration_ShouldReturnExpectedFormat(string start, string end, string expected)
+    {
+        var e = new Experience
+        {
+            JobStart = DateTime.Parse(start),
+            JobEnd = DateTime.Parse(end)
+        };
+
+        Assert.That(e.Duration(), Is.EqualTo(expected));
+    }
 }
