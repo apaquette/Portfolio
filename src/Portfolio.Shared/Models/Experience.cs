@@ -16,7 +16,7 @@ public class Experience : IComparable<Experience>
         if (other is null) return 1;
         DateTime otherDate = other.JobEnd ?? DateTime.Today;
         DateTime date = JobEnd ?? DateTime.Today;
-        
+
         return otherDate.CompareTo(date);
     }
 
@@ -27,8 +27,9 @@ public class Experience : IComparable<Experience>
         int years = totalDays / 365;
         int remainingDays = totalDays % 365;
         int months = remainingDays / 30;
-        string yearDuration = years >= 1 ? $"{years} yrs " : "";
+        string yearDuration = years >= 1 ? $"{years} yrs" : "";
         string monthDuration = months > 0 ? $"{months} mos" : "";
-        return $"{yearDuration}{monthDuration}";
+        string space = yearDuration != "" && monthDuration != "" ? " ": "";
+        return $"{yearDuration}{space}{monthDuration}";
     } 
 }
