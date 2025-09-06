@@ -14,7 +14,10 @@ public class Experience : IComparable<Experience>
     public int CompareTo(Experience? other)
     {
         if (other is null) return 1;
-        return other.JobEnd?.CompareTo(JobEnd) ?? 1;
+        DateTime otherDate = other.JobEnd ?? DateTime.Today;
+        DateTime date = JobEnd ?? DateTime.Today;
+        
+        return otherDate.CompareTo(date);
     }
 
     public string Duration()
