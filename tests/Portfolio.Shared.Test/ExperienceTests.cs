@@ -88,12 +88,12 @@ public class ExperienceTests
     {
         Assert.Throws<MissingDateException>(() => new Experience(null));
     }
-    
+
     [Test]
     public void JobEnd_SetBeforeJobStart_ShouldThrowException()
     {
-        var exp = new Experience(new DateTime(2022,1,1));
-        Assert.Throws <InvalidDateException>(() => exp.JobEnd = new DateTime(2021, 12, 31));
+        var exp = new Experience(new DateTime(2022, 1, 1));
+        Assert.Throws<InvalidDateException>(() => exp.JobEnd = new DateTime(2021, 12, 31));
     }
 
     [Test]
@@ -102,6 +102,29 @@ public class ExperienceTests
         var date = new DateTime(2022, 1, 1);
         var exp = new Experience(date);
 
-        Assert.Throws <InvalidDateException>(() => exp.JobEnd = date);
+        Assert.Throws<InvalidDateException>(() => exp.JobEnd = date);
+    }
+
+    [Test]
+    public void PropertiesMatch()
+    {
+        DateTime jobStart = new(2022, 6, 1);
+        Experience exp = new(jobStart)
+        {
+            Title = "Software Dev",
+            Company = "Savage Data",
+            Description = "abc descript",
+            Location = "Town za",
+            EmployerSite = "savage.com"
+        };
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(exp.Title, Is.EqualTo("Software Dev"));
+            Assert.That(exp.Company, Is.EqualTo("Savage Data"));
+            Assert.That(exp.Description, Is.EqualTo("abc descript"));
+            Assert.That(exp.Location, Is.EqualTo("Town za"));
+            Assert.That(exp.EmployerSite, Is.EqualTo("savage.com"));
+        });
     }
 }
