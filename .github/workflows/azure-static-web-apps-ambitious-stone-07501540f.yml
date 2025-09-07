@@ -20,6 +20,11 @@ jobs:
           submodules: true
           lfs: false
       
+      - name: Setup .NET 9 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      
       - name: Run unit tests
         run: |
           dotnet restore ./src/Portfolio
