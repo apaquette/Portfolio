@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Components;
 using Models;
 using System.Text.Json;
 
-namespace Portfolio.Pages.Sections;
+namespace Portfolio.Pages.Home.Sections;
 
 public partial class Education : ComponentBase
 {

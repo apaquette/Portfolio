@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Components;
 using System.Text.Json;
 using Models;
 
-namespace Portfolio.Pages.Sections;
+namespace Portfolio.Pages.Home.Sections;
 
 public partial class ClientProjects : ComponentBase
 {
