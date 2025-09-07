@@ -20,7 +20,10 @@
             </div>
             <div class="card-subtitle text-muted lh-1 pt-1">
                 @if(WorkExperience.EmployerSite is not null){
-                    <a style="width: fit-content;" href=@WorkExperience.EmployerSite>@WorkExperience.Company</a>
+                    <a style="width: fit-content;" href=@WorkExperience.EmployerSite>
+                        @WorkExperience.Company
+                        <i class="bi bi-box-arrow-up-right ps-2" />
+                    </a>
                 }else{
                     <div>@WorkExperience.Company</div>
                 }
