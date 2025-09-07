@@ -19,6 +19,16 @@ jobs:
         with:
           submodules: true
           lfs: false
+      
+      - name: Run unit tests
+        run: |
+          dotnet restore ./src/Portfolio
+          dotnet build ./src/Portfolio --configuration Release --no-restore
+          for proj in $(find ./tests -name "*.Test.csproj"); do
+            echo "Running tests for $proj"
+            dotnet test $proj --configuration Release --no-build --verbosity normal
+          done
+      
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
