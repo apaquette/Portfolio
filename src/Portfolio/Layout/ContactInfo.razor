@@ -1,0 +1,29 @@
+@inject IJSRuntime JS
+
+<div class="contact d-flex me-3 mt-2">
+    @foreach(string[] contact in contacts){
+        string link = contact[0];
+        string icon = contact[1];
+        <h2 class="ms-4">
+            <a href="@link" data-bs-toggle="tooltip" data-bs-title="@contact[2]" data-bs-placement="bottom">
+                <i class="bi bi-@icon" />
+            </a>
+        </h2>
+    }
+</div>
+
+@code{
+    string[][] contacts = [
+        ["mailto:alexandre.d.paquette@gmail.com", "envelope-fill", "Email"], 
+        ["https://www.linkedin.com/in/apaquette0/", "linkedin", "LinkedIn"], 
+        ["https://github.com/apaquette", "github", "GitHub"]
+    ];
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("registerToolTips");
+        }
+    }
+}
