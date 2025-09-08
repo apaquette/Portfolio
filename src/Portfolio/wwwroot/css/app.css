@@ -17,7 +17,7 @@ html, body {
 }
 
 
-.name-title{
+.name-title, .section-title{
     color: var(--primary-color);
     font-family: 'Open Sans';
 }
@@ -158,15 +158,16 @@ a:hover{
     scroll-margin-top: 80px;
 }
 
-.nav-link{
-    font-family: 'Open Sans';
-    color: var(--secondary-color);
-}
-
 .hamburger{
     color: var(--primary-color);
     font-size: 3rem;
 }
+
+.nav-link, .nav-link:focus{
+    font-family: 'Open Sans';
+    color: var(--secondary-color);
+}
+
 
 .nav-link:hover{
     text-decoration: underline;
@@ -227,6 +228,8 @@ h1, h2, h3, p{
         flex-direction: row;
         position: relative;
         background: none;
+        max-width: 980px;
+        width: 980px;
     }
     .contact{
         order: 2;
