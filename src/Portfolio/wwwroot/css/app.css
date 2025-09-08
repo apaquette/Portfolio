@@ -17,7 +17,7 @@ html, body {
 }
 
 
-.header{
+.name-title{
     color: var(--primary-color);
     font-family: 'Open Sans';
 }
@@ -196,7 +196,7 @@ h1, h2, h3, p{
 
 
 /* mobile layout */
-@media(max-width: 699px){
+@media(max-width: 1249px){
     .nav-container{
         order: 2;
     }
@@ -215,7 +215,7 @@ h1, h2, h3, p{
 
 
 /* desktop layout */
-@media(min-width: 699px){
+@media(min-width: 1249px){
      .mobile{
         display: none !important;
     }
