@@ -1,7 +1,3 @@
-@using Models
-@using Portfolio.Pages.Components
-@using System.ComponentModel.DataAnnotations
-
 @if(WorkExperience is not null){
     <div class="card m-2">
         <div class="card-body">
@@ -35,9 +31,4 @@
             }
         </div>
     </div>
-}
-
-@code{
-    [Parameter][Required]
-    public Experience? WorkExperience {get; set;}
 }

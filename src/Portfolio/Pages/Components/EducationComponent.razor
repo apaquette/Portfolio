@@ -1,6 +1,3 @@
-@using Models
-@using System.ComponentModel.DataAnnotations
-
 @if(Degree is not null){
     <div class="mt-4 ps-4 border-start">
         <h5 class="card-title body-text">@Degree.Diploma</h5>
@@ -13,9 +10,4 @@
         </div>
         <div class="align-self-end body-text">Graduate: @Degree.GraduationDate.ToString("MMMM yyyy")</div>
     </div>
-}
-
-@code{
-    [Parameter][Required]
-    public Degree? Degree {get; set;}
 }

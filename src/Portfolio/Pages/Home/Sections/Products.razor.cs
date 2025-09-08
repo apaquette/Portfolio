@@ -4,7 +4,7 @@ using Models;
 
 namespace Portfolio.Pages.Home.Sections;
 
-public partial class ClientProjects : ComponentBase
+public partial class Products : ComponentBase
 {
     protected SortedSet<Project> Projects = new();
     [Inject]

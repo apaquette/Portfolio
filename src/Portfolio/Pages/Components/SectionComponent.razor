@@ -2,14 +2,3 @@
     <h3 class="section-title fw-bold pb-3">@Title</h3>
     @ChildContent
 </section>
-
-@code {
-    [Parameter]
-    public RenderFragment? ChildContent { get; set; }
-    [Parameter]
-    public string? Title { get; set; }
-    [Parameter]
-    public string? Icon { get; set; }
-    [Parameter]
-    public string? Id { get; set; }
-}
