@@ -1,7 +1,7 @@
 [
     {
         "Title": "Software Engineer",
-        "Company": "Lyric Canvas (now Starilum)",
+        "Company": "Lyric Canvas (Starilum)",
         "JobStart": "2024-08-01T00:00:00",
         "JobEnd": "2024-12-31T00:00:00",
         "Description": "Integrate data pipelines into the main system to interface with the AI model and data dashboard. Employ test-driven development to ensure reliable software infrastructure and prioritize development to produce an MVP for the client. Collaborate with teammates to integrate solutions into the codebase and ensure compatibility.",
