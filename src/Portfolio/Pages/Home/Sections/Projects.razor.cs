@@ -6,7 +6,7 @@ namespace Portfolio.Pages.Home.Sections;
 
 public partial class Projects : ComponentBase
 {
-    protected SortedSet<Project> ProjectsSet = new();
+    protected SortedSet<Project> ProjectsSet = [];
     [Inject]
     private HttpClient? Http { get; set; }
     
