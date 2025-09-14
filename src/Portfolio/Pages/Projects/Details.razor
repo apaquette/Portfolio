@@ -1,11 +1,11 @@
-@page "/projects/{project}"
+@page "/projects/{ProjectName}"
 @layout ProjectLayout
-<PageTitle>Code by Alex | @project</PageTitle>
-
-<div>@project</div>
-
+<PageTitle>Code by Alex | @ProjectName</PageTitle>
+<div class="fs-4 body-text" style="margin-top: 50px;">
+    @ProjectName
+</div>
 
 @code{
     [Parameter]
-    public string project{ get; set; }
+    public string? ProjectName { get; set; }
 }
