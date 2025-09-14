@@ -1,0 +1,47 @@
+@page "/projects"
+@using Models
+@using System.Text.Json
+@layout ProjectLayout
+
+<PageTitle>Code By Alex | Projects</PageTitle>
+
+<table class="table table-dark">
+    <thead>
+        <th scope="col">Name</th>
+        <th scope="col">TechStack</th>
+        <th scope="col">Completed</th>
+        <th scope="col">Links</th>
+    </thead>
+    <tbody class="table-group-divider">
+        @foreach(Project project in ProjectsSet){
+            <tr>
+                <th scope="row">
+                    <a href="/projects/@project.Title">
+                        @project.Title
+                    </a>
+                </th>
+                <td>
+                @foreach(string tech in project.TechStack){
+                    <SkillComponent Skill="@tech" />
+                }
+                </td>
+                <td>@project.Completed</td>
+                <td>
+                    @if(project.Link is not null){
+                        <a href="@project.Link">GitHub</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code{
+    SortedSet<Project> ProjectsSet = [];
+    [Inject]
+    private HttpClient? Http {get; set;}
+    protected override async Task OnInitializedAsync(){
+        string data = Http is not null ? await Http.GetStringAsync("data/personalProjects.json") : "";
+        ProjectsSet = JsonSerializer.Deserialize<SortedSet<Project>>(data, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }) ?? new();
+    }
+}
