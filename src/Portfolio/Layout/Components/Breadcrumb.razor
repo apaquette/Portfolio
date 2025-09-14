@@ -27,8 +27,8 @@
     {
         Breadcrumbs.Clear();
 
-        var uri = Nav.Uri.Replace(Nav.BaseUri, "").Trim('/');
-        var segments = uri.Split("/", StringSplitOptions.RemoveEmptyEntries);
+        string? uri = Nav.Uri.Replace(Nav.BaseUri, "").Trim('/');
+        string[]? segments = uri.Split("/", StringSplitOptions.RemoveEmptyEntries);
 
 
         // Always start with home
@@ -50,8 +50,8 @@
 
         if (segments.Length > 1)
         {
-            // Use the project slug as the name, you can format if needed
-            string projectName = Uri.UnescapeDataString(segments[1]).Replace("-", " ");
+            // Use the project slug as the name
+            string projectName = Uri.UnescapeDataString(segments[1]);
 
             Breadcrumbs.Add(new()
             {
@@ -59,10 +59,6 @@
                 Url = $"/projects/{segments[1]}",
                 IsActive = true
             });
-
-            // Mark "Projects" as no longer active
-            var projectsCrumb = Breadcrumbs.First(c => c.Text == "Projects");
-            projectsCrumb.IsActive = false;
         }
 
         StateHasChanged();
