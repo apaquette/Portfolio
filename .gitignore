@@ -344,5 +344,5 @@ healthchecksdb
 MigrationBackup/
 
 .vscode
-
 *.bkp
+*.code-workspace
