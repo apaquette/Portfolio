@@ -24,8 +24,8 @@ public class ExperienceTests
     [Test]
     public void CompareTo_WhenThisJobEndMoreRecent_ReturnsBeforeOther()
     {
-        var older = new Experience(new (2019, 1, 1)) { JobEnd = new (2020, 1, 1) };
-        var newer = new Experience(new (2020, 1, 1)) { JobEnd = new (2023, 1, 1) };
+        var older = new Experience(new(2019, 1, 1)) { JobEnd = new(2020, 1, 1) };
+        var newer = new Experience(new(2020, 1, 1)) { JobEnd = new(2023, 1, 1) };
 
         Assert.That(newer.CompareTo(older), Is.LessThan(0));
     }
@@ -33,8 +33,8 @@ public class ExperienceTests
     [Test]
     public void CompareTo_WhenJobEndIsNull_TreatedAsOngoing()
     {
-        var past = new Experience(new (2019, 1, 1)) { JobEnd = new (2020, 1, 1) };
-        var ongoing = new Experience(new (2021, 1, 1)) { JobEnd = null };
+        var past = new Experience(new(2019, 1, 1)) { JobEnd = new(2020, 1, 1) };
+        var ongoing = new Experience(new(2021, 1, 1)) { JobEnd = null };
 
         Assert.That(ongoing.CompareTo(past), Is.LessThan(0));
     }
@@ -42,8 +42,8 @@ public class ExperienceTests
     [Test]
     public void CompareTo_BothNullJobEnd_ShouldBeEqual()
     {
-        var e1 = new Experience(new (2020, 1, 1)) { JobEnd = null };
-        var e2 = new Experience(new (2019, 1, 1)) { JobEnd = null };
+        var e1 = new Experience(new(2020, 1, 1)) { JobEnd = null };
+        var e2 = new Experience(new(2019, 1, 1)) { JobEnd = null };
 
         Assert.That(e1.CompareTo(e2), Is.EqualTo(0));
     }
@@ -124,5 +124,26 @@ public class ExperienceTests
             Assert.That(exp.Location, Is.EqualTo("Town za"));
             Assert.That(exp.EmployerSite, Is.EqualTo("savage.com"));
         });
+    }
+
+    [Test]
+    public void CompareTo_WhenOtherIsNull_ReturnsOne()
+    {
+        // Arrange
+        Experience? other = null;
+        Experience exp = new(new(2022, 6, 1))
+        {
+            Title = "Software Dev",
+            Company = "Savage Data",
+            Description = "abc descript",
+            Location = "Town za",
+            EmployerSite = "savage.com"
+        };
+
+        // Act
+        int result = exp.CompareTo(other);
+
+        // Assert
+        Assert.That(result, Is.EqualTo(1));
     }
 }
