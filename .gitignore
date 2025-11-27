@@ -347,4 +347,4 @@ MigrationBackup/
 
 *.bkp
 
-docs/reports
+docs/reports/coverage-report

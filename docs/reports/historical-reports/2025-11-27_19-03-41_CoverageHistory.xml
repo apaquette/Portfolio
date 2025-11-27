@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2025-11-27_19-03-41" tag="">
+  <assembly name="Portfolio.Shared">
+    <class name="Exceptions.InvalidDateException" coveredlines="1" coverablelines="1" totallines="3" coveredbranches="0" totalbranches="0" coveredcodeelements="1" fullcoveredcodeelements="1" totalcodeelements="1" />
+    <class name="Exceptions.MissingDateException" coveredlines="1" coverablelines="1" totallines="3" coveredbranches="0" totalbranches="0" coveredcodeelements="1" fullcoveredcodeelements="1" totalcodeelements="1" />
+    <class name="Models.Degree" coveredlines="18" coverablelines="18" totallines="34" coveredbranches="4" totalbranches="4" coveredcodeelements="8" fullcoveredcodeelements="8" totalcodeelements="8" />
+    <class name="Models.Experience" coveredlines="38" coverablelines="38" totallines="64" coveredbranches="22" totalbranches="22" coveredcodeelements="13" fullcoveredcodeelements="13" totalcodeelements="13" />
+    <class name="Models.Project" coveredlines="19" coverablelines="19" totallines="36" coveredbranches="4" totalbranches="4" coveredcodeelements="9" fullcoveredcodeelements="9" totalcodeelements="9" />
+  </assembly>
+</coverage>
