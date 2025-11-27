@@ -11,7 +11,7 @@ public partial class Projects : ComponentBase
     private HttpClient? Http { get; set; }
     
     protected override async Task OnInitializedAsync(){
-        string data = Http is not null ? await Http.GetStringAsync("data/personalProjects.json") : "";
+        string data = Http is not null ? await Http.GetStringAsync("data/projects.json") : "";
         ProjectsSet = JsonSerializer.Deserialize<SortedSet<Project>>(data, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }) ?? new();
     }
 }
