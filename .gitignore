@@ -346,3 +346,5 @@ MigrationBackup/
 .vscode
 
 *.bkp
+
+docs/reports
