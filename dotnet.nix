@@ -28,6 +28,7 @@ with import <nixpkgs> {config.allowUnfree = true;};
         ms-dotnettools.csharp
         ms-dotnettools.vscode-dotnet-runtime
         ms-dotnettools.vscodeintellicode-csharp
+        github.vscode-github-actions
         #github.copilot-chat
 
         pkief.material-icon-theme
