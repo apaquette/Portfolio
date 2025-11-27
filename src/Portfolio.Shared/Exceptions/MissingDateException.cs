@@ -1,7 +1,3 @@
 namespace Exceptions;
 
-public class MissingDateException : Exception
-{
-    public MissingDateException(string msg)
-    : base($"{msg}") { }
-}
+public class MissingDateException(string? msg = null) : Exception(msg){ }
