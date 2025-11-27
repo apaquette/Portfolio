@@ -73,4 +73,24 @@ public class ProjectTests
             Assert.That(proj.ImageSource, Is.EqualTo("path/to/image.png"));
         });
     }
+
+    [Test]
+    public void CompareTo_WhenOtherIsNull_ReturnsOne()
+    {
+        // Arrange
+        Project? other = null;
+        Project proj = new(new(2022, 6, 1))
+        {
+            Title = "Portfolio",
+            Description = "abc descript",
+            Link = "abc.com",
+            ImageSource = "path/to/image.png"
+        };
+
+        // Act
+        int result = proj.CompareTo(other);
+
+        // Assert
+        Assert.That(result, Is.EqualTo(1));
+    }
 }

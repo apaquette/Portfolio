@@ -69,4 +69,24 @@ public class DegreeTests
             Assert.That(degree.Website, Is.EqualTo("canadore.ca"));
         });
     }
+
+    [Test]
+    public void CompareTo_WhenOtherIsNull_ReturnsOne()
+    {
+        // Arrange
+        Degree? other = null;
+        Degree degree = new(new(2022, 6, 1))
+        {
+            Diploma = "BSc (hons)",
+            Institution = "Canadore",
+            Logo = "path/to/logo.jpg",
+            Website = "canadore.ca"
+        };
+
+        // Act
+        int result = degree.CompareTo(other);
+
+        // Assert
+        Assert.That(result, Is.EqualTo(1));
+    }
 }
