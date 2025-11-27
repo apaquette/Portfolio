@@ -1,7 +1,3 @@
 namespace Exceptions;
 
-public class InvalidDateException : Exception
-{
-    public InvalidDateException(string msg)
-    : base($"{msg}") { }
-}
+public class InvalidDateException(string? msg = null) : Exception(msg) { }
