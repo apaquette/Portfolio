@@ -9,7 +9,9 @@
         "PHP",
         "R",
         "TypeScript",
-        "Visual Basic"
+        "Visual Basic",
+        "Bash",
+        "Nix"
     ],
     "Frameworks and Libraries": [
         ".NET Framework",
@@ -25,10 +27,12 @@
     ],
     "Testing and Quality Assurance": [
         "JUnit",
-        "nUnit",
+        "NUnit",
         "PHPUnit",
         "Pytest",
-        "Unit Testing"
+        "Unit Testing",
+        "ReportGenerator",
+        "Coverlet"
     ],
     "Version Control": [
         "Bitbucket",
