@@ -27,9 +27,9 @@ with import <nixpkgs> {config.allowUnfree = true;};
         ms-dotnettools.csdevkit
         ms-dotnettools.csharp
         ms-dotnettools.vscode-dotnet-runtime
-        ms-dotnettools.vscodeintellicode-csharp
+        #ms-dotnettools.vscodeintellicode-csharp # depreciated
         github.vscode-github-actions
-        #github.copilot-chat
+        github.copilot-chat
 
         pkief.material-icon-theme
         bbenoist.nix
