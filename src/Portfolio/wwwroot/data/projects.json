@@ -1,5 +1,19 @@
 [
     {
+        "Title": "mynixos",
+        "Description": "My personal NixOS configuration, developed as part of my transition from Windows 11.",
+        "TechStack": [
+            "Nix",
+            "NixOS",
+            "Linux",
+            "Git",
+            "GitHub"
+        ],
+        "Link": "https://github.com/apaquette/mynixos",
+        "ImageSource": null,
+        "Completed": "2025-12-10"
+    },
+    {
         "Title": "TDD Verification",
         "Description": "This project demonstrates my ability to create unit tests and follow test-driven development.",
         "TechStack": [
