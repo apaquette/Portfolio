@@ -1,36 +1,55 @@
 # CodeByAlex
 
-Welcome to my personal portfolio repository! This project showcases my skills, projects, and experience as a software developer.
+Welcome to my personal portfolio repository! This project serves as an end-to-end showcase of my capabilities as a sofwtare developer, including my technical stack, project history, professional background, and design approach. It is built as a production-quality, modular, and easily maintainable web application.
 
 ## Table of Contents
 - [About](#about)
 - [Features](#features)
-- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
 - [License](#license)
 
 ## About
 
-This portfolio is designed to provide an overview of my work and background. It includes sections such as:
+This portfolio a comprehensive overview of my software development experience. It includes:
 - **Professional Summary**
 - **Education**
 - **About Me**
 - **Projects**
 - **Work History**
-- **Products**
-- **Skills** 
+- **Skills Overview**
+
+The objective is to give potential employers and collaborators clear visibility into my competencies, areas of expertise, and past work.
 
 ## Features
 
-- Responsive design for various devices.
-- Project showcase links and corresponding skills.
-- Skills section for a quick overview of my technical capabilities.
-- Past work experience with the date, links, and corresponding skills.
-- Contact information for potential collaboration or job opportunities.
+- Fully Responsive layout supporting desktop, tablet, and mobile dvices.
+- Dynamic project showcase with descriptions, links, and associated skills
+- Dedicated skills section summarizing technical proficiencies.
+- Work history with timelines, responsibilities, and linked technologies.
+- Structured and accessible UI built for readability and professional presentation.
 
-## Getting Started
-
-To view the portfolio locally, follow these steps:
+## Project Structure
+```
+/CodeByAlex
+  /docs
+  /src
+    /Portfolio
+      /Layout
+      /Pages
+      /Properties
+      /wwwroot
+    /Portfolio.Shared
+      /Models
+      /Exceptions
+  /tests
+  README.md
+  LICENSE
+  ...
+```
+- **src/Portfolio** contains the Blazor WebAssembly code
+- **src/Portfolio.Shared** contains the Models used by the application
+- **tests/** contains unit tests that are run in the pipeline to ensure valid deployments
 
 ## Technologies Used
 
@@ -41,6 +60,7 @@ To view the portfolio locally, follow these steps:
 - [CSS](https://en.wikipedia.org/wiki/CSS)
 - [Azure](https://azure.microsoft.com/en-us/get-started/azure-portal/)
 - [NUnit](https://nunit.org/)
+- [Nix](https://nixos.org/)
 
 ## License
 
