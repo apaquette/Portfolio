@@ -15,7 +15,7 @@ public class CertificationTests
         var link = "https://learn.microsoft.com/certifications/azure-fundamentals/";
 
         // Act
-        var certification = new Certification()
+        Certification certification = new()
         {
             EarnedOn = earnedOn,
             Name = name,
@@ -30,5 +30,33 @@ public class CertificationTests
         Assert.That(certification.IssuedBy, Is.EqualTo(issuedBy));
         Assert.That(certification.Icon, Is.EqualTo(icon));
         Assert.That(certification.Link, Is.EqualTo(link));
+    }
+
+    [Test]
+    public void CompareTo_WhenEarnedOnIsEarlier_ReturnsPositiveValue()
+    {
+        // Arrange
+        Certification earlier = new()
+        {
+            EarnedOn = new DateOnly(2023,1,1),
+            Name = "Certification A",
+            IssuedBy = "Issuer",
+            Icon = "icon-a",
+            Link = "link-a"
+        };
+        Certification later = new()
+        {
+            EarnedOn = new DateOnly(2024,1,1),
+            Name = "Certification B",
+            IssuedBy = "Issuer",
+            Icon = "icon-b",
+            Link = "link-b"
+        };
+
+        // Act
+        var result = earlier.CompareTo(later);
+
+        // Assert
+        Assert.That(result, Is.GreaterThan(0));
     }
 }
