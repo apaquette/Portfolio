@@ -59,13 +59,6 @@ with import <nixpkgs> {config.allowUnfree = true;};
       dotnet tool install --global coverlet.console
       dotnet tool install --global dotnet-reportgenerator-globaltool
 
-      # Git Configuration
-      git config --global user.name "Alex Paquette"
-      git config --global user.email "alexandre.d.paquette@gmail.com"
-
-      # HTTPS
-      git config --global credential.helper cache
-
       exec fish
     '';
   }
