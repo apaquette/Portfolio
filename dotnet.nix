@@ -14,27 +14,27 @@ with import <nixpkgs> {config.allowUnfree = true;};
       stdenv.cc.cc.lib
       dotnet
     ];
-
-    # VSCODE debugging: The required library libhostfxr.so could not be found.
-    # export COREHOST_TRACE=1
-    # export COREHOST_TRACEFILE=~/corehost.log
+    
     buildInputs = [
       pkgs.fish
       dotnet
       git
-      (pkgs.vscode-with-extensions.override {
-      vscodeExtensions = with pkgs.vscode-extensions; [
-        ms-dotnettools.csdevkit
-        ms-dotnettools.csharp
-        ms-dotnettools.vscode-dotnet-runtime
-        #ms-dotnettools.vscodeintellicode-csharp # depreciated
-        github.vscode-github-actions
-        github.copilot-chat
+      
+      (pkgs.vscode.fhsWithPackages (ps: with ps; [
+        dotnet
+        nix
+      ]) // { # this bit doesn't seem to work :(
+        vscodeExtensions = with pkgs.vscode-extensions.override; [
+          ms-dotnettools.csdevkit
+          ms-dotnettools.csharp
+          ms-dotnettools.vscode-dotnet-runtime
+          github.vscode-github-actions
+          github.copilot-chat
 
-        pkief.material-icon-theme
-        bbenoist.nix
-      ];
-    })
+          pkief.material-icon-theme
+          bbenoist.nix
+        ];
+      })
     ];
 
     packages = [
