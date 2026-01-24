@@ -59,4 +59,32 @@ public class CertificationTests
         // Assert
         Assert.That(result, Is.GreaterThan(0));
     }
+
+    [Test]
+    public void CompareTo_WhenEarnedOnIsLater_ReturnsNegativeValue()
+    {
+        // Arrange
+        Certification earlier = new()
+        {
+            EarnedOn = new DateOnly(2023,1,1),
+            Name = "Certification A",
+            IssuedBy = "Issuer",
+            Icon = "icon-a",
+            Link = "link-a"
+        };
+        Certification later = new()
+        {
+            EarnedOn = new DateOnly(2024,1,1),
+            Name = "Certification B",
+            IssuedBy = "Issuer",
+            Icon = "icon-b",
+            Link = "link-b"
+        };
+
+        // Act
+        var result = later.CompareTo(earlier);
+
+        // Assert
+        Assert.That(result, Is.LessThan(0));
+    }
 }
