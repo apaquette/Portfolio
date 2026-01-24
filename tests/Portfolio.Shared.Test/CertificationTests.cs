@@ -87,4 +87,32 @@ public class CertificationTests
         // Assert
         Assert.That(result, Is.LessThan(0));
     }
+
+    [Test]
+    public void CompareTo_WhenEqual_ReturnsZero()
+    {
+        // Arrange
+        Certification first = new()
+        {
+            EarnedOn = new DateOnly(2023,1,1),
+            Name = "Certification A",
+            IssuedBy = "Issuer",
+            Icon = "icon-a",
+            Link = "link-a"
+        };
+        Certification second = new()
+        {
+            EarnedOn = new DateOnly(2023,1,1),
+            Name = "Certification B",
+            IssuedBy = "Issuer",
+            Icon = "icon-b",
+            Link = "link-b"
+        };
+
+        // Act
+        var result = first.CompareTo(second);
+
+        // Assert
+        Assert.That(result, Is.EqualTo(0));
+    }
 }
