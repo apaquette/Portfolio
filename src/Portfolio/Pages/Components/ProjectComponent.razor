@@ -12,7 +12,7 @@
                     <i class="bi bi-box-arrow-up-right ps-2" />
                 }
             </div>
-            <div card="card-subtitle" style="font-style: italic;">@Project.Completed.ToString("MMM d yyyy")</div>
+            <div class="card-subtitle" style="font-style: italic;">@Project.Completed.ToString("MMM d yyyy")</div>
             @* TechStack *@
             <p class="card-text m-1">@Project.Description</p>
                 @foreach(string tech in Project.TechStack){

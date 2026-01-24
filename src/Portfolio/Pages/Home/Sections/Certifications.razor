@@ -1,0 +1,7 @@
+<SectionComponent Title="Certifications" Id="certifications">
+    <div class="d-flex flex-wrap justify-content-start" style="margin-left: -0.5rem;">
+        @foreach(var certification in CertificationSet){
+            <CertificationComponent Certification=@certification />
+        }
+    </div>
+</SectionComponent>
