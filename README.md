@@ -17,6 +17,7 @@ This portfolio a comprehensive overview of my software development experience. I
 - **About Me**
 - **Projects**
 - **Work History**
+- **Certifications**
 - **Skills Overview**
 
 The objective is to give potential employers and collaborators clear visibility into my competencies, areas of expertise, and past work.
