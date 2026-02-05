@@ -5,10 +5,28 @@
 
 <PageTitle>Code By Alex</PageTitle>
 <div class="d-flex flex-column align-items-center" style="margin-top: 50px;">
-    <Hero />
-    <About />
-    <Projects />
-    <WorkExperience />
-    <Certifications />
-    <Skills />
+
+    <section id="home">
+        <div class="d-flex flex-wrap justify-content-center pt-5 pb-3">
+            <div class="me-4">
+                <img src="headshot.png" class="rounded-circle profile-photo" style="width: 200px; height: 200px;" />
+            </div>
+            <div class="align-self-center">
+                <div class="name-title fs-1">Alex Paquette</div>
+                <h3 class="body-text">Software Developer</h3>
+                <h3 class="body-text">BSc (Honours)</h3>
+            </div>
+        </div>
+        @foreach(var s in HeroSections){
+            <SectionComponent Title=@s.Title Id=@s.Id>
+                <DynamicComponent Type=@s.ComponentType />
+            </SectionComponent>
+        }
+    </section>
+    
+    @foreach (var s in SectionsList){
+        <SectionComponent Title=@s.Title Id=@s.Id>
+            <DynamicComponent Type=@s.ComponentType />
+        </SectionComponent>
+    }
 </div>
