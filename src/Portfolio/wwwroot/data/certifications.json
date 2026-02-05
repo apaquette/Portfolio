@@ -5,5 +5,12 @@
         "IssuedBy": "Microsoft",
         "Icon": "icons/microsoft-certified-fundamentals-badge.svg",
         "Link": "https://learn.microsoft.com/en-us/users/alexpaquette-1657/credentials/98718b9ebe916228"
+    },
+    {
+        "Name": "Data Analyst",
+        "EarnedOn": "2026-02-05",
+        "IssuedBy": "IBM",
+        "Icon": "icons/IBM-certified-data-analyst.png",
+        "Link": "https://www.coursera.org/account/accomplishments/specialization/YAW8VBG730CU"
     }
 ]
