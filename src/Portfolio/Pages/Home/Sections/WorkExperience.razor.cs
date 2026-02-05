@@ -6,7 +6,7 @@ namespace Portfolio.Pages.Home.Sections;
 
 public partial class WorkExperience : ComponentBase
 {
-    protected SortedSet<Experience> WorkExperiences = new();
+    protected SortedSet<Experience> WorkExperiences = [];
     [Inject]
     private HttpClient? Http { get; set; }
     protected override async Task OnInitializedAsync(){
