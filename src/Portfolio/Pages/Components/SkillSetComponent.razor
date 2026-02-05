@@ -1,7 +1,7 @@
 <div class="card m-2" style="width: 300px;">
     <div class="card-body">
-        <h5>@SkillSet.Key</h5>
-        @foreach(string skill in SkillSet.Value){
+        <h5>@Item.Key</h5>
+        @foreach(string skill in Item.Value){
             <SkillComponent Skill=@skill />
         } 
     </div>

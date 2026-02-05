@@ -7,5 +7,5 @@ namespace Portfolio.Pages.Components;
 public partial class EducationComponent : ComponentBase
 {
     [Parameter][Required]
-    public Degree? Degree {get; set;}
+    public Degree? Item {get; set;}
 }

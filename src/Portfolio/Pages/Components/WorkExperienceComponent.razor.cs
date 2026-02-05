@@ -7,5 +7,5 @@ namespace Portfolio.Pages.Components;
 public partial class WorkExperienceComponent : ComponentBase
 {
     [Parameter][Required]
-    public Experience? WorkExperience {get; set;}
+    public Experience? Item {get; set;}
 }

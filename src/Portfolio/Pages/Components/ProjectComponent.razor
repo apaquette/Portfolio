@@ -1,21 +1,21 @@
-@if(Project is not null){
-    string? link = Project.Link;
+@if(Item is not null){
+    string? link = Item.Link;
     <div class="card m-2 scale" style="width: 300px;">
         <div class="card-body">
             <div class="d-flex justify-content-between">
                 @if(link is null){
-                    <h5 class="card-title" style="margin-bottom: 0;">@Project.Title</h5>
+                    <h5 class="card-title" style="margin-bottom: 0;">@Item.Title</h5>
                 }else{
-                    <a href=@Project.Link class="stretched-link card-link">
-                        <h5 class="card-title" style="margin-bottom: 0;">@Project.Title</h5>
+                    <a href=@Item.Link class="stretched-link card-link">
+                        <h5 class="card-title" style="margin-bottom: 0;">@Item.Title</h5>
                     </a>
                     <i class="bi bi-box-arrow-up-right ps-2" />
                 }
             </div>
-            <div class="card-subtitle" style="font-style: italic;">@Project.Completed.ToString("MMM d yyyy")</div>
+            <div class="card-subtitle" style="font-style: italic;">@Item.Completed.ToString("MMM d yyyy")</div>
             @* TechStack *@
-            <p class="card-text m-1">@Project.Description</p>
-                @foreach(string tech in Project.TechStack){
+            <p class="card-text m-1">@Item.Description</p>
+                @foreach(string tech in Item.TechStack){
                     <SkillComponent Skill="@tech" />
                 }
         </div>

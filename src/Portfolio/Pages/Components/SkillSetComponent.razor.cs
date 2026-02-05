@@ -6,5 +6,5 @@ namespace Portfolio.Pages.Components;
 public partial class SkillSetComponent : ComponentBase
 {
     [Parameter][Required]
-    public KeyValuePair<string, SortedSet<string>> SkillSet {get;set;}
+    public KeyValuePair<string, SortedSet<string>> Item {get;set;}
 }

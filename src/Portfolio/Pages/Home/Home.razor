@@ -19,14 +19,38 @@
         </div>
         @foreach(var s in HeroSections){
             <SectionComponent Title=@s.Title Id=@s.Id>
+                @if(s.JsonUrl is null){
                 <DynamicComponent Type=@s.ComponentType />
+            }else{
+                <DynamicComponent 
+                    Type=@s.ComponentType
+                    Parameters="@(new Dictionary<string, object?>{
+                        ["JsonUrl"] = s.JsonUrl,
+                        ["ItemComponentType"] = s.DataItemComponentType,
+                        ["Class"] = s.Class,
+                        ["Style"] = s.Style
+                    })"
+                />
+            }
             </SectionComponent>
         }
     </section>
     
     @foreach (var s in SectionsList){
         <SectionComponent Title=@s.Title Id=@s.Id>
-            <DynamicComponent Type=@s.ComponentType />
+            @if(s.JsonUrl is null){
+                <DynamicComponent Type=@s.ComponentType />
+            }else{
+                <DynamicComponent 
+                    Type=@s.ComponentType
+                    Parameters="@(new Dictionary<string, object?>{
+                        ["JsonUrl"] = s.JsonUrl,
+                        ["ItemComponentType"] = s.DataItemComponentType,
+                        ["Class"] = s.Class,
+                        ["Style"] = s.Style
+                    })"
+                />
+            }
         </SectionComponent>
     }
 </div>

@@ -7,5 +7,5 @@ namespace Portfolio.Pages.Components;
 public partial class ProjectComponent : ComponentBase
 {
     [Parameter][Required]
-    public Project? Project { get; set; }
+    public Project? Item { get; set; }
 }

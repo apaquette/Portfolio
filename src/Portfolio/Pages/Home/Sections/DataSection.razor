@@ -1,0 +1,29 @@
+@using System.Text.Json
+@using System.ComponentModel.DataAnnotations
+@typeparam TItem
+
+<div class=@Class style=@Style>
+    @foreach(var item in Items ?? []){
+        <DynamicComponent Type=@ItemComponentType Parameters="@(new Dictionary<string,object?> {["Item"] = item})"/>
+    }
+</div>
+
+@code{
+    [Parameter][Required] public string? JsonUrl {get; set;}
+    [Parameter][Required] public Type? ItemComponentType {get;set;}
+    [Parameter] public string Class { get; set;} = "";
+    [Parameter] public string Style { get; set;} = "";
+
+    protected IEnumerable<TItem>? Items;
+    [Inject] private HttpClient? Http {get;set;}
+    [Inject] private JsonSerializerOptions? JsonOptions {get;set;}
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(Http is null || string.IsNullOrWhiteSpace(JsonUrl)) return;
+
+        string json = await Http.GetStringAsync(JsonUrl);
+        Items = JsonSerializer.Deserialize<SortedSet<TItem>>(json, JsonOptions);
+    }
+}

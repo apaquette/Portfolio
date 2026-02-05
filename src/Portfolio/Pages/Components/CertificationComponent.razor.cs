@@ -7,5 +7,5 @@ namespace Portfolio.Pages.Components;
 public partial class CertificationComponent : ComponentBase
 {
     [Parameter][Required]
-    public Certification? Certification { get; set; }
+    public Certification? Item { get; set; }
 }
