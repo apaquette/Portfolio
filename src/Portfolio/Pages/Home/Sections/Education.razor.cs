@@ -9,8 +9,11 @@ public partial class Education : ComponentBase
     protected SortedSet<Degree> Degrees = [];
     [Inject]
     private HttpClient? Http { get; set; }
-    protected override async Task OnInitializedAsync(){
+    [Inject]
+    private JsonSerializerOptions? JsonOptions {get; set;}
+    protected override async Task OnInitializedAsync()
+    {
         string data = Http is not null ? await Http.GetStringAsync("data/degrees.json") : "";
-        Degrees = JsonSerializer.Deserialize<SortedSet<Degree>>(data, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true }) ?? [];
+        Degrees = JsonSerializer.Deserialize<SortedSet<Degree>>(data, JsonOptions) ?? [];
     }
 }

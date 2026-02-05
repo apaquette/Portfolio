@@ -9,9 +9,11 @@ public partial class WorkExperience : ComponentBase
     protected SortedSet<Experience> WorkExperiences = [];
     [Inject]
     private HttpClient? Http { get; set; }
-    protected override async Task OnInitializedAsync(){
+    [Inject]
+    private JsonSerializerOptions? JsonOptions {get; set;}
+    protected override async Task OnInitializedAsync()
+    {
         string data = Http is not null ? await Http.GetStringAsync("data/workExperience.json") : "";
-        JsonSerializerOptions options = new() { PropertyNameCaseInsensitive = true };
-        WorkExperiences = JsonSerializer.Deserialize<SortedSet<Experience>>(data, options) ?? new();
+        WorkExperiences = JsonSerializer.Deserialize<SortedSet<Experience>>(data, JsonOptions) ?? [];
     }
 }
