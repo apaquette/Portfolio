@@ -1,5 +1,17 @@
 [
     {
+        "Title": "A Silent Hero",
+        "Description": "A narrative-driven, fable-themed side-scroller, in collaboration with Elis Sykorova",
+        "TechStack": [
+            "GDevelop",
+            "Git",
+            "GitHub",
+            "Inkscape"
+        ],
+        "Link": "https://elisyko.itch.io/a-silent-hero",
+        "ImageSource": null,
+        "Completed": "2026-02-19"
+    },{
         "Title": "mynixos",
         "Description": "My personal NixOS configuration, developed as part of my transition from Windows 11.",
         "TechStack": [
