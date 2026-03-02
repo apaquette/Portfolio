@@ -5,6 +5,7 @@ namespace Portfolio.Shared.Test;
 
 public class ExperienceTests
 {
+    private readonly string today = DateTime.Today.ToString("yyyy-MM-dd");
     [Test]
     public void Skills_ShouldInitializeAsEmptyList()
     {
@@ -58,10 +59,19 @@ public class ExperienceTests
         var e = new Experience(DateTime.Parse(start))
         {
             JobStart = DateTime.Parse(start),
-            JobEnd = DateTime.Parse(end)
+            JobEnd = end is not null ? DateTime.Parse(end) : null
         };
 
         Assert.That(e.Duration(), Is.EqualTo(expected));
+    }
+
+    public void Duration_NewJob_ShouldReturnEmptyString()
+    {
+        var e = new Experience(DateTime.Today);
+
+        var result = e.Duration();
+
+        Assert.That(result, Is.EqualTo(""));
     }
 
     [Test]
