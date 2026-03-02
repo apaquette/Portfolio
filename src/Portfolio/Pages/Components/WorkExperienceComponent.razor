@@ -7,7 +7,7 @@
                         @Item.Title
                     </h5>
                     <div class="mt-1 text-muted pe-1">@Item.JobStart.ToString("MMM yyyy") - @(Item.JobEnd?.ToString("MMM yyyy") ?? "Present")</div>
-                    <div class="text-muted ">(@Item.Duration())</div>
+                    <div class="text-muted ">@Item.Duration()</div>
                 </div>
                 <div class="text-muted text-end">
                     <i class="bi bi-geo-alt-fill"></i>

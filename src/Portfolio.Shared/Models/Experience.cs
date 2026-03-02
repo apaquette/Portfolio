@@ -56,9 +56,14 @@ public class Experience : IComparable<Experience>
         int years = totalDays / 365;
         int remainingDays = totalDays % 365;
         int months = remainingDays / 30;
+        
         string yearDuration = years >= 1 ? $"{years} yrs" : "";
         string monthDuration = months > 0 ? $"{months} mos" : "";
         string space = yearDuration != "" && monthDuration != "" ? " ": "";
-        return $"{yearDuration}{space}{monthDuration}";
+
+        if(string.IsNullOrWhiteSpace($"{yearDuration}{space}{monthDuration}"))
+            return "";
+
+        return $"({yearDuration}{space}{monthDuration})";
     } 
 }
