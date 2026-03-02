@@ -50,9 +50,9 @@ public class ExperienceTests
 
 
     //TODO: Add edge case testing
-    [TestCase("2020-01-01", "2022-01-01", "2 yrs")]
-    [TestCase("2020-01-01", "2022-04-01", "2 yrs 3 mos")]
-    [TestCase("2021-01-01", "2021-06-01", "5 mos")]
+    [TestCase("2020-01-01", "2022-01-01", "(2 yrs)")]
+    [TestCase("2020-01-01", "2022-04-01", "(2 yrs 3 mos)")]
+    [TestCase("2021-01-01", "2021-06-01", "(5 mos)")]
     public void Duration_ShouldReturnExpectedFormat(string start, string end, string expected)
     {
         var e = new Experience(DateTime.Parse(start))
