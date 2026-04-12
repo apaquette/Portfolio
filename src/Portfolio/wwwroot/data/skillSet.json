@@ -10,7 +10,7 @@
         "R",
         "TypeScript",
         "Visual Basic",
-        "Shell",
+        "Bash",
         "Nix"
     ],
     "Frameworks and Libraries": [
@@ -48,7 +48,9 @@
         "DevOps",
         "Functional Programming",
         "Object-Oriented Programming",
-        "Test-Driven Development"
+        "Test-Driven Development",
+        "Scrum",
+        "Kanban"
     ],
     "Databases and Data Management": [
         "Data Design",
@@ -80,7 +82,9 @@
         "Postman",
         "Power BI",
         "Vercel",
-        "Visual Studio"
+        "Visual Studio",
+        "Jira",
+        "Confluence"
     ],
     "Additional Technical Skills": [
         "Data Visualization",
