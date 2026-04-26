@@ -7,15 +7,10 @@
 <div class="d-flex flex-column align-items-center" style="margin-top: 50px;">
 
     <section id="home">
-        <div class="d-flex flex-wrap justify-content-center pt-5 pb-3">
-            <div class="me-4">
-                <img src="headshot.png" class="rounded-circle profile-photo" style="width: 200px; height: 200px;" />
-            </div>
-            <div class="align-self-center">
-                <div class="name-title fs-1">Alex Paquette</div>
-                <h3 class="body-text">Senior Software Developer</h3>
-                <h3 class="body-text">BSc (Honours)</h3>
-            </div>
+        <Hero />
+        <div class="d-flex flex-row justify-content-center mb-4 gap-2" style="margin-top: 20px;">
+            <ButtonComponent Title="View Projects" Link="/projects" />
+            <ButtonComponent Title="Read Articles" Link="/articles" />
         </div>
         @foreach(var s in HeroSections){
             <SectionComponent Title=@s.Title Id=@s.Id>
