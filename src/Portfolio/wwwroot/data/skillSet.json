@@ -1,45 +1,19 @@
 {
-    "Core Languages": [
+    "Core Stack": [
         "Python",
         "C#",
         "SQL",
-        "Bash"
+        ".NET"
     ],
-    "Backend & Data Engineering": [
-        ".NET",
-        "APIs",
-        "ETL Pipelines",
-        "Relational Databases"
-    ],
-    "Frontend": [
-        "Blazor",
-        "Razor Pages",
-        "HTML",
-        "CSS",
-        "Bootstrap 5"
-    ],
-    "Architecture & Engineering": [
-        "System Design",
-        "SOLID Principles",
-        "Design Patterns",
-        "Refactoring",
-        "Scalable Systems"
-    ],
-    "DevOps & Delivery": [
-        "Azure",
-        "AWS",
-        "GitHub Actions",
-        "Jenkins",
-        "CI/CD",
-        "Deployment Automation",
-        "Linux",
-        "NixOS"
-    ],
-    "Quality & Security": [
+    "Engineering": [
+        "Architecture",
         "TDD",
-        "NUnit",
-        "Pytest",
-        "Vulnerability Remediation",
-        "Secure Development"
+        "ETL",
+        "APIs"
+    ],
+    "Delivery": [
+        "CI/CD",
+        "Production Support",
+        "Security"
     ]
 }
