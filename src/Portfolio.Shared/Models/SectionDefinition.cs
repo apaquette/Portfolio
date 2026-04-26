@@ -9,5 +9,6 @@ public sealed record SectionDefinition(
     string? JsonUrl = null,
     Type? DataItemComponentType = null,
     string? Class = "",
-    string? Style = ""
+    string? Style = "",
+    bool Centered = false
 );

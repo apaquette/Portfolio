@@ -12,13 +12,13 @@ public partial class Home : ComponentBase
         new(null, null, typeof(Summary)),
         new(null, null, typeof(Buttons)),
         new(null, null, typeof(CredibilityStrip)),
-        new("Technical Strengths", "skills", typeof(Skills)),
+        new("Technical Strengths", "skills", typeof(Skills), Centered: true),
         new("Featured Projects", "projects", typeof(DataSection<Project>), 
             "data/projects.json", typeof(ProjectComponent),
-            "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
+            "d-flex flex-wrap justify-content-center gap-3", "margin: 0;", true),
         // Latest Articles
         // Awards
-        new("About", "about", typeof(About))
+        new("About", "about", typeof(About), Centered: true)
     ];
     protected readonly SectionDefinition[] SectionsList = 
     [

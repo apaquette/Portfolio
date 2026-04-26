@@ -1,5 +1,12 @@
-<div class="d-flex flex-wrap justify-content-start" style="margin-left: -0.5rem;">
+<div style="display: flex; flex-direction: column; gap: 2rem;">
     @foreach(var kvp in SkillSet){
-        <SkillSetComponent Item="@kvp" />
+        <div style="text-align: center;">
+            <h5 class="body-text" style="margin-bottom: 1rem; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; opacity: 0.8;">@kvp.Key</h5>
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                @foreach(string skill in kvp.Value){
+                    <span class="badge rounded-pill skill-badge">@skill</span>
+                }
+            </div>
+        </div>
     }
 </div>

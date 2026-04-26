@@ -10,4 +10,6 @@ public partial class SectionComponent : ComponentBase
     public string? Title { get; set; }
     [Parameter]
     public string? Id { get; set; }
+    [Parameter]
+    public bool Centered { get; set; } = false;
 }
