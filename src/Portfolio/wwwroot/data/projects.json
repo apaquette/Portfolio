@@ -1,17 +1,17 @@
 [
     {
-        "Title": "A Silent Hero",
-        "Description": "A narrative-driven, fable-themed side-scroller, in collaboration with Elis Sykorova. Winner of Best Game Sting.",
+        "Title": "Secure App Development",
+        "Description": "This project demonstrates all mitigation techniques learned during the module to secure web apps.",
         "TechStack": [
-            "GDevelop",
-            "Git",
-            "GitHub",
-            "Inkscape"
+            "PHP",
+            "PHPUnit",
+            "SQL"
         ],
-        "Link": "https://elisyko.itch.io/a-silent-hero",
+        "Link": "https://github.com/apaquette/Secure-App-Develoment-Project",
         "ImageSource": null,
-        "Completed": "2026-02-19"
-    },{
+        "Completed": "2024-04-29"
+    },
+    {
         "Title": "mynixos",
         "Description": "My personal NixOS configuration, developed as part of my transition from Windows 11.",
         "TechStack": [
