@@ -4,7 +4,7 @@
         "Company": "Royal Bank of Canada (RBC)",
         "JobStart": "2026-03-02T00:00:00",
         "JobEnd": null,
-        "Description": "Develop and implement software solutions, leveraging extensive technical expertise and business acumen to address system needs, resolve issues, and contribute to strategic objectives. Manage software development projects of increasing complexity, scope, and impact, applying professional judgment and expertise.",
+        "Description": "Design and develop enterprise software solutions focused on Python-based ETL and automation systems. Built modular pipelines to modernize legacy processes using SOLID principles, TDD, and design patterns. Lead vulnerability remediation efforts across multiple codebases while supporting production deployments, issue resolution, and continuous improvement initiatives.",
         "Skills": [
             "Python",
             "Git",
@@ -15,7 +15,11 @@
             "Kanban",
             "SQL",
             "Bash",
-            "Design Patterns"
+            "Design Patterns",
+            "TDD",
+            "ETL",
+            "Production Support",
+            "Security"
         ],
         "Location": "Halifax, Nova Scotia, Canada",
         "EmployerSite": "https://www.rbcroyalbank.com/"
@@ -25,7 +29,7 @@
         "Company": "Lyric Canvas (Starilum)",
         "JobStart": "2024-08-01T00:00:00",
         "JobEnd": "2024-12-31T00:00:00",
-        "Description": "Integrate data pipelines into the main system to interface with the AI model and data dashboard. Employ test-driven development to ensure reliable software infrastructure and prioritize development to produce an MVP for the client. Collaborate with teammates to integrate solutions into the codebase and ensure compatibility.",
+        "Description": "Integrated data pipelines into the core platform to support AI model workflows and analytics dashboards. Applied test-driven development to deliver reliable software under tight MVP timelines, collaborating closely with teammates to ensure successful integration and product readiness.",
         "Skills": [
             "Pytest",
             "TDD",
@@ -41,7 +45,7 @@
         "Company": "Savage Data Systems",
         "JobStart": "2022-10-01T00:00:00",
         "JobEnd": "2023-08-31T00:00:00",
-        "Description": "Transformed the company\u0027s core product by converting it from a legacy VB.NET desktop application to a .NET 8 Blazor web platform, significantly enhancing accessibility and user experience. Spearheaded targeted research to identify optimal solutions, boosting competitiveness and market penetration. Integrated innovative technologies to elevate product performance and functionality, ensuring alignment with industry standards.",
+        "Description": "Modernized the company\u0027s core product by migrating a legacy VB.NET desktop system into a .NET 8 Blazor web platform, improving accessibility, usability, and maintainability. Researched and implemented technical solutions that enhanced product capability and competitiveness.",
         "Skills": [
             ".NET",
             "C#",
@@ -62,7 +66,7 @@
         "Company": "Bravocado Speech Solutions",
         "JobStart": "2022-09-01T00:00:00",
         "JobEnd": "2023-02-28T00:00:00",
-        "Description": "Steered a startup through critical early-stage development, shaping the project vision and laying a solid foundation for success. Orchestrated planning, requirements gathering, system proposal, and design phases, delivering invaluable insights for future development.",
+        "Description": "Supported an early-stage startup through planning, requirements gathering, system proposals, and solution design. Helped establish the technical direction and development foundation for future product growth.",
         "Skills": [
             "UI Design",
             "Data Design",
@@ -76,7 +80,7 @@
         "Company": "Paragon Bay Group (Lenovo Repair Depot)",
         "JobStart": "2017-03-01T00:00:00",
         "JobEnd": "2022-04-30T00:00:00",
-        "Description": "Strong understanding of computer operating systems and hardware. Solve problems quickly and effectively. Setup and perform quality assurance testing. Document repair and testing actions in a clear way for other technicians to pick up where repairs are left off. Apply software and hardware solutions to resolve customer problems.",
+        "Description": "Diagnosed and resolved hardware and software issues across a high-volume repair environment. Performed QA testing, documented repair actions clearly, and delivered reliable technical support with strong customer focus.",
         "Skills": [
             "QA Testing",
             "Computer Repair",

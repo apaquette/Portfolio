@@ -1,96 +1,51 @@
 {
-    "Programming Languages": [
-        "C",
-        "C#",
-        "C\u002B\u002B",
+    "Core Languages": [
         "Python",
-        "Java",
-        "JavaScript",
-        "PHP",
-        "R",
-        "TypeScript",
-        "Visual Basic",
-        "Bash",
-        "Nix"
-    ],
-    "Frameworks and Libraries": [
-        ".NET Framework",
-        "Blazor",
-        "Bootstrap",
-        "Entity Framework",
-        "Node.js",
-        "Radzen",
-        "Razor Pages",
-        "React",
-        "SKlearn",
-        "Tensorflow"
-    ],
-    "Testing and Quality Assurance": [
-        "JUnit",
-        "NUnit",
-        "PHPUnit",
-        "Pytest",
-        "Unit Testing",
-        "ReportGenerator",
-        "Coverlet"
-    ],
-    "Version Control": [
-        "Bitbucket",
-        "Git",
-        "GitHub",
-        "GitLab"
-    ],
-    "Development Methodologies": [
-        "Agile Development",
-        "CI/CD",
-        "Concurrent Programming",
-        "Design Patterns",
-        "DevOps",
-        "Functional Programming",
-        "Object-Oriented Programming",
-        "Test-Driven Development",
-        "Scrum",
-        "Kanban"
-    ],
-    "Databases and Data Management": [
-        "Data Design",
-        "MS SQL Server",
-        "MySQL",
-        "Postgres",
-        "Relational Databases",
+        "C#",
         "SQL",
-        "SQLite"
+        "Bash"
     ],
-    "Web Development": [
-        "API Development",
-        "Back End Development",
-        "CSS",
-        "Front End Development",
+    "Backend & Data Engineering": [
+        ".NET",
+        "APIs",
+        "ETL Pipelines",
+        "Relational Databases"
+    ],
+    "Frontend": [
+        "Blazor",
+        "Razor Pages",
         "HTML",
-        "Web Apps",
-        "Web Design"
+        "CSS"
     ],
-    "Tools and Platforms": [
+    "Architecture & Engineering": [
+        "System Design",
+        "SOLID Principles",
+        "Design Patterns",
+        "Refactoring",
+        "Scalable Systems"
+    ],
+    "DevOps & Delivery": [
         "Azure",
-        "CodeBlocks",
-        "Doxygen",
-        "Figma",
-        "IntelliJ",
+        "AWS",
+        "GitHub Actions",
         "Jenkins",
-        "Jupyter",
-        "NetBeans",
-        "Postman",
-        "Power BI",
-        "Vercel",
-        "Visual Studio",
+        "CI/CD",
+        "Deployment Automation",
+        "Linux",
+        "NixOS"
+    ],
+    "Quality & Security": [
+        "TDD",
+        "NUnit",
+        "Pytest",
+        "Vulnerability Remediation",
+        "Secure Development"
+    ],
+    "Collaboration": [
+        "Agile",
+        "Scrum",
+        "Kanban",
         "Jira",
         "Confluence"
-    ],
-    "Additional Technical Skills": [
-        "Data Visualization",
-        "Documentation",
-        "Machine Learning",
-        "Requirements Gathering",
-        "Secure App Development"
     ]
 }
