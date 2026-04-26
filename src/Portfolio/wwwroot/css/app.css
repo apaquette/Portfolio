@@ -195,6 +195,30 @@ h1, h2, h3, p{
     box-shadow: 5px 5px 5px rgba(16, 255, 108, 0.8);
 }
 
+/* custom button  */
+.btn-custom {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-family: 'Open Sans';
+    font-weight: 700;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(255, 158, 0, 0.6);
+}
+
+.btn-custom:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 158, 0, 0.8);
+}
+
 
 /* mobile layout */
 @media(max-width: 1249px){
