@@ -1,4 +1,6 @@
 <section id=@Id class="pt-3 pb-3 mb-3 mt-3 section" >
-    <h3 class="section-title fw-bold pb-3">@Title</h3>
+    @if(Title is not null){
+        <h3 class="section-title fw-bold pb-3">@Title</h3>
+    }
     @ChildContent
 </section>
