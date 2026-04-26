@@ -7,7 +7,7 @@ namespace Portfolio.Pages.Home;
 
 public partial class Home : ComponentBase
 {
-    protected readonly SectionDefinition[] HeroSections = [
+    protected readonly SectionDefinition[] Sections = [
         new(null, null, typeof(Hero)),
         new(null, null, typeof(Summary)),
         new(null, null, typeof(Buttons)),
@@ -22,7 +22,6 @@ public partial class Home : ComponentBase
     ];
     protected readonly SectionDefinition[] SectionsList = 
     [
-        new("About", "about", typeof(About)),
         new("Projects", "projects", typeof(DataSection<Project>), 
             "data/projects.json", typeof(ProjectComponent),
             "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
