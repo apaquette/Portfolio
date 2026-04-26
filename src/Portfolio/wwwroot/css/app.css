@@ -164,10 +164,6 @@ a:hover{
     font-size: 0.95rem;
 }
 
-.skill-badge:hover{
-    background-color: #ffa800;
-}
-
 .fixed-top{
     position: fixed;
     top: 0;
