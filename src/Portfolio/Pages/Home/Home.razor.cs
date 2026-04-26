@@ -8,8 +8,11 @@ namespace Portfolio.Pages.Home;
 public partial class Home : ComponentBase
 {
     protected readonly SectionDefinition[] HeroSections = [
-      new("Summary", null, typeof(Summary)),
-      new("Education", null, typeof(DataSection<Degree>), "data/degrees.json", typeof(EducationComponent))
+        new(null, null, typeof(Hero)),
+        new(null, null, typeof(Summary)),
+        new(null, null, typeof(Buttons)),
+        new(null, null, typeof(CredibilityStrip)),
+    //   new("Education", null, typeof(DataSection<Degree>), "data/degrees.json", typeof(EducationComponent))
 
     ];
     protected readonly SectionDefinition[] SectionsList = 

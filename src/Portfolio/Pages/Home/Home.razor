@@ -5,33 +5,24 @@
 
 <PageTitle>Code By Alex</PageTitle>
 <div class="d-flex flex-column align-items-center" style="margin-top: 50px;">
-
-    <section id="home">
-        <Hero />
-        <div class="d-flex flex-row justify-content-center mb-4 gap-2" style="margin-top: 20px;">
-            <ButtonComponent Title="View Projects" Link="/projects" />
-            <ButtonComponent Title="Read Articles" Link="/articles" />
-        </div>
-        @foreach(var s in HeroSections){
-            <SectionComponent Title=@s.Title Id=@s.Id>
-                @if(s.JsonUrl is null){
+    @foreach(var s in HeroSections){
+        <SectionComponent Title=@s.Title>
+        @if(s.JsonUrl is null){
                 <DynamicComponent Type=@s.ComponentType />
-            }else{
-                <DynamicComponent 
-                    Type=@s.ComponentType
-                    Parameters="@(new Dictionary<string, object?>{
-                        ["JsonUrl"] = s.JsonUrl,
-                        ["ItemComponentType"] = s.DataItemComponentType,
-                        ["Class"] = s.Class,
-                        ["Style"] = s.Style
-                    })"
-                />
-            }
-            </SectionComponent>
+        }else{
+            <DynamicComponent
+                Type=@s.ComponentType
+                Parameters="@(new Dictionary<string, object?>{
+                    ["JsonUrl"] = s.JsonUrl,
+                    ["ItemComponentType"] = s.DataItemComponentType,
+                    ["Class"] = s.Class,
+                    ["Style"] = s.Style
+                })"
+            />
         }
-    </section>
-    
-    @foreach (var s in SectionsList){
+        </SectionComponent>
+    }
+    @* @foreach (var s in SectionsList){
         <SectionComponent Title=@s.Title Id=@s.Id>
             @if(s.JsonUrl is null){
                 <DynamicComponent Type=@s.ComponentType />
@@ -47,5 +38,6 @@
                 />
             }
         </SectionComponent>
-    }
+    } *@
+    
 </div>
