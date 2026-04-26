@@ -8,27 +8,27 @@ namespace Portfolio.Pages.Home;
 public partial class Home : ComponentBase
 {
     protected readonly SectionDefinition[] Sections = [
-        new(null, null, typeof(Hero)),
-        new(null, null, typeof(Summary)),
-        new(null, null, typeof(Buttons)),
-        new(null, null, typeof(CredibilityStrip)),
-        new("Technical Strengths", "skills", typeof(Skills), Centered: true),
-        new("Featured Projects", "projects", typeof(DataSection<Project>), 
+        new(null, typeof(Hero)),
+        new(null, typeof(Summary)),
+        new(null, typeof(Buttons)),
+        new(null, typeof(CredibilityStrip)),
+        new("Technical Strengths", typeof(Skills), Centered: true),
+        new("Featured Projects", typeof(DataSection<Project>), 
             "data/projects.json", typeof(ProjectComponent),
             "d-flex flex-wrap justify-content-center gap-3", "margin: 0;", true),
         // Latest Articles
         // Awards
-        new("About", "about", typeof(About), Centered: true)
+        new("About", typeof(About), Centered: true)
     ];
     protected readonly SectionDefinition[] SectionsList = 
     [
-        new("Projects", "projects", typeof(DataSection<Project>), 
+        new("Projects", typeof(DataSection<Project>), 
             "data/projects.json", typeof(ProjectComponent),
             "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
-        new("Work History", "work", typeof(DataSection<Experience>), 
+        new("Work History", typeof(DataSection<Experience>), 
             "data/workExperience.json", typeof(WorkExperienceComponent),
             "", "margin-left: -0.5rem;"),
-        new("Certifications", "certifications", typeof(DataSection<Certification>), 
+        new("Certifications", typeof(DataSection<Certification>), 
             "data/certifications.json", typeof(CertificationComponent),
             "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
         
