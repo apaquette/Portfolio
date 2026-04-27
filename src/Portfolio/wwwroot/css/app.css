@@ -14,8 +14,10 @@
 html, body {
     font-family: 'PT Sans';
     background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
 }
-
 
 .name-title, .section-title{
     color: var(--primary-color);
@@ -71,6 +73,7 @@ a:hover{
 
 .content {
     padding-top: 1.1rem;
+    contain: layout style;
 }
 
 #blazor-error-ui {
