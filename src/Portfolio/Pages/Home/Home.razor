@@ -5,7 +5,7 @@
 
 <PageTitle>Code By Alex</PageTitle>
 <div class="d-flex flex-column align-items-center">
-    @foreach(var s in Sections){
+    @foreach(var s in HomeSections){
         <SectionComponent Title=@s.Title Centered=@s.Centered>
         @if(s.JsonUrl is null){
                 <DynamicComponent Type=@s.ComponentType />

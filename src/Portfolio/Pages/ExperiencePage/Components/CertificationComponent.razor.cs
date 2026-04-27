@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Components;
 using Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace Portfolio.Pages.Components;
+namespace Portfolio.Pages.ExperiencePage.Components;
 
 public partial class CertificationComponent : ComponentBase
 {

@@ -7,7 +7,7 @@ namespace Portfolio.Pages.Home;
 
 public partial class Home : ComponentBase
 {
-    protected readonly SectionDefinition[] Sections = [
+    protected readonly SectionDefinition[] HomeSections = [
         new(null, typeof(Hero)),
         new(null, typeof(Summary)),
         new(null, typeof(Buttons)),
@@ -20,17 +20,17 @@ public partial class Home : ComponentBase
         // Awards
         new("About", typeof(About), Centered: true)
     ];
-    protected readonly SectionDefinition[] SectionsList = 
-    [
-        new("Projects", typeof(DataSection<Project>), 
-            "data/projects.json", typeof(ProjectComponent),
-            "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
-        new("Work History", typeof(DataSection<Experience>), 
-            "data/workExperience.json", typeof(WorkExperienceComponent),
-            "", "margin-left: -0.5rem;"),
-        new("Certifications", typeof(DataSection<Certification>), 
-            "data/certifications.json", typeof(CertificationComponent),
-            "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
+    // protected readonly SectionDefinition[] SectionsList = 
+    // [
+    //     new("Projects", typeof(DataSection<Project>), 
+    //         "data/projects.json", typeof(ProjectComponent),
+    //         "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
+    //     new("Work History", typeof(DataSection<Experience>), 
+    //         "data/workExperience.json", typeof(WorkExperienceComponent),
+    //         "", "margin-left: -0.5rem;"),
+    //     new("Certifications", typeof(DataSection<Certification>), 
+    //         "data/certifications.json", typeof(CertificationComponent),
+    //         "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
         
-    ];
+    // ];
 }

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using System.ComponentModel.DataAnnotations;
 
-namespace Portfolio.Pages.Components;
+namespace Portfolio.Pages.Home.Components;
 
 public partial class CredibilityComponent : ComponentBase
 {
