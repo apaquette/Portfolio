@@ -40,34 +40,6 @@
             const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
             const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
         }
-        function getHeaderIds(){
-            const sections = document.querySelectorAll("section[id]");
-            const navLinks = document.querySelectorAll('.nav-link');
-            const isMobile = window.matchMedia("(max-width: 699px)").matches;
-
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if(entry.isIntersecting){
-                            // Clear existing active states
-                            navLinks.forEach((link) => link.classList.remove("active"));
-
-                            // Find matching nav link
-                            const activeLink = document.querySelector(
-                                `.nav-link[href="#${entry.target.id}"]`
-                            );
-                            if(activeLink) activeLink.classList.add("active");
-                        }
-                    });
-                },
-                {
-                    root: null,
-                    threshold: isMobile ? 0.5 : 0.75,
-                    rootMargin: `50px 0px 0px 0px`
-                }
-            );
-            sections.forEach((section) => observer.observe(section));
-        }
     </script>
 </body>
 
