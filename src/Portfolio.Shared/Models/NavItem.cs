@@ -1,4 +1,4 @@
-namespace Portfolio.Navigation;
+namespace Models;
 
 public sealed record NavItem
 {

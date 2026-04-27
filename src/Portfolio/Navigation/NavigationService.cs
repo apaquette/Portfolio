@@ -1,3 +1,5 @@
+using Models;
+
 namespace Portfolio.Navigation;
 
 public class NavigationService : INavigationService
