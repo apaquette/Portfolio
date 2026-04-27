@@ -7,7 +7,7 @@ namespace Portfolio.Pages.ExperiencePage;
 
 public partial class ExperiencePage : ComponentBase
 {
-    protected readonly SectionDefinition[] Sections = [
+    protected readonly SectionDefinition[] ExperienceSections = [
         new("Work History", typeof(DataSection<Experience>), 
             "data/workExperience.json", typeof(WorkExperienceComponent),
             "", "margin-left: -0.5rem;"),

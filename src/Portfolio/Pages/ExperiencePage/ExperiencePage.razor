@@ -3,7 +3,7 @@
 <PageTitle>Code By Alex | Experience</PageTitle>
 
 <div class="d-flex flex-column align-items-center">
-    @foreach(var s in Sections){
+    @foreach(var s in ExperienceSections){
         <SectionComponent Title=@s.Title>
         @if(s.JsonUrl is null){
                 <DynamicComponent Type=@s.ComponentType />
