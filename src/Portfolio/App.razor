@@ -4,9 +4,20 @@
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
     <NotFound>
-        <PageTitle>Not found</PageTitle>
         <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
+            <PageTitle>Page Not Found</PageTitle>
+            <div class="d-flex flex-column align-items-center" style="margin-top: 50px;">
+                <div class="text-center">
+                    <h1 class="name-title" style="font-size: 4rem; margin-bottom: 1rem;">404</h1>
+                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: 1rem;">Page Not Found</h2>
+                    <p class="body-text" style="font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px;">
+                        Sorry, the page you're looking for doesn't exist. Let's get you back on track.
+                    </p>
+                    <NavLink href="/" class="btn" style="background-color: var(--primary-color); color: var(--background-color); padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; transition: all 0.3s ease;">
+                        Return to Home
+                    </NavLink>
+                </div>
+            </div>
         </LayoutView>
     </NotFound>
 </Router>
