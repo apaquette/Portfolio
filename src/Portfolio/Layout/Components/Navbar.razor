@@ -6,9 +6,11 @@
     </a>
     <nav id="navbar" class="dropdown-menu">
         <ul class="nav nav-pills">
-            @foreach(string link in links){
+            @foreach(var item in NavItems){
                 <li class="nav-item">
-                    <a class="nav-link" href="#@link.ToLower()">@link</a>
+                    <NavLink class="nav-link" href="@item.Route" Match="NavLinkMatch.All">
+                        @item.Label
+                    </NavLink>
                 </li>
             }
         </ul>
