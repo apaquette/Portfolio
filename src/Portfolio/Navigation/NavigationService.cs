@@ -7,6 +7,8 @@ public class NavigationService : INavigationService
     public IEnumerable<NavItem> GetNavItems() => new[]
     {
         new NavItem { Label = "Home", Route = "/" },
-        new NavItem { Label = "Experience", Route = "/experience" }
+        new NavItem { Label = "Experience", Route = "/experience" },
+        //new NavItem { Label = "Projects", Route = "/projects" },
+        new NavItem { Label = "About", Route = "/about" },
     };
 }

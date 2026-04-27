@@ -1,0 +1,35 @@
+@page "/about"
+
+<PageTitle>Code By Alex | About</PageTitle>
+
+<div class="d-flex flex-column align-items-center">
+    @foreach(var s in AboutSections){
+        <SectionComponent Title=@s.Title>
+        @if(s.JsonUrl is null){
+                <DynamicComponent Type=@s.ComponentType />
+        }else{
+            <DynamicComponent
+                Type=@s.ComponentType
+                Parameters="@(new Dictionary<string, object?>{
+                    ["JsonUrl"] = s.JsonUrl,
+                    ["ItemComponentType"] = s.DataItemComponentType,
+                    ["Class"] = s.Class,
+                    ["Style"] = s.Style
+                })"
+            />
+        }
+        </SectionComponent>
+    }
+
+    <SectionComponent>
+
+    </SectionComponent>
+
+    <SectionComponent Title="Working Style">
+
+    </SectionComponent>
+
+    <SectionComponent Title="Outside Work">
+
+    </SectionComponent>
+</div>
