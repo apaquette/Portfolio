@@ -10,7 +10,6 @@ public partial class AboutPage : ComponentBase
     protected readonly SectionDefinition[] AboutSections = [
         new(null, typeof(Hero)),
         new("My Journey", typeof(Introduction)),
-        // new("Background", typeof(Background), Centered: true),
-        // new("Interests & Hobbies", typeof(Interests), Centered: true)
+        new("How I work", typeof(WorkingStyle)),
     ];
 }
