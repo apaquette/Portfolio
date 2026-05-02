@@ -24,13 +24,6 @@ public partial class Home : ComponentBase
     // [
     //     new("Projects", typeof(DataSection<Project>), 
     //         "data/projects.json", typeof(ProjectComponent),
-    //         "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
-    //     new("Work History", typeof(DataSection<Experience>), 
-    //         "data/workExperience.json", typeof(WorkExperienceComponent),
-    //         "", "margin-left: -0.5rem;"),
-    //     new("Certifications", typeof(DataSection<Certification>), 
-    //         "data/certifications.json", typeof(CertificationComponent),
-    //         "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
-        
+    //         "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"), 
     // ];
 }
