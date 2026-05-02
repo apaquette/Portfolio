@@ -10,10 +10,20 @@ on:
       - main
 
 jobs:
-  build_and_deploy:
+  build:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    uses: ./.github/workflows/build.yml
+
+  test:
+    needs: build
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    uses: ./.github/workflows/test.yml
+
+  deploy:
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: Deploy to Azure Static Web Apps
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v3
         with:
@@ -25,28 +35,21 @@ jobs:
         with:
           dotnet-version: '9.0.x'
       
-      - name: Run unit tests
+      - name: Restore and build for deployment
         run: |
           dotnet restore ./src/Portfolio
           dotnet build ./src/Portfolio --configuration Release --no-restore
-          for proj in $(find ./tests -name "*.Test.csproj"); do
-            echo "Running tests for $proj"
-            dotnet test $proj --configuration Release --no-build --verbosity normal
-          done
       
-      - name: Build And Deploy
-        id: builddeploy
+      - name: Deploy to Azure Static Web Apps
+        id: deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AMBITIOUS_STONE_07501540F }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/src/Portfolio" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "wwwroot" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
+          app_location: "/src/Portfolio"
+          api_location: ""
+          output_location: "wwwroot"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -59,3 +62,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_AMBITIOUS_STONE_07501540F }}
           action: "close"
+          app_location: "/src/Portfolio"

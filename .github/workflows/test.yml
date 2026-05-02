@@ -1,0 +1,32 @@
+name: Test (Reusable)
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          lfs: false
+      
+      - name: Setup .NET 9 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      
+      - name: Restore dependencies
+        run: dotnet restore ./src/Portfolio
+      
+      - name: Build
+        run: dotnet build ./src/Portfolio --configuration Release --no-restore
+      
+      - name: Run unit tests
+        run: |
+          for proj in $(find ./tests -name "*.Test.csproj"); do
+            echo "Running tests for $proj"
+            dotnet test $proj --configuration Release --no-build --verbosity normal
+          done
