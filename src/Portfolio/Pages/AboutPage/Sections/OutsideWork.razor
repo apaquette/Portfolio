@@ -1,0 +1,13 @@
+<div class="d-flex flex-wrap">
+    @foreach(var item in OutsideWorkItems)
+    {
+        <CardComponent Title="@item.Title" Tags="@item.Tags">
+            <Icon>
+                @item.Icon
+            </Icon>
+            <ChildContent>
+                @item.Description
+            </ChildContent>
+        </CardComponent>
+    }
+</div>
