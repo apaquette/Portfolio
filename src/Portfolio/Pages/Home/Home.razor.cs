@@ -20,10 +20,4 @@ public partial class Home : ComponentBase
         // Awards
         new("About", typeof(About), Centered: true)
     ];
-    // protected readonly SectionDefinition[] SectionsList = 
-    // [
-    //     new("Projects", typeof(DataSection<Project>), 
-    //         "data/projects.json", typeof(ProjectComponent),
-    //         "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"), 
-    // ];
 }
