@@ -21,7 +21,7 @@ public partial class OutsideWork : ComponentBase
         new()
         {
             Title = "Technical Exploration",
-            Description = "From moving permanently to NixOS, to building self-hosted media and automation pipelines, I enjoy exploring infrastructure, tooling, and technology behind the systems I use every day.",
+            Description = "From moving permanently to NixOS, to building self-hosted media and automation systems, I enjoy exploring infrastructure, tooling, and technology that powers modern workflows.",
             Tags = [ "Linux", "NixOS", "Self-Hosting" ],
             Icon = builder =>
             {                
