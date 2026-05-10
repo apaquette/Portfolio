@@ -1,4 +1,4 @@
-#!/bin/bash
+
 
 # Run tests and collect code coverage
 dotnet test --collect:"XPlat Code Coverage"
@@ -16,6 +16,7 @@ if [ $? -eq 0 ]; then
 
     report_files=(
         "tests/Portfolio.Shared.Test/TestResults/coverage.opencover.xml"
+        "tests/Portfolio.Test/TestResults/coverage.opencover.xml"
     )
 
     reports=$(IFS=';'; echo "${report_files[*]}")

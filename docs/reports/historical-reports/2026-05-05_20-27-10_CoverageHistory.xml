@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<coverage version="1.0" date="2026-05-05_20-27-10" tag="">
+  <assembly name="Portfolio">
+    <class name="Portfolio.Layout.Components.ContactInfo" coveredlines="0" coverablelines="16" totallines="35" coveredbranches="0" totalbranches="6" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="4" />
+    <class name="Portfolio.Layout.Components.Navbar" coveredlines="0" coverablelines="16" totallines="46" coveredbranches="0" totalbranches="2" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="5" />
+    <class name="Portfolio.Layout.Footer" coveredlines="0" coverablelines="1" totallines="29" coveredbranches="0" totalbranches="0" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="1" />
+    <class name="Portfolio.Layout.MainLayout" coveredlines="0" coverablelines="1" totallines="11" coveredbranches="0" totalbranches="0" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="1" />
+    <class name="Portfolio.Navigation.NavigationService" coveredlines="0" coverablelines="7" totallines="14" coveredbranches="0" totalbranches="0" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="1" />
+    <class name="Portfolio.Pages.AboutPage.AboutPage" coveredlines="0" coverablelines="11" totallines="39" coveredbranches="0" totalbranches="4" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Portfolio.Pages.AboutPage.Sections.OutsideWork" coveredlines="0" coverablelines="46" totallines="69" coveredbranches="0" totalbranches="2" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Portfolio.Pages.AboutPage.Sections.OutsideWorkModel" coveredlines="0" coverablelines="4" totallines="56" coveredbranches="0" totalbranches="0" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="4" />
+    <class name="Portfolio.Pages.AboutPage.Sections.WorkingStyle" coveredlines="0" coverablelines="80" totallines="134" coveredbranches="0" totalbranches="4" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Portfolio.Pages.AboutPage.Sections.WorkingStyleData" coveredlines="0" coverablelines="3" totallines="89" coveredbranches="0" totalbranches="0" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="3" />
+    <class name="Portfolio.Pages.Components.CardComponent" coveredlines="0" coverablelines="24" totallines="55" coveredbranches="0" totalbranches="12" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="7" />
+    <class name="Portfolio.Pages.Components.DataSection`1" coveredlines="0" coverablelines="13" totallines="29" coveredbranches="0" totalbranches="8" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="8" />
+    <class name="Portfolio.Pages.Components.ProjectComponent" coveredlines="0" coverablelines="5" totallines="17" coveredbranches="0" totalbranches="2" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Portfolio.Pages.Components.SectionComponent" coveredlines="0" coverablelines="8" totallines="21" coveredbranches="0" totalbranches="4" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="5" />
+    <class name="Portfolio.Pages.Components.SkillComponent" coveredlines="0" coverablelines="5" totallines="14" coveredbranches="0" totalbranches="4" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Portfolio.Pages.ExperiencePage.Components.CertificationComponent" coveredlines="0" coverablelines="10" totallines="30" coveredbranches="0" totalbranches="4" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Portfolio.Pages.ExperiencePage.Components.EducationComponent" coveredlines="0" coverablelines="6" totallines="24" coveredbranches="0" totalbranches="2" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Portfolio.Pages.ExperiencePage.Components.WorkExperienceComponent" coveredlines="0" coverablelines="15" totallines="45" coveredbranches="0" totalbranches="10" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Portfolio.Pages.ExperiencePage.ExperiencePage" coveredlines="0" coverablelines="14" totallines="42" coveredbranches="0" totalbranches="4" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Portfolio.Pages.Home.Components.CredibilityComponent" coveredlines="0" coverablelines="4" totallines="16" coveredbranches="0" totalbranches="0" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="3" />
+    <class name="Portfolio.Pages.Home.Home" coveredlines="0" coverablelines="18" totallines="66" coveredbranches="0" totalbranches="4" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Portfolio.Pages.Home.Sections.Skills" coveredlines="0" coverablelines="13" totallines="30" coveredbranches="0" totalbranches="8" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="5" />
+    <class name="Program" coveredlines="0" coverablelines="7" totallines="15" coveredbranches="0" totalbranches="0" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="1" />
+  </assembly>
+  <assembly name="Portfolio.Shared">
+    <class name="Exceptions.InvalidDateException" coveredlines="1" coverablelines="1" totallines="3" coveredbranches="0" totalbranches="0" coveredcodeelements="1" fullcoveredcodeelements="1" totalcodeelements="1" />
+    <class name="Exceptions.MissingDateException" coveredlines="1" coverablelines="1" totallines="3" coveredbranches="0" totalbranches="0" coveredcodeelements="1" fullcoveredcodeelements="1" totalcodeelements="1" />
+    <class name="Models.Certification" coveredlines="9" coverablelines="9" totallines="16" coveredbranches="2" totalbranches="2" coveredcodeelements="6" fullcoveredcodeelements="6" totalcodeelements="6" />
+    <class name="Models.Degree" coveredlines="18" coverablelines="18" totallines="34" coveredbranches="4" totalbranches="4" coveredcodeelements="8" fullcoveredcodeelements="8" totalcodeelements="8" />
+    <class name="Models.Experience" coveredlines="54" coverablelines="54" totallines="94" coveredbranches="32" totalbranches="32" coveredcodeelements="15" fullcoveredcodeelements="15" totalcodeelements="15" />
+    <class name="Models.NavItem" coveredlines="0" coverablelines="2" totallines="7" coveredbranches="0" totalbranches="0" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="2" />
+    <class name="Models.Project" coveredlines="19" coverablelines="19" totallines="36" coveredbranches="4" totalbranches="4" coveredcodeelements="9" fullcoveredcodeelements="9" totalcodeelements="9" />
+    <class name="Models.SectionDefinition" coveredlines="0" coverablelines="9" totallines="11" coveredbranches="0" totalbranches="0" coveredcodeelements="0" fullcoveredcodeelements="0" totalcodeelements="8" />
+  </assembly>
+</coverage>
