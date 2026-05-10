@@ -24,46 +24,49 @@ jobs:
       - name: Build
         run: dotnet build ./src/Portfolio --configuration Release --no-restore
       
-      - name: Run unit tests (with coverage)
-        run: |
-          mkdir -p coverage
-
-          for proj in $(find ./tests -name "*.Test.csproj"); do
-            echo "Running tests for $proj"
-            
-            dotnet test $proj \
-              --configuration Release \
-              --no-build \
-              --collect:"XPlat Code Coverage" \
-              --results-directory coverage \
-              --verbosity normal
-          done
+      - name: Run unit tests
+        run: dotnet test Portfolio.sln --configuration Release --collect:"XPlat Code Coverage"
 
       - name: Install ReportGenerator
+        run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+      - name: Add tools to PATH
+        run: echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Generate merged coverage report
         run: |
           reportgenerator \
-            -reports:"coverage/**/coverage.cobertura..xml" \
+            -reports:"**/coverage.cobertura.xml" \
             -targetdir:"coverage-report" \
             -reporttypes:"Cobertura;TextSummary"
       
-      - name: Enforce coverage threshold
+      - name: Evaluate coverage
         run: |
-          FILE="coverage-report/Cobertural.xml"
+          sudo apt-get install -y xmlstarlet bc
 
-          if [ ! -f "$FILE"]; then
-            echo "Coverage file not found"
-          fi
+          FILE="coverage-report/Cobertura.xml"
 
-          COVERAGE=$(xmllint --xpath "string(//coverage/@line-rate)" "$FILE")
-          PERCENT=$(echo "$COVERAGE * 100" | bc -l)
-
-          THRESHOLD=90
-
-          RESULT=$(echo "$PERCENT < $THRESHOLD" | bc -l)
-
-          if [ "$RESULT" -eq 1 ]; then
-            echo "Coverage $PERCENT% is below threshold $THRESHOLD%"
+          if [ ! -f "$FILE" ]; then
+            echo "ERROR: merged coverage file not found"
+            find coverage-report || true
             exit 1
           fi
 
+          RATE=$(xmlstarlet sel -t -v "string(//coverage/@line-rate)" "$FILE")
+
+          if [ -z "$RATE" ]; then
+            echo "ERROR: could not extract coverage rate"
+            exit 1
+          fi
+
+          PERCENT=$(echo "$RATE * 100" | bc -l)
+
+          echo "Coverage: $PERCENT%"
+
+          THRESHOLD=90
+
+          if (( $(echo "$PERCENT < $THRESHOLD" | bc -l) )); then
+            echo "Coverage below threshold"
+            exit 1
+          fi
           
