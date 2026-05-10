@@ -31,9 +31,13 @@ public class DataSerializationTests
         var project = JsonSerializer.Deserialize<Project>(projectJson, jsonOptions);
 
         // Assert
-        Assert.That(project, Is.Not.Null);
-        Assert.That(project!.Completed, Is.EqualTo(new DateOnly(2022, 6, 1)));
-        Assert.That(project.Title, Is.EqualTo("Test Project"));
+        Assert.Multiple(() =>
+        {
+            Assert.That(project, Is.Not.Null);
+            Assert.That(project!.Completed, Is.EqualTo(new DateOnly(2022, 6, 1)));
+            Assert.That(project.Title, Is.EqualTo("Test Project"));
+        });
+
     }
 
     [Test]
@@ -50,10 +54,14 @@ public class DataSerializationTests
         var projects = JsonSerializer.Deserialize<SortedSet<Project>>(projectsJson, jsonOptions);
         var list = projects!.ToList();
 
-        // Assert
-        Assert.That(list[0].Title, Is.EqualTo("Recent")); // Newest first due to CompareTo
-        Assert.That(list[1].Title, Is.EqualTo("Middle"));
-        Assert.That(list[2].Title, Is.EqualTo("Old"));
+        Assert.Multiple(() =>
+        {
+            // Assert
+            Assert.That(list[0].Title, Is.EqualTo("Recent")); // Newest first due to CompareTo
+            Assert.That(list[1].Title, Is.EqualTo("Middle"));
+            Assert.That(list[2].Title, Is.EqualTo("Old"));
+        });
+
     }
 
     [Test]
@@ -70,9 +78,12 @@ public class DataSerializationTests
         var experience = JsonSerializer.Deserialize<Experience>(experienceJson, jsonOptions);
 
         // Assert
-        Assert.That(experience, Is.Not.Null);
-        Assert.That(experience!.JobStart, Is.EqualTo(new DateTime(2020, 1, 1)));
-        Assert.That(experience.Title, Is.EqualTo("Senior Dev"));
+        Assert.Multiple(() =>
+        {
+            Assert.That(experience, Is.Not.Null);
+            Assert.That(experience!.JobStart, Is.EqualTo(new DateTime(2020, 1, 1)));
+            Assert.That(experience.Title, Is.EqualTo("Senior Dev"));
+        });
     }
 
     [Test]
@@ -89,9 +100,12 @@ public class DataSerializationTests
         var degree = JsonSerializer.Deserialize<Degree>(degreeJson, jsonOptions);
 
         // Assert
-        Assert.That(degree, Is.Not.Null);
-        Assert.That(degree!.GraduationDate, Is.EqualTo(new DateOnly(2020, 6, 1)));
-        Assert.That(degree.Diploma, Is.EqualTo("BSc (Hons)"));
+        Assert.Multiple(() =>
+        {
+            Assert.That(degree, Is.Not.Null);
+            Assert.That(degree!.GraduationDate, Is.EqualTo(new DateOnly(2020, 6, 1)));
+            Assert.That(degree.Diploma, Is.EqualTo("BSc (Hons)"));
+        });
     }
 
     [Test]
@@ -108,9 +122,12 @@ public class DataSerializationTests
         var cert = JsonSerializer.Deserialize<Certification>(certJson, jsonOptions);
 
         // Assert
-        Assert.That(cert, Is.Not.Null);
-        Assert.That(cert!.EarnedOn, Is.EqualTo(new DateOnly(2023, 3, 15)));
-        Assert.That(cert.Name, Is.EqualTo("AWS Architect"));
+        Assert.Multiple(() =>
+        {
+            Assert.That(cert, Is.Not.Null);
+            Assert.That(cert!.EarnedOn, Is.EqualTo(new DateOnly(2023, 3, 15)));
+            Assert.That(cert.Name, Is.EqualTo("AWS Architect"));
+        });
     }
 
     [Test]
@@ -136,8 +153,11 @@ public class DataSerializationTests
         var projects = JsonSerializer.Deserialize<SortedSet<Project>>(emptyJson, jsonOptions);
 
         // Assert
-        Assert.That(projects, Is.Not.Null);
-        Assert.That(projects!.Count, Is.EqualTo(0));
+        Assert.Multiple(() =>
+        {
+            Assert.That(projects, Is.Not.Null);
+            Assert.That(projects!.Count, Is.EqualTo(0));
+        });
     }
 
     [Test]
@@ -153,9 +173,12 @@ public class DataSerializationTests
         var skills = JsonSerializer.Deserialize<Dictionary<string, SortedSet<string>>>(skillJson, jsonOptions);
 
         // Assert
-        Assert.That(skills, Is.Not.Null);
-        Assert.That(skills!["Languages"].Count, Is.EqualTo(2));
-        Assert.That(skills["Languages"], Contains.Item("C#"));
+        Assert.Multiple(() =>
+        {
+            Assert.That(skills, Is.Not.Null);
+            Assert.That(skills!["Languages"].Count, Is.EqualTo(2));
+            Assert.That(skills["Languages"], Contains.Item("C#"));
+        });
     }
 
     [Test]
@@ -171,8 +194,11 @@ public class DataSerializationTests
         var languages = skills!["Languages"].ToList();
 
         // Assert
-        Assert.That(languages[0], Is.EqualTo("C#"));
-        Assert.That(languages[1], Is.EqualTo("JavaScript"));
-        Assert.That(languages[2], Is.EqualTo("Python"));
+        Assert.Multiple(() =>
+        {
+            Assert.That(languages[0], Is.EqualTo("C#"));
+            Assert.That(languages[1], Is.EqualTo("JavaScript"));
+            Assert.That(languages[2], Is.EqualTo("Python"));
+        });
     }
 }

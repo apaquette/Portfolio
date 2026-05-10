@@ -29,6 +29,6 @@ public abstract class BunitTestBase
     {
         return parameters is null ?
          Context!.Render<TComponent>()
-         : Context!.Render<TComponent>(parameters);
+         : Context!.Render(parameters);
     }
 }
