@@ -51,19 +51,44 @@ public class Experience : IComparable<Experience>
 
     public string Duration()
     {
-        TimeSpan duration = (JobEnd ?? DateTime.Now) - JobStart;
-        int totalDays = (int)duration.TotalDays;
-        int years = totalDays / 365;
-        int remainingDays = totalDays % 365;
-        int months = remainingDays / 30;
+        DateTime endDate = JobEnd ?? DateTime.Now;
         
-        string yearDuration = years >= 1 ? $"{years} yrs" : "";
-        string monthDuration = months > 0 ? $"{months} mos" : "";
-        string space = yearDuration != "" && monthDuration != "" ? " ": "";
+        // Calculate years and months mathematically
+        int years = endDate.Year - JobStart.Year;
+        int months = endDate.Month - JobStart.Month;
+        
+        // Adjust if the day hasn't been reached in the current month
+        if (endDate.Day < JobStart.Day)
+            months--;
+        
+        // Adjust if months went negative
+        if (months < 0)
+        {
+            years--;
+            months += 12;
+        }
 
-        if(string.IsNullOrWhiteSpace($"{yearDuration}{space}{monthDuration}"))
+        string yearDuration = FormatYears(years);
+        string monthDuration = FormatMonths(months);
+        string space = (yearDuration != "" && monthDuration != "") ? " " : "";
+
+        string result = $"{yearDuration}{space}{monthDuration}".Trim();
+        return string.IsNullOrWhiteSpace(result) ? "" : $"({result})";
+    }
+
+    private string FormatYears(int years)
+    {
+        if (years < 1)
             return "";
+        
+        return $"{years} yr{(years > 1 ? "s" : "")}";
+    }
 
-        return $"({yearDuration}{space}{monthDuration})";
+    private string FormatMonths(int months)
+    {
+        if (months <= 0)
+            return "";
+        
+        return $"{months} mo{(months > 1 ? "s" : "")}";
     } 
 }
