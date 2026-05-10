@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Components;
 using Models;
 using Portfolio.Pages.Components;
@@ -5,6 +6,7 @@ using Portfolio.Pages.ExperiencePage.Components;
 
 namespace Portfolio.Pages.ExperiencePage;
 
+[ExcludeFromCodeCoverage]
 public partial class ExperiencePage : ComponentBase
 {
     protected readonly SectionDefinition[] ExperienceSections = [

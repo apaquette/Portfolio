@@ -1,10 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Components;
 using Models;
 using Portfolio.Pages.Components;
 using Portfolio.Pages.Home.Sections;
 
 namespace Portfolio.Pages.Home;
-
+[ExcludeFromCodeCoverage]
 public partial class Home : ComponentBase
 {
     protected readonly SectionDefinition[] HomeSections = [

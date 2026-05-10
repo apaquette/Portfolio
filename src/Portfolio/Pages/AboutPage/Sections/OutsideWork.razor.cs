@@ -1,7 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Components;
 
 namespace Portfolio.Pages.AboutPage.Sections;
 
+[ExcludeFromCodeCoverage]
 public partial class OutsideWork : ComponentBase
 {
     protected OutsideWorkModel[] OutsideWorkItems =
@@ -47,7 +49,7 @@ public partial class OutsideWork : ComponentBase
     ];
 }
 
-public class OutsideWorkModel
+public sealed record OutsideWorkModel
 {
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;

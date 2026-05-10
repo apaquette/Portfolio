@@ -1,7 +1,7 @@
 
 
 # Run tests and collect code coverage
-dotnet test --collect:"XPlat Code Coverage"
+dotnet test --collect:"XPlat Code Coverage" /p:ExcludeByFile="**/Program.cs"
 
 # Check if tests ran successfully
 if [ $? -eq 0 ]; then

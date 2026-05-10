@@ -10,6 +10,8 @@
     <CollectCoverage>true</CollectCoverage>
     <CoverletOutputFormat>opencover</CoverletOutputFormat>
     <CoverletOutput>./TestResults/</CoverletOutput>
+    <Include>[Portfolio]*</Include>
+    <Exclude>[Portfolio.Shared]*</Exclude>
   </PropertyGroup>
 
   <ItemGroup>
