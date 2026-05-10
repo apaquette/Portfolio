@@ -1,5 +1,3 @@
-using System.Dynamic;
-
 namespace Models;
 
 public sealed record SectionDefinition(
@@ -7,7 +5,7 @@ public sealed record SectionDefinition(
     Type ComponentType,
     string? JsonUrl = null,
     Type? DataItemComponentType = null,
-    string? Class = "",
-    string? Style = "",
+    string Class = "",
+    string Style = "",
     bool Centered = false
 );
