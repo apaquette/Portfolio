@@ -24,9 +24,46 @@ jobs:
       - name: Build
         run: dotnet build ./src/Portfolio --configuration Release --no-restore
       
-      - name: Run unit tests
+      - name: Run unit tests (with coverage)
         run: |
+          mkdir -p coverage
+
           for proj in $(find ./tests -name "*.Test.csproj"); do
             echo "Running tests for $proj"
-            dotnet test $proj --configuration Release --no-build --verbosity normal
+            
+            dotnet test $proj \
+              --configuration Release \
+              --no-build \
+              --collect:"XPlat Code Coverage" \
+              --results-directory coverage \
+              --verbosity normal
           done
+
+      - name: Install ReportGenerator
+        run: |
+          reportgenerator \
+            -reports:"coverage/**/coverage.cobertura..xml" \
+            -targetdir:"coverage-report" \
+            -reporttypes:"Cobertura;TextSummary"
+      
+      - name: Enforce coverage threshold
+        run: |
+          FILE="coverage-report/Cobertural.xml"
+
+          if [ ! -f "$FILE"]; then
+            echo "Coverage file not found"
+          fi
+
+          COVERAGE=$(xmllint --xpath "string(//coverage/@line-rate)" "$FILE")
+          PERCENT=$(echo "$COVERAGE * 100" | bc -l)
+
+          THRESHOLD=90
+
+          RESULT=$(echo "$PERCENT < $THRESHOLD" | bc -l)
+
+          if [ "$RESULT" -eq 1 ]; then
+            echo "Coverage $PERCENT% is below threshold $THRESHOLD%"
+            exit 1
+          fi
+
+          
