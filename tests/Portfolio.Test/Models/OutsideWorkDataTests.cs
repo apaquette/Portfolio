@@ -3,10 +3,10 @@ using Portfolio.Pages.AboutPage.Sections;
 
 namespace Portfolio.Test.Models;
 
-public class OutsideWorkModelTests
+public class OutsideWorkDataTests
 {
     [Test]
-    public void OutsideWorkModel_ShouldInitializeWithGivenValues()
+    public void OutsideWorkData_ShouldInitializeWithGivenValues()
     {
         RenderFragment icon = builder =>
             {
@@ -16,7 +16,7 @@ public class OutsideWorkModelTests
             };
         string[] tags = ["A", "Test", "Tag"];
 
-        var outsideWorkModel = new OutsideWorkModel()
+        var outsideWorkData = new OutsideWorkData()
         {
             Title = "Test",
             Description = "Test description",
@@ -26,10 +26,10 @@ public class OutsideWorkModelTests
 
         Assert.Multiple(() =>
         {
-            Assert.That(outsideWorkModel.Title, Is.EqualTo("Test"));
-            Assert.That(outsideWorkModel.Description, Is.EqualTo("Test description"));
-            Assert.That(outsideWorkModel.Tags, Is.EqualTo(tags));
-            Assert.That(outsideWorkModel.Icon, Is.EqualTo(icon));
+            Assert.That(outsideWorkData.Title, Is.EqualTo("Test"));
+            Assert.That(outsideWorkData.Description, Is.EqualTo("Test description"));
+            Assert.That(outsideWorkData.Tags, Is.EqualTo(tags));
+            Assert.That(outsideWorkData.Icon, Is.EqualTo(icon));
         });
     }
 }

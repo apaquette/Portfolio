@@ -1,8 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Components;
-using Models;
 
 namespace Portfolio.Pages.AboutPage.Sections;
 
+[ExcludeFromCodeCoverage]
 public partial class WorkingStyle : ComponentBase
 {
     protected readonly WorkingStyleData[] WorkingStyles = [
@@ -80,7 +81,7 @@ public partial class WorkingStyle : ComponentBase
     ];
 }
 
-public class WorkingStyleData
+public sealed record WorkingStyleData
 {
     public string Title { get; set; } = "";
     public string Subtitle { get; set; } = "";

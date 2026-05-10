@@ -6,7 +6,7 @@ namespace Portfolio.Pages.AboutPage.Sections;
 [ExcludeFromCodeCoverage]
 public partial class OutsideWork : ComponentBase
 {
-    protected OutsideWorkModel[] OutsideWorkItems =
+    protected OutsideWorkData[] OutsideWorkItems =
     [
         new() 
         {
@@ -49,7 +49,7 @@ public partial class OutsideWork : ComponentBase
     ];
 }
 
-public sealed record OutsideWorkModel
+public sealed record OutsideWorkData
 {
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
