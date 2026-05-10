@@ -7,7 +7,7 @@ namespace Portfolio.Test.Components;
 /// Tests rendering with various parameter combinations
 /// </summary>
 [TestFixture]
-public class CardComponentRendererTests : BunitTestBase
+public class CardComponentRenderTests : BunitTestBase
 {
     [Test]
     public void CardComponent_WithTitle_RendersTitle()
