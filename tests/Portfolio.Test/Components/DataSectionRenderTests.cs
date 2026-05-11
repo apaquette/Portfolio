@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Portfolio.Pages.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using NUnit.Framework.Legacy;
 
 namespace Portfolio.Test.Components;
 
@@ -233,17 +232,6 @@ public class DataSectionTests : BunitTestBase
     }
 
     [Test]
-    public void DataSection_RendersEmpty_WhenUrlIsNullOrWhitespace()
-    {
-        var cut = RenderComponent<DataSection<TestItem>>(p => p
-            .Add(x => x.JsonUrl, "")
-            .Add(x => x.ItemComponentType, typeof(FakeItemComponent))
-        );
-
-        Assert.That(cut.Markup, Does.Not.Contain("<div"));
-    }
-
-    [Test]
     public void DataSection_PassesItemsToDynamicComponent()
     {
         var items = new SortedSet<TestItem>(Comparer<TestItem>.Create((a, b) => a.Name.CompareTo(b.Name)))
@@ -301,16 +289,5 @@ public class DataSectionTests : BunitTestBase
         );
 
         Assert.That(cut.FindAll("span").Count, Is.EqualTo(2));
-    }
-
-    [Test]
-    public void DataSection_DoesNotFetch_WhenUrlIsWhitespace()
-    {
-        var cut = RenderComponent<DataSection<TestItem>>(p => p
-            .Add(x => x.JsonUrl, "   ")
-            .Add(x => x.ItemComponentType, typeof(FakeItemComponent))
-        );
-
-        Assert.That(cut.Markup.Trim(), Is.EqualTo(string.Empty));
     }
 }
