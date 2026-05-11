@@ -7,16 +7,16 @@
             </div>
         }
 
-        @if(Link is null){
-            <div class="d-flex justify-content-between">
-                <h5 class="card-title" style="margin-bottom: 0;">@Title</h5>
-            </div>
-        }else{
-            <a href=@Link class="stretched-link card-link">
-                <h5 class="card-title" style="margin-bottom: 0;">@Title</h5>
-            </a>
-            <i class="bi bi-box-arrow-up-right ps-2" />
-        }
+        <div class="d-flex justify-content-between">
+            @if(Link is null){
+                    <h5 class="card-title" style="margin-bottom: 0;">@Title</h5>
+            }else{
+                <a href=@Link class="stretched-link card-link">
+                    <h5 class="card-title" style="margin-bottom: 0;">@Title</h5>
+                </a>
+                <i class="bi bi-box-arrow-up-right ps-2" />
+            }
+        </div>
 
         @if(!string.IsNullOrEmpty(Subtitle)){
             <div class="card-subtitle" style="font-style: italic;">@Subtitle</div>
