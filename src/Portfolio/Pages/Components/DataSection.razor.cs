@@ -13,7 +13,8 @@ public partial class DataSection<TItem> : ComponentBase
 
     protected IEnumerable<TItem>? Items;
     [Inject] private HttpClient? Http {get;set;}
-
+    [Inject]
+    private JsonSerializerOptions? JsonOptions {get; set;}
 
     protected override async Task OnInitializedAsync()
     {
@@ -21,7 +22,7 @@ public partial class DataSection<TItem> : ComponentBase
 
         var json = await Http.GetStringAsync(JsonUrl);
 
-        var items = JsonSerializer.Deserialize<List<TItem>>(json) ?? [];
+        var items = JsonSerializer.Deserialize<List<TItem>>(json, JsonOptions) ?? [];
 
         var comparer = ResolveComparer();
 
