@@ -12,7 +12,14 @@ public partial class Skills : ComponentBase
     private JsonSerializerOptions? JsonOptions {get; set;}
     protected override async Task OnInitializedAsync()
     {
-        string data = Http is not null ? await Http.GetStringAsync("data/skillSet.json") : "";
-        SkillSet = JsonSerializer.Deserialize<Dictionary<string, SortedSet<string>>>(data, JsonOptions) ?? [];
+        try
+        {
+            string data = Http is not null ? await Http.GetStringAsync("data/skillSet.json") : "";
+            SkillSet = JsonSerializer.Deserialize<Dictionary<string, SortedSet<string>>>(data, JsonOptions) ?? [];
+        }
+        catch (JsonException)
+        {
+            SkillSet = [];
+        }
     }
 }
