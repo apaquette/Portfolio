@@ -35,7 +35,7 @@ public class Experience : IComparable<Experience>
         }
     }
     public string? Description { get; set; }
-    public SortedSet<string> Skills { get; set; } = new();
+    public SortedSet<string> Skills { get; set; } = [];
     public string? Location { get; set; }
     public string? EmployerSite { get; set; }
 
@@ -76,7 +76,7 @@ public class Experience : IComparable<Experience>
         return string.IsNullOrWhiteSpace(result) ? "" : $"({result})";
     }
 
-    private string FormatYears(int years)
+    private static string FormatYears(int years)
     {
         if (years < 1)
             return "";
@@ -84,7 +84,7 @@ public class Experience : IComparable<Experience>
         return $"{years} yr{(years > 1 ? "s" : "")}";
     }
 
-    private string FormatMonths(int months)
+    private static string FormatMonths(int months)
     {
         if (months <= 0)
             return "";
