@@ -1,0 +1,47 @@
+[
+    {
+        "Title": "Secure App Development",
+        "Description": "This project demonstrates all mitigation techniques learned during the module to secure web apps.",
+        "TechStack": [
+            "PHP",
+            "PHPUnit",
+            "SQL"
+        ],
+        "Link": "https://github.com/apaquette/Secure-App-Develoment-Project",
+        "ImageSource": null,
+        "Completed": "2024-04-29"
+    },
+    {
+        "Title": "mynixos",
+        "Description": "My personal NixOS configuration, developed as part of my transition from Windows 11.",
+        "TechStack": [
+            "Nix",
+            "NixOS",
+            "Linux",
+            "Git",
+            "GitHub"
+        ],
+        "Link": "https://github.com/apaquette/mynixos",
+        "ImageSource": null,
+        "Completed": "2025-12-10"
+    },
+    {
+        "Title": "Code By Alex",
+        "Description": "This is my personal professional portfolio which includes my past work experience, education, skillset, and list of projects I've completed. ",
+        "TechStack": [
+            ".NET 9",
+            "Azure",
+            "Blazor",
+            "BootStrap 5",
+            "C#",
+            "CSS",
+            "DevOps",
+            "CI/CD",
+            "JavaScript",
+            "NUnit"
+        ],
+        "Link": "https://github.com/apaquette/Portfolio",
+        "ImageSource": null,
+        "Completed": "2025-08-28"
+    }
+]
