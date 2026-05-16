@@ -1,17 +1,17 @@
 [
     {
-        "Title": "Secure App Development",
-        "Description": "This project demonstrates all mitigation techniques learned during the module to secure web apps.",
+        "Title": "A Silent Hero",
+        "Description": "A narrative-driven, fable-themed side-scroller, in collaboration with Elis Sykorova",
         "TechStack": [
-            "PHP",
-            "PHPUnit",
-            "SQL"
+            "GDevelop",
+            "Git",
+            "GitHub",
+            "Inkscape"
         ],
-        "Link": "https://github.com/apaquette/Secure-App-Develoment-Project",
+        "Link": "https://elisyko.itch.io/a-silent-hero",
         "ImageSource": null,
-        "Completed": "2024-04-29"
-    },
-    {
+        "Completed": "2026-02-19"
+    },{
         "Title": "mynixos",
         "Description": "My personal NixOS configuration, developed as part of my transition from Windows 11.",
         "TechStack": [
@@ -24,6 +24,71 @@
         "Link": "https://github.com/apaquette/mynixos",
         "ImageSource": null,
         "Completed": "2025-12-10"
+    },
+    {
+        "Title": "TDD Verification",
+        "Description": "This project demonstrates my ability to create unit tests and follow test-driven development.",
+        "TechStack": [
+            "Java",
+            "JUnit",
+            "Unit Testing",
+            "TDD"
+        ],
+        "Link": "https://github.com/apaquette/Verification-Project",
+        "ImageSource": null,
+        "Completed": "2023-11-06"
+    },
+    {
+        "Title": "Jenkins Pipeline",
+        "Description": "This project demonstrates my ability to produce pipelines using Jenkins for Continuous Integration and Continuous Delivery.",
+        "TechStack": [
+            "Java",
+            "Jenkins",
+            "CI/CD",
+            "DevOps"
+        ],
+        "Link": "https://github.com/apaquette/Jenkins-Project",
+        "ImageSource": null,
+        "Completed": "2023-11-29"
+    },
+    {
+        "Title": "Secure App Development",
+        "Description": "This project demonstrates all mitigation techniques learned during the module to secure web apps.",
+        "TechStack": [
+            "PHP",
+            "PHPUnit",
+            "SQL"
+        ],
+        "Link": "https://github.com/apaquette/Secure-App-Develoment-Project",
+        "ImageSource": null,
+        "Completed": "2024-04-29"
+    },
+    {
+        "Title": "Wator",
+        "Description": "This project demonstrates tiling and parallelization with the Wator simulation.",
+        "TechStack": [
+            "C\u002B\u002B",
+            "Doxyfile",
+            "Linux",
+            "Parallel Programming"
+        ],
+        "Link": "https://github.com/apaquette/Wator-Project",
+        "ImageSource": null,
+        "Completed": "2023-11-20"
+    },
+    {
+        "Title": "ML Notebooks",
+        "Description": "This project contains a collection of notebooks demonstrating my learning process in ML and NN algorithms.",
+        "TechStack": [
+            "Python",
+            "ML",
+            "SKlearn",
+            "Tensorflow",
+            "Jupyter"
+        ],
+        "Link": "https://github.com/apaquette/Machine-Learning-Notebooks",
+        "ImageSource": null,
+        "Completed": "2024-04-15"
     },
     {
         "Title": "Code By Alex",
@@ -43,5 +108,22 @@
         "Link": "https://github.com/apaquette/Portfolio",
         "ImageSource": null,
         "Completed": "2025-08-28"
+    },
+    {
+        "Title": "Heisenberg Forest Prodcuts",
+        "Description": "Engineered and launched a bespoke website for a client, amplifying their online presence and effectively showcasing their offerings.",
+        "TechStack": [
+            "Blazor",
+            ".NET 7",
+            "Radzen",
+            "Linux",
+            "C#",
+            "HTML",
+            "CSS",
+            "GitHub",
+            "Apache"
+        ],
+        "ImageSource": null,
+        "Completed": "2023-06-01"
     }
 ]
