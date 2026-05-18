@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Portfolio.Pages.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
+using Models;
 
 namespace Portfolio.Test.Components;
 
@@ -289,5 +290,91 @@ public class DataSectionTests : BunitTestBase
         );
 
         Assert.That(cut.FindAll("span").Count, Is.EqualTo(2));
+    }
+
+    [Test]
+    public void DataSection_ApplyFilters_WhenItemsNull()
+    {
+        IEnumerable<TestItem>? items = null;
+
+        Context!.Services.AddSingleton(CreateHttpClient(items!));
+        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
+
+        var cut = RenderComponent<DataSection<TestItem>>(p => p
+            .Add(x => x.JsonUrl, "/data.json")
+            .Add(x => x.ItemComponentType, typeof(FakeNonComparableItemComponent))
+        );
+
+        // Simulate filters being applied before items are loaded
+        //cut.InvokeAsync(() => cut.Instance.ApplyFilters());
+
+        // Should still render all items once loaded
+        
+        Assert.That(cut.Markup, Does.Not.Contain("<div"));
+    }
+
+    private class FakeFilter(string name) : IFilter<NonComparableItem>
+    {
+        public string Name {get; set;} = name;
+        public bool Matches(NonComparableItem item)
+        {
+        return item.Name == name;
+        }
+    }
+
+    [Test]
+    public void DataSection_ApplyFilters_WithFilter()
+    {
+        var items = new[]
+        {
+            new NonComparableItem { Name = "A" },
+            new NonComparableItem { Name = "B" }
+        };
+
+        Context!.Services.AddSingleton(CreateHttpClient(items));
+        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
+
+        var cut = RenderComponent<DataSection<NonComparableItem>>(p => p
+            .Add(x => x.JsonUrl, "/data.json")
+            .Add(x => x.ItemComponentType, typeof(FakeNonComparableItemComponent))
+            .Add(x => x.Filters, new FilterCollection<NonComparableItem>([new FakeFilter("A")]))
+        );
+
+        // Should still render all items once loaded
+        
+        Assert.That(cut.Markup, Does.Contain("<div"));
+        Assert.That(cut.Markup, Does.Contain("A"));
+        Assert.That(cut.Markup, Does.Contain("B"));
+        Assert.That(cut.Markup, Does.Contain("</div>"));
+    }
+
+    [Test]
+    public void DataSection_ApplyFilters_WithDimensionalFilter()
+    {
+        var items = new[]
+        {
+            new NonComparableItem { Name = "A" },
+            new NonComparableItem { Name = "B" }
+        };
+
+        Context!.Services.AddSingleton(CreateHttpClient(items));
+        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
+
+        var dimension = new FilterDimension<NonComparableItem>("Name", new FakeFilter("A"));
+        var collection = new DimensionalFilterCollection<NonComparableItem>();
+        collection.AddDimension(dimension);
+
+        var cut = RenderComponent<DataSection<NonComparableItem>>(p => p
+            .Add(x => x.JsonUrl, "/data.json")
+            .Add(x => x.ItemComponentType, typeof(FakeNonComparableItemComponent))
+            .Add(x => x.DimensionalFilters, collection)
+        );
+
+        // Should still render all items once loaded
+        
+        Assert.That(cut.Markup, Does.Contain("<div"));
+        Assert.That(cut.Markup, Does.Contain("A"));
+        Assert.That(cut.Markup, Does.Contain("B"));
+        Assert.That(cut.Markup, Does.Contain("</div>"));
     }
 }
