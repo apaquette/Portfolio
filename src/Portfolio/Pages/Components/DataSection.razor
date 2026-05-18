@@ -1,7 +1,7 @@
 @typeparam TItem
-@if(Items != null && Items?.Count() != 0){
+@if(DisplayItems != null && DisplayItems?.Count() != 0){
     <div class=@Class style=@Style>
-        @foreach(var item in Items!){
+        @foreach(var item in DisplayItems!){
             <DynamicComponent Type=@ItemComponentType Parameters="@(new Dictionary<string,object?> {["Item"] = item})"/>
         }
     </div>

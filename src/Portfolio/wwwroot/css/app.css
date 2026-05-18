@@ -230,6 +230,24 @@ h1, h2, h3, p{
     transition: all 0.3s ease;
 }
 
+.btn-outline-custom {
+    background-color: transparent;
+    color: var(--primary-color);
+    font-family: 'Open Sans';
+    font-weight: 700;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(255, 158, 0, 0.6);
+}
+
 .btn-custom:hover {
     background-color: transparent;
     color: var(--primary-color);
@@ -242,6 +260,35 @@ h1, h2, h3, p{
     box-shadow: 0 0 15px rgba(255, 158, 0, 0.8);
 }
 
+/* filter bar and dimensions */
+.filter-bar {
+    width: 100%;
+    max-width: 1080px;
+    padding: 1.5rem;
+    background-color: rgba(255, 158, 0, 0.1);
+    border-radius: 0.8rem;
+    border: 1px solid rgba(255, 158, 0, 0.3);
+}
+
+.filter-dimension {
+    margin-bottom: 1.5rem;
+}
+
+.filter-dimension:last-child {
+    margin-bottom: 0;
+}
+
+.filter-dimension-label {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.filter-dimension .d-flex {
+    gap: 0.5rem;
+}
 
 /* mobile layout */
 @media(max-width: 1249px){
