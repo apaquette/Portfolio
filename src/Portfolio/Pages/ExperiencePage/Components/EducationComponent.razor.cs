@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Components;
-using Models;
+using Models.Career;
 using System.ComponentModel.DataAnnotations;
 
 namespace Portfolio.Pages.ExperiencePage.Components;

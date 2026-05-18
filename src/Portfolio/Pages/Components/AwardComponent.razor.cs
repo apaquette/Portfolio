@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using System.ComponentModel.DataAnnotations;
-using Models;
+using Models.Career;
 
 namespace Portfolio.Pages.Components;
 

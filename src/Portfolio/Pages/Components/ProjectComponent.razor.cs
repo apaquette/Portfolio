@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Components;
-using Models;
+using Models.Portfolio;
 using System.ComponentModel.DataAnnotations;
 
 namespace Portfolio.Pages.Components;

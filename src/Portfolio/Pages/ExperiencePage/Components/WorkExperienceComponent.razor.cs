@@ -1,4 +1,4 @@
-using Models;
+using Models.Career;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Components;
 

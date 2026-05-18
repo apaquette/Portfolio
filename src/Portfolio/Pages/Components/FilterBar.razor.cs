@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Components;
-using Models;
+using Filtering.Core;
 
 namespace Portfolio.Pages.Components;
 

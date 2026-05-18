@@ -1,5 +1,5 @@
-using Models;
-using NUnit.Framework;
+using Models.Career;
+using Models.Portfolio;
 using Portfolio.Test.Mocks;
 
 namespace Portfolio.Test;
