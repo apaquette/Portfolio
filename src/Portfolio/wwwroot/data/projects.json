@@ -8,6 +8,10 @@
             "GitHub",
             "Inkscape"
         ],
+        "Categories": [
+            "Personal",
+            "Game"
+        ],
         "Link": "https://elisyko.itch.io/a-silent-hero",
         "ImageSource": null,
         "Completed": "2026-02-19"
@@ -20,6 +24,9 @@
             "Linux",
             "Git",
             "GitHub"
+        ],
+        "Categories":[
+            "Personal"
         ],
         "Link": "https://github.com/apaquette/mynixos",
         "ImageSource": null,
@@ -34,6 +41,9 @@
             "Unit Testing",
             "TDD"
         ],
+        "Categories":[
+            "Education"
+        ],
         "Link": "https://github.com/apaquette/Verification-Project",
         "ImageSource": null,
         "Completed": "2023-11-06"
@@ -47,6 +57,9 @@
             "CI/CD",
             "DevOps"
         ],
+        "Categories":[
+            "Education"
+        ],
         "Link": "https://github.com/apaquette/Jenkins-Project",
         "ImageSource": null,
         "Completed": "2023-11-29"
@@ -58,6 +71,10 @@
             "PHP",
             "PHPUnit",
             "SQL"
+        ],
+        "Categories":[
+            "Education",
+            "Web"
         ],
         "Link": "https://github.com/apaquette/Secure-App-Develoment-Project",
         "ImageSource": null,
@@ -72,6 +89,9 @@
             "Linux",
             "Parallel Programming"
         ],
+        "Categories":[
+            "Education"
+        ],
         "Link": "https://github.com/apaquette/Wator-Project",
         "ImageSource": null,
         "Completed": "2023-11-20"
@@ -85,6 +105,9 @@
             "SKlearn",
             "Tensorflow",
             "Jupyter"
+        ],
+        "Categories":[
+            "Education"
         ],
         "Link": "https://github.com/apaquette/Machine-Learning-Notebooks",
         "ImageSource": null,
@@ -105,6 +128,10 @@
             "JavaScript",
             "NUnit"
         ],
+        "Categories":[
+            "Personal",
+            "Web"
+        ],
         "Link": "https://github.com/apaquette/Portfolio",
         "ImageSource": null,
         "Completed": "2025-08-28"
@@ -122,6 +149,10 @@
             "CSS",
             "GitHub",
             "Apache"
+        ],
+        "Categories":[
+            "Client",
+            "Web"
         ],
         "ImageSource": null,
         "Completed": "2023-06-01"
