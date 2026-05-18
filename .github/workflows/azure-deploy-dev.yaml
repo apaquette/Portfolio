@@ -1,4 +1,4 @@
-name: Azure Static Web Apps CI/CD
+name: Azure Static Web Apps CI/CD (Dev)
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to Azure Static Web Apps
+    name: Deploy to Azure Static Web Apps (Dev)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
