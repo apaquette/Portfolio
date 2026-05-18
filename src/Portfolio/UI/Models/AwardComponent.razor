@@ -1,0 +1,7 @@
+@using Portfolio.UI.Primitives
+
+@if(Item is not null){
+    <CardComponent Title="@Item.Title" Subtitle="@Item.Date.ToString("MMM d yyyy")">
+        <p class="card-text m-1" style="">@Item.Description</p>
+    </CardComponent>
+}
