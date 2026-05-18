@@ -4,7 +4,7 @@ using Filtering.Interfaces;
 using Filtering.Core;
 using Filtering.ProjectFilters;
 using Models.Portfolio;
-using Portfolio.Pages.Components;
+using Portfolio.UI.Primitives;
 
 namespace Portfolio.Test.Components;
 

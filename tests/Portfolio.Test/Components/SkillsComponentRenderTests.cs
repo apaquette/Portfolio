@@ -3,7 +3,7 @@ using System.Text;
 using System.Text.Json;
 using Bunit;
 using Microsoft.Extensions.DependencyInjection;
-using Portfolio.Pages.Home.Sections;
+using Portfolio.Features.Home.Sections;
 
 namespace Portfolio.Test.Components;
 

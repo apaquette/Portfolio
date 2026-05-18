@@ -3,7 +3,7 @@ using System.Text;
 using System.Text.Json;
 using Bunit;
 using Microsoft.Extensions.DependencyInjection;
-using Portfolio.Pages.Components;
+using Portfolio.UI.Composition;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using Filtering.Interfaces;
