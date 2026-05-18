@@ -72,4 +72,12 @@ jobs:
             echo "Coverage below threshold"
             exit 1
           fi
+      
+      - name: Block non-dev sources on main
+        if: github.event_name == 'pull_request' && github.base_ref == 'main'
+        run: |
+          if [ "${{ github.event.pull_request.head.ref }}" != "dev" ]; then
+            echo "Merges into main are only allowed from branch: dev"
+            exit 1
+          fi
 
