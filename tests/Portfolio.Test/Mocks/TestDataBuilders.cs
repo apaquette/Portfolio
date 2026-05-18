@@ -1,4 +1,5 @@
-using Models;
+using Models.Portfolio;
+using Models.Career;
 
 namespace Portfolio.Test.Mocks;
 

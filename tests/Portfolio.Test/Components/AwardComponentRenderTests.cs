@@ -1,4 +1,4 @@
-using Models;
+using Models.Career;
 using Portfolio.Pages.Components;
 
 namespace Portfolio.Test.Components;

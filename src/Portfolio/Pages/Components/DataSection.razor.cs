@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Components;
-using Models;
+using Filtering.Core;
 
 namespace Portfolio.Pages.Components;
 
