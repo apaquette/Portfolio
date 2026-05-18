@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
 using Portfolio.Pages.Home.Components;
 
 namespace Portfolio.Test.Components;

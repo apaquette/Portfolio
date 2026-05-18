@@ -1,9 +1,13 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Components;
-using Models;
+using Filtering.Core;
+using Filtering.ProjectFilters;
+using Models.UI.Sections;
+using Models.Portfolio;
 using Portfolio.Pages.Components;
 
 namespace Portfolio.Pages.ProjectsPage;
+
 [ExcludeFromCodeCoverage]
 public partial class ProjectsPage : ComponentBase
 {

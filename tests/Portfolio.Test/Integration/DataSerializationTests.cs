@@ -1,5 +1,6 @@
 using System.Text.Json;
-using Models;
+using Models.Portfolio;
+using Models.Career;
 
 namespace Portfolio.Test.Integration;
 

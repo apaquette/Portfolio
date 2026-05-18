@@ -1,6 +1,9 @@
 using Bunit;
 using Microsoft.AspNetCore.Components;
-using Models;
+using Filtering.Interfaces;
+using Filtering.Core;
+using Filtering.ProjectFilters;
+using Models.Portfolio;
 using Portfolio.Pages.Components;
 
 namespace Portfolio.Test.Components;

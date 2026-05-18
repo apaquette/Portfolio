@@ -6,7 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Portfolio.Pages.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using Models;
+using Filtering.Interfaces;
+using Filtering.Core;
 
 namespace Portfolio.Test.Components;
 

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Components;
-using Models;
+using Models.Navigation;
 
 namespace Portfolio.Layout.Components;
 

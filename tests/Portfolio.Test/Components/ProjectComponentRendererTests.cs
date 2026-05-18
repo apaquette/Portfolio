@@ -1,5 +1,5 @@
 using Portfolio.Pages.Components;
-using Models;
+using Models.Portfolio;
 
 namespace Portfolio.Test.Components;
 

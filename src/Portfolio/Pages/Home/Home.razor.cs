@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Components;
-using Models;
+using Models.UI.Sections;
+using Models.Portfolio;
 using Portfolio.Pages.Components;
 using Portfolio.Pages.Home.Sections;
 
