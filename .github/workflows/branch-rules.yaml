@@ -1,0 +1,14 @@
+name: production-gate
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  enforce-source-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block non-dev sources
+        run: |
+          if [ "${{ github.event.pull_request.head.ref }}" != "dev" ]; then
+            echo "Merges into main are only allowed from branch: dev"
+            exit 1
+          fi
