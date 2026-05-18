@@ -305,9 +305,6 @@ public class DataSectionTests : BunitTestBase
             .Add(x => x.ItemComponentType, typeof(FakeNonComparableItemComponent))
         );
 
-        // Simulate filters being applied before items are loaded
-        //cut.InvokeAsync(() => cut.Instance.ApplyFilters());
-
         // Should still render all items once loaded
         
         Assert.That(cut.Markup, Does.Not.Contain("<div"));
@@ -318,7 +315,7 @@ public class DataSectionTests : BunitTestBase
         public string Name {get; set;} = name;
         public bool Matches(NonComparableItem item)
         {
-        return item.Name == name;
+        return item.Name == Name;
         }
     }
 
