@@ -17,5 +17,8 @@ public partial class ExperiencePage : ComponentBase
         new("Certifications", typeof(DataSection<Certification>), 
             "data/certifications.json", typeof(CertificationComponent),
             "d-flex flex-wrap justify-content-start", "margin-left: -0.5rem;"),
+        new("Recognition", typeof(DataSection<Award>), 
+            "data/awards.json", typeof(AwardComponent),
+            "d-flex flex-wrap justify-content-start", "margin: 0;"),
     ];
 }
