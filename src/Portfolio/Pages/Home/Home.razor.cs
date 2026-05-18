@@ -18,7 +18,6 @@ public partial class Home : ComponentBase
             "data/featured-projects.json", typeof(ProjectComponent),
             "d-flex flex-wrap justify-content-center gap-3", "margin: 0;", true),
         // Latest Articles
-        // Awards
         new("About", typeof(About), Centered: true)
     ];
 }
