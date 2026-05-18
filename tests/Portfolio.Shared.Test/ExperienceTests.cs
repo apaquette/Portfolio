@@ -50,10 +50,18 @@ public class ExperienceTests
     }
 
 
-    //TODO: Add edge case testing
+    [Test]
     [TestCase("2020-01-01", "2022-01-01", "(2 yrs)")]
     [TestCase("2020-01-01", "2022-04-01", "(2 yrs 3 mos)")]
     [TestCase("2021-01-01", "2021-06-01", "(5 mos)")]
+    [TestCase("2023-01-01", "2023-12-31", "(11 mos)")]
+    [TestCase("2022-01-01", "2024-01-01", "(2 yrs)")]
+    [TestCase("2023-06-15", "2023-06-20", "")]
+    [TestCase("2020-01-01", "2021-02-01", "(1 yr 1 mo)")]
+    [TestCase("2020-01-01", "2020-02-01", "(1 mo)")]
+    [TestCase("2020-05-15", "2021-03-10", "(9 mos)")]
+    [TestCase("2022-03-31", "2023-02-28", "(10 mos)")]
+    [TestCase("2022-11-15", "2024-01-10", "(1 yr 1 mo)")]
     public void Duration_ShouldReturnExpectedFormat(string start, string end, string expected)
     {
         var e = new Experience(DateTime.Parse(start))
@@ -63,15 +71,6 @@ public class ExperienceTests
         };
 
         Assert.That(e.Duration(), Is.EqualTo(expected));
-    }
-
-    public void Duration_NewJob_ShouldReturnEmptyString()
-    {
-        var e = new Experience(DateTime.Today);
-
-        var result = e.Duration();
-
-        Assert.That(result, Is.EqualTo(""));
     }
 
     [Test]
@@ -155,5 +154,140 @@ public class ExperienceTests
 
         // Assert
         Assert.That(result, Is.EqualTo(1));
+    }
+
+    [Test]
+    public void JobStart_RequiredByConstructor_ShouldThrowWhenDefault()
+    {
+        // This should throw MissingDateException
+        Assert.Throws<MissingDateException>(() => new Experience(default));
+    }
+
+    [Test]
+    public void Duration_VeryLongDuration_OverTenYears_ShouldFormat()
+    {
+        // Arrange
+        var e = new Experience(new DateTime(2010, 1, 1))
+        {
+            JobEnd = new DateTime(2024, 5, 1)
+        };
+
+        // Act
+        var result = e.Duration();
+
+        // Assert
+        Assert.That(result, Does.Contain("14 yrs"));
+    }
+
+    [Test]
+    public void Duration_LeapYearBoundary_ShouldCalculateCorrectly()
+    {
+        // Arrange - Feb 29 to next year
+        var e = new Experience(new DateTime(2020, 2, 29))
+        {
+            JobEnd = new DateTime(2021, 2, 28)
+        };
+
+        // Act
+        var result = e.Duration();
+
+        // Assert
+        Assert.That(result, Is.EqualTo("(11 mos)"));
+    }
+
+    [Test]
+    public void CompareTo_IdenticalJobEndDates_ShouldBeEqual()
+    {
+        // Arrange
+        var e1 = new Experience(new DateTime(2020, 1, 1)) { JobEnd = new DateTime(2022, 6, 1) };
+        var e2 = new Experience(new DateTime(2019, 1, 1)) { JobEnd = new DateTime(2022, 6, 1) };
+
+        // Act
+        var result = e1.CompareTo(e2);
+
+        // Assert
+        Assert.That(result, Is.EqualTo(0));
+    }
+
+    [Test]
+    public void Skills_WhenEmpty_ShouldRemainEmpty()
+    {
+        // Arrange
+        var exp = new Experience(DateTime.Today);
+
+        // Act
+        var skills = exp.Skills;
+
+        // Assert
+        Assert.That(skills.Count, Is.EqualTo(0));
+    }
+
+    [Test]
+    public void Skills_WithSingleSkill_ShouldBeValid()
+    {
+        // Arrange
+        var exp = new Experience(DateTime.Today)
+        {
+            Skills = new() { "C#" }
+        };
+
+        // Act & Assert
+        Assert.That(exp.Skills.Count, Is.EqualTo(1));
+        Assert.That(exp.Skills.Contains("C#"), Is.True);
+    }
+
+    [Test]
+    public void JobEnd_CanBeSetToFutureDate()
+    {
+        // Arrange
+        var exp = new Experience(new DateTime(2020, 1, 1));
+        var futureDate = DateTime.Now.AddYears(2);
+
+        // Act
+        exp.JobEnd = futureDate;
+
+        // Assert
+        Assert.That(exp.JobEnd, Is.EqualTo(futureDate));
+    }
+
+    [Test]
+    public void PropertiesCanBeNull()
+    {
+        // Arrange & Act
+        var exp = new Experience(new DateTime(2020, 1, 1))
+        {
+            Title = null,
+            Company = null,
+            Description = null,
+            Location = null,
+            EmployerSite = null
+        };
+
+        // Assert
+        Assert.That(exp.Title, Is.Null);
+        Assert.That(exp.Company, Is.Null);
+        Assert.That(exp.Description, Is.Null);
+        Assert.That(exp.Location, Is.Null);
+        Assert.That(exp.EmployerSite, Is.Null);
+    }
+
+    [Test]
+    public void CompareTo_MultipleComparisons_MaintainsConsistency()
+    {
+        // Arrange
+        var experiences = new[]
+        {
+            new Experience(new DateTime(2020, 1, 1)) { JobEnd = new DateTime(2021, 6, 1) },
+            new Experience(new DateTime(2019, 1, 1)) { JobEnd = new DateTime(2022, 6, 1) },
+            new Experience(new DateTime(2021, 1, 1)) { JobEnd = new DateTime(2023, 6, 1) }
+        };
+
+        // Act
+        Array.Sort(experiences);
+
+        // Assert - Should be ordered by most recent JobEnd
+        Assert.That(experiences[0].JobEnd, Is.EqualTo(new DateTime(2023, 6, 1)));
+        Assert.That(experiences[1].JobEnd, Is.EqualTo(new DateTime(2022, 6, 1)));
+        Assert.That(experiences[2].JobEnd, Is.EqualTo(new DateTime(2021, 6, 1)));
     }
 }

@@ -1,13 +1,11 @@
-using System.Dynamic;
-
 namespace Models;
 
 public sealed record SectionDefinition(
-    string Title,
-    string? Id,
+    string? Title,
     Type ComponentType,
     string? JsonUrl = null,
     Type? DataItemComponentType = null,
-    string? Class = "",
-    string? Style = ""
+    string Class = "",
+    string Style = "",
+    bool Centered = false
 );

@@ -1,0 +1,45 @@
+<style>
+    .highlights-list {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 0 0;
+    }
+
+    .highlight-item {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.75rem;
+        color: var(--background-color);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .highlight-item::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+</style>
+
+<p class="fs-4 body-text">
+    Every stage of my career has shaped not only what I build, but how I approach software development. 
+    These are the principles that guide how I work every day:
+</p>
+
+<div class="d-flex flex-wrap">
+    @foreach(var workingStyle in WorkingStyles)
+    {
+        <CardComponent Title="@workingStyle.Title" Subtitle="@workingStyle.Subtitle">
+            <ul class="highlights-list">
+                @foreach(var highlight in workingStyle.Highlights)
+                {
+                    <li class="highlight-item">@highlight</li>
+                }
+            </ul>
+        </CardComponent>
+    }
+</div>
+

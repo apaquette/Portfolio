@@ -1,0 +1,30 @@
+@page "/projects"
+<PageTitle>Code By Alex | Projects</PageTitle>
+
+<div class="d-flex flex-column align-items-center">
+    @if(projectFilters != null)
+    {
+        <FilterBar TItem="Project" 
+                   FilterCollectionDimensional="@projectFilters"
+                   OnFiltersChanged="@StateHasChanged" />
+    }
+    
+    @foreach(var s in Sections){
+        <SectionComponent Title=@s.Title Centered=@s.Centered>
+        @if(s.JsonUrl is null){
+                <DynamicComponent Type=@s.ComponentType />
+        }else{
+            <DynamicComponent
+                Type=@s.ComponentType
+                Parameters="@(new Dictionary<string, object?>{
+                    ["JsonUrl"] = s.JsonUrl,
+                    ["ItemComponentType"] = s.DataItemComponentType,
+                    ["Class"] = s.Class,
+                    ["Style"] = s.Style,
+                    ["DimensionalFilters"] = projectFilters
+                })"
+            />
+        }
+        </SectionComponent>
+    }
+</div>

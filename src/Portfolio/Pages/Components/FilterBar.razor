@@ -1,0 +1,37 @@
+@typeparam TItem
+
+@if(FilterCollectionDimensional != null && FilterCollectionDimensional.DimensionNames.Count > 0)
+{
+    <div class="filter-bar mb-4">
+        @foreach(var dimensionName in FilterCollectionDimensional.DimensionNames)
+        {
+            var dimension = FilterCollectionDimensional.GetDimension(dimensionName);
+            @if(dimension != null && dimension.AvailableFilterNames.Count > 0)
+            {
+                <div class="filter-dimension mb-3">
+                    <div class="filter-dimension-label fw-bold">@dimensionName</div>
+                    <div class="d-flex gap-2 flex-wrap">
+                        @foreach(var filterName in dimension.AvailableFilterNames)
+                        {
+                            <button 
+                                class="btn @(dimension.IsFilterActive(filterName) ? "btn-custom" : "btn-outline-custom")"
+                                @onclick="@(() => HandleFilterToggle(dimensionName, filterName))">
+                                [@filterName]
+                            </button>
+                        }
+                    </div>
+                </div>
+            }
+        }
+        @if(AnyFiltersActive())
+        {
+            <div class="d-flex gap-2">
+                <button 
+                    class="btn btn-outline-danger"
+                    @onclick="ClearAllFilters">
+                    Clear All Filters
+                </button>
+            </div>
+        }
+    </div>
+}
