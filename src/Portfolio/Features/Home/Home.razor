@@ -5,22 +5,15 @@
 
 
 <PageTitle>Code By Alex</PageTitle>
-<div class="d-flex flex-column align-items-center">
-    @foreach(var s in Sections){
-        <SectionComponent Title=@s.Title Centered=@s.Centered>
-        @if(s.JsonUrl is null){
-                <DynamicComponent Type=@s.ComponentType />
-        }else{
-            <DynamicComponent
-                Type=@s.ComponentType
-                Parameters="@(new Dictionary<string, object?>{
-                    ["JsonUrl"] = s.JsonUrl,
-                    ["ItemComponentType"] = s.DataItemComponentType,
-                    ["Class"] = s.Class,
-                    ["Style"] = s.Style
-                })"
-            />
+@if(!IsLoading){
+    <div class="d-flex flex-column align-items-center">
+        @foreach(var s in Sections){
+            <SectionComponent Title=@s.Title Centered=@s.Centered>
+                @{
+                    var parameters = DetermineParameters(s.Title ?? string.Empty);
+                }
+                <DynamicComponent Type="@s.ComponentType" Parameters="@parameters" />
+            </SectionComponent> 
         }
-        </SectionComponent>
-    }
-</div>
+    </div>
+}
