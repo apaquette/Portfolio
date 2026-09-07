@@ -1,35 +1,45 @@
+#!/usr/bin/env bash
 
+set -u
 
-# Run tests and collect code coverage
-dotnet test Portfolio.sln --collect:"XPlat Code Coverage" /p:ExcludeByFile="**/Program.cs"
+if dotnet test Portfolio.sln \
+    --collect:"XPlat Code Coverage;Format=opencover" \
+    /p:ExcludeByFile="**/Program.cs"
 
-# Check if tests ran successfully
-if [ $? -eq 0 ]; then
-    echo "Test ran successfully. Generating coverage report..."
+then
+    echo "Tests ran successfully. Generating coverage report..."
 
     targetdir="docs/reports/coverage-report"
     historical_reports="docs/reports/historical-reports"
 
-    # Create output dir if it doesn't exist
-    mkdir -p $targetdir
-    mkdir -p $historical_reports
+    mkdir -p "$targetdir" "$historical_reports"
 
-    report_files=(
-        "tests/Portfolio.Shared.Test/TestResults/coverage.opencover.xml"
-        "tests/Portfolio.Test/TestResults/coverage.opencover.xml"
+    mapfile -t report_files < <(
+        find tests \
+            -type f \
+            -name "coverage.opencover.xml" \
+            -print
     )
 
-    reports=$(IFS=';'; echo "${report_files[*]}")
+    if [ "${#report_files[@]}" -eq 0 ]; then
+        echo "No OpenCover coverage files were found."
+        exit 1
+    fi
 
+    reports=$(IFS=';'; printf '%s' "${report_files[*]}")
 
-    # Run report generated with specified report fields
-    reportgenerator -reports:$reports -targetdir:$targetdir -reporttypes:"Html;SvgChart" -historydir:$historical_reports
-
-    if [ $? -eq 0 ]; then
-        echo "Coverage report generated successfully in '$targetdir' directory."
+    if reportgenerator \
+        "-reports:$reports" \
+        "-targetdir:$targetdir" \
+        "-reporttypes:Html;SvgChart" \
+        "-historydir:$historical_reports"
+    then
+        echo "Coverage report generated successfully in '$targetdir'."
     else
         echo "Failed to generate the coverage report."
+        exit 1
     fi
 else
     echo "Tests failed. Coverage report generation aborted."
+    exit 1
 fi

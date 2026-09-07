@@ -9,39 +9,60 @@
   outputs = {self, nixpkgs, flake-utils }:
       flake-utils.lib.eachDefaultSystem (system:
           let
-              pkgs = import nixpkgs {
-                  inherit system;
-                  config.allowUnfree = true;
-              };
+  pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+  };
 
-              dotnet = pkgs.dotnet-sdk_9;
+  dotnet =
+    with pkgs.dotnetCorePackages;
+    combinePackages [
+      sdk_9_0
+      sdk_8_0
+    ];
+        in {
+        devShells.default = pkgs.mkShell {
+            packages = [
+            dotnet
+            pkgs.git
+            ];
 
-          in {
-              devShells.default = pkgs.mkShell {
-                  packages = [
-                      dotnet
-                      pkgs.git
-                  ];
+            shellHook = ''
+                export DOTNET_ROOT="${dotnet}/share/dotnet"
+                export DOTNET_ROOT_X64="$DOTNET_ROOT"
 
-                  shellHook = ''
-                  export DOTNET_ROOT=${dotnet}
-                  export DOTNET_CLI_HOME=$HOME/.dotnet
-                  export PATH=$DOTNET_ROOT/bin:$PATH
+                export DOTNET_CLI_HOME="$HOME/.dotnet"
 
-                  echo ".NET Blazor dev shell ready"
-                  echo "dotnet: $(dotnet --version)"
+                # The dotnet executable is exposed in this directory.
+                export PATH="${dotnet}/bin:$PATH"
 
-                  # Install Coverlet and ReportGenerator
-                  dotnet tool update --global coverlet.console
-                  dotnet tool update --global dotnet-reportgenerator-globaltool
-                  
-                  # Git Configuration
-                  git config --global user.name "Alex Paquette"
-                  git config --global user.email "alex.paquette@example.com"
+                export DOTNET_TOOLS="$DOTNET_CLI_HOME/tools"
+                export PATH="$DOTNET_TOOLS:$PATH"
 
-                  exec fish
+                mkdir -p "$DOTNET_TOOLS"
+
+                install_dotnet_tool() {
+                    local package="$1"
+                    local command="$2"
+
+                    if ! command -v "$command" >/dev/null 2>&1; then
+                    echo "Installing $package..."
+                    dotnet tool install --global "$package"
+                    fi
+                }
+
+                install_dotnet_tool \
+                    "dotnet-reportgenerator-globaltool" \
+                    "reportgenerator"
+
+                echo ".NET dev shell ready"
+                echo "dotnet: $(dotnet --version)"
+                echo "reportgenerator: $(reportgenerator --version)"
+
+                exec fish
                 '';
             };
         }
+
     );
 }
