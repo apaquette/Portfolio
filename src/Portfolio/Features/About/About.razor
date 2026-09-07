@@ -1,0 +1,13 @@
+@page "/about"
+
+@using Portfolio.UI.Models
+
+<PageTitle>Code By Alex | About</PageTitle>
+
+<div class="d-flex flex-column align-items-center">
+    @foreach(var s in Sections){
+        <SectionComponent Title=@s.Title Centered=@s.Centered>
+                <DynamicComponent Type=@s.ComponentType />
+        </SectionComponent>
+    }
+</div>
