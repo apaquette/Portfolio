@@ -1,5 +1,39 @@
 [
     {
+        "Title": "Angry Animals",
+        "Description": "An Angry Birds-style game developed in Godot using C#, following a Udemy course as a guided learning project.",
+        "TechStack": [
+            "Godot",
+            "C#",
+            ".NET 8",
+            "Git",
+            "GitHub"
+        ],
+        "Categories": [
+            "Personal",
+            "Game"
+        ],
+        "Link": "https://apaquette.itch.io/angry-animals",
+        "ImageSource": null,
+        "Completed": "2026-09-07"
+    },{
+        "Title": "Tappy Plane",
+        "Description": "A Flappy Bird-style game developed in Godot using C#, following a Udemy course as a guided learning project.",
+        "TechStack": [
+            "Godot",
+            "C#",
+            ".NET 8",
+            "Git",
+            "GitHub"
+        ],
+        "Categories": [
+            "Personal",
+            "Game"
+        ],
+        "Link": "https://apaquette.itch.io/tappy-plane",
+        "ImageSource": null,
+        "Completed": "2026-08-27"
+    },{
         "Title": "A Silent Hero",
         "Description": "A narrative-driven, fable-themed side-scroller, in collaboration with Elis Sykorova",
         "TechStack": [
