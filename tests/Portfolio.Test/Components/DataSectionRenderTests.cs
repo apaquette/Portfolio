@@ -2,10 +2,9 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using Bunit;
-using Microsoft.Extensions.DependencyInjection;
-using Portfolio.UI.Composition;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
+using Portfolio.UI.Composition;
 using Filtering.Interfaces;
 using Filtering.Core;
 
@@ -34,15 +33,18 @@ public class DataSectionTests : BunitTestBase
             => obj is NonComparableItem other && Name == other.Name;
 
         public override int GetHashCode()
-            => Name.GetHashCode();
+            => Name.GetHashCode(StringComparison.Ordinal);
     }
+
     private class FakeComparableItemComponent : ComponentBase
     {
-        [Parameter] public ComparableItem? Item { get; set; }
+        [Parameter]
+        public ComparableItem? Item { get; set; }
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            if (Item is null) return;
+            if (Item is null)
+                return;
 
             builder.OpenElement(0, "span");
             builder.AddContent(1, Item.Name);
@@ -52,11 +54,13 @@ public class DataSectionTests : BunitTestBase
 
     private class FakeNonComparableItemComponent : ComponentBase
     {
-        [Parameter] public NonComparableItem? Item { get; set; }
+        [Parameter]
+        public NonComparableItem? Item { get; set; }
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            if (Item is null) return;
+            if (Item is null)
+                return;
 
             builder.OpenElement(0, "span");
             builder.AddContent(1, Item.Name);
@@ -66,7 +70,8 @@ public class DataSectionTests : BunitTestBase
 
     private class FakeItemComponent : ComponentBase
     {
-        [Parameter] public TestItem? Item { get; set; }
+        [Parameter]
+        public TestItem? Item { get; set; }
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
@@ -83,21 +88,25 @@ public class DataSectionTests : BunitTestBase
             _response = response;
         }
 
-        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        protected override Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request,
+            CancellationToken cancellationToken)
         {
             return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new StringContent(_response, Encoding.UTF8, "application/json")
+                Content = new StringContent(
+                    _response,
+                    Encoding.UTF8,
+                    "application/json")
             });
         }
     }
 
-    private static HttpClient CreateHttpClient(object data)
+    private static HttpClient CreateHttpClient(object? data)
     {
         var json = JsonSerializer.Serialize(data);
 
-        var handler = new FakeHandler(json);
-        return new HttpClient(handler)
+        return new HttpClient(new FakeHandler(json))
         {
             BaseAddress = new Uri("http://test")
         };
@@ -106,58 +115,60 @@ public class DataSectionTests : BunitTestBase
     [Test]
     public void DataSection_RendersItems_FromJson()
     {
-        var items = new SortedSet<TestItem>(Comparer<TestItem>.Create((a, b) => a.Name.CompareTo(b.Name)))
+        var items = new SortedSet<TestItem>(
+            Comparer<TestItem>.Create((a, b) =>
+                string.Compare(a.Name, b.Name, StringComparison.Ordinal)))
         {
             new() { Name = "A" },
             new() { Name = "B" }
         };
 
-        Context!.Services.AddSingleton(CreateHttpClient(items));
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
-
         var cut = RenderComponent<DataSection<TestItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
+            .Add(x => x.Items, items)
             .Add(x => x.ItemComponentType, typeof(FakeItemComponent))
             .Add(x => x.Class, "test")
-            .Add(x => x.Style, "color:red")
-        );
+            .Add(x => x.Style, "color:red"));
 
-        // Assert DOM structure exists
-        var div = cut.Find("div");
+        cut.WaitForAssertion(() =>
+        {
+            var div = cut.Find("div");
 
-        Assert.That(div.ClassName, Is.EqualTo("test"));
-        Assert.That(div.GetAttribute("style"), Is.EqualTo("color:red"));
-
-        // Items rendered (via text content)
-        Assert.That(div.TextContent, Is.EqualTo("AB"));
+            Assert.Multiple(() =>
+            {
+                Assert.That(div.ClassName, Is.EqualTo("test"));
+                Assert.That(
+                    div.GetAttribute("style"),
+                    Is.EqualTo("color:red"));
+                Assert.That(div.TextContent, Is.EqualTo("AB"));
+            });
+        });
     }
 
     [Test]
     public void DataSection_RemovesDuplicates_WhenTypeIsNotComparable()
     {
-        // Arrange
         var items = new[]
         {
             new NonComparableItem { Name = "A" },
-            new NonComparableItem { Name = "A" }, // duplicate
+            new NonComparableItem { Name = "A" },
             new NonComparableItem { Name = "B" }
         };
 
-        Context!.Services.AddSingleton(CreateHttpClient(items));
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
-
-        // Act
         var cut = RenderComponent<DataSection<NonComparableItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
-            .Add(x => x.ItemComponentType, typeof(FakeNonComparableItemComponent))
-        );
+            .Add(x => x.Items, items)
+            .Add(
+                x => x.ItemComponentType,
+                typeof(FakeNonComparableItemComponent)));
 
-        // Assert
-        Assert.That(cut.Markup, Does.Contain("A"));
-        Assert.That(cut.Markup, Does.Contain("B"));
-
-        // Ensure only 2 unique renders
-        Assert.That(cut.FindAll("span"), Has.Count.EqualTo(2));
+        cut.WaitForAssertion(() =>
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(cut.Markup, Does.Contain("A"));
+                Assert.That(cut.Markup, Does.Contain("B"));
+                Assert.That(cut.FindAll("span"), Has.Count.EqualTo(2));
+            });
+        });
     }
 
     [Test]
@@ -170,25 +181,25 @@ public class DataSectionTests : BunitTestBase
             new ComparableItem { Name = "C" }
         };
 
-        Context!.Services.AddSingleton(CreateHttpClient(items));
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
-
         var cut = RenderComponent<DataSection<ComparableItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
-            .Add(x => x.ItemComponentType, typeof(FakeComparableItemComponent))
-        );
+            .Add(x => x.Items, items)
+            .Add(
+                x => x.ItemComponentType,
+                typeof(FakeComparableItemComponent)));
 
-        var spans = cut.FindAll("span");
+        cut.WaitForAssertion(() =>
+        {
+            var order = cut.FindAll("span")
+                .Select(x => x.TextContent)
+                .ToArray();
 
-        var order = spans.Select(x => x.TextContent).ToArray();
-
-        Assert.That(order, Is.EqualTo(new[] { "A", "B", "C" }));
+            Assert.That(order, Is.EqualTo(new[] { "A", "B", "C" }));
+        });
     }
 
     [Test]
     public void DataSection_DoesNotGuaranteeOrder_WhenTypeIsNotComparable()
     {
-        string[] expected = new[] { "A", "B", "C" };
         var items = new[]
         {
             new NonComparableItem { Name = "A" },
@@ -196,18 +207,23 @@ public class DataSectionTests : BunitTestBase
             new NonComparableItem { Name = "C" }
         };
 
-        Context!.Services.AddSingleton(CreateHttpClient(items));
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
-
         var cut = RenderComponent<DataSection<NonComparableItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
-            .Add(x => x.ItemComponentType, typeof(FakeNonComparableItemComponent))
-        );
+            .Add(x => x.Items, items)
+            .Add(
+                x => x.ItemComponentType,
+                typeof(FakeNonComparableItemComponent)));
 
-        var rendered = cut.FindAll("span").Select(x => x.TextContent).ToList();
+        cut.WaitForAssertion(() =>
+        {
+            var rendered = cut.FindAll("span")
+                .Select(x => x.TextContent)
+                .ToArray();
 
-        // Only invariant: same elements exist
-        Assert.That(rendered, Is.EqualTo(expected));
+            // HashSet enumeration order is not part of the contract.
+            Assert.That(
+                rendered,
+                Is.EquivalentTo(new[] { "A", "B", "C" }));
+        });
     }
 
     [Test]
@@ -220,56 +236,56 @@ public class DataSectionTests : BunitTestBase
             new ComparableItem { Name = "B" }
         };
 
-        Context!.Services.AddSingleton(CreateHttpClient(items));
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
-
         var cut = RenderComponent<DataSection<ComparableItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
-            .Add(x => x.ItemComponentType, typeof(FakeComparableItemComponent))
-        );
+            .Add(x => x.Items, items)
+            .Add(
+                x => x.ItemComponentType,
+                typeof(FakeComparableItemComponent)));
 
-        var spans = cut.FindAll("span");
-
-        Assert.That(spans, Has.Count.EqualTo(2));
+        cut.WaitForAssertion(() =>
+        {
+            Assert.That(cut.FindAll("span"), Has.Count.EqualTo(2));
+        });
     }
 
     [Test]
     public void DataSection_PassesItemsToDynamicComponent()
     {
-        var items = new SortedSet<TestItem>(Comparer<TestItem>.Create((a, b) => a.Name.CompareTo(b.Name)))
+        var items = new SortedSet<TestItem>(
+            Comparer<TestItem>.Create((a, b) =>
+                string.Compare(a.Name, b.Name, StringComparison.Ordinal)))
         {
             new() { Name = "X" }
         };
 
-        var http = CreateHttpClient(items);
-
-        Context!.Services.AddSingleton(http);
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
-
         var cut = RenderComponent<DataSection<TestItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
+            .Add(x => x.Items, items)
             .Add(x => x.ItemComponentType, typeof(FakeItemComponent))
             .Add(x => x.Class, "my-class")
-            .Add(x => x.Style, "width:100%")
-        );
+            .Add(x => x.Style, "width:100%"));
 
-        var div = cut.Find("div");
-        Assert.That(cut.Markup, Does.Contain('X'));
-        Assert.That(div.ClassName, Is.EqualTo("my-class"));
-        Assert.That(div.GetAttribute("style"), Is.EqualTo("width:100%"));
+        cut.WaitForAssertion(() =>
+        {
+            var div = cut.Find("div");
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(cut.Markup, Does.Contain("X"));
+                Assert.That(div.ClassName, Is.EqualTo("my-class"));
+                Assert.That(
+                    div.GetAttribute("style"),
+                    Is.EqualTo("width:100%"));
+            });
+        });
     }
 
     [Test]
-    public void DataSection_RendersNothing_WhenJsonIsEmptyArray()
+    public void DataSection_RendersNothing_WhenEmpty()
     {
-        Context!.Services.AddSingleton(CreateHttpClient(Array.Empty<TestItem>()));
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
-
         var cut = RenderComponent<DataSection<TestItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
-            .Add(x => x.ItemComponentType, typeof(FakeItemComponent))
-        );
+            .Add(x => x.ItemComponentType, typeof(FakeItemComponent)));
 
+        // The initial and final render are both empty for an empty array.
         Assert.That(cut.Markup.Trim(), Is.EqualTo(string.Empty));
     }
 
@@ -282,41 +298,25 @@ public class DataSectionTests : BunitTestBase
             new NonComparableItem { Name = "B" }
         };
 
-        Context!.Services.AddSingleton(CreateHttpClient(items));
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
-
         var cut = RenderComponent<DataSection<NonComparableItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
-            .Add(x => x.ItemComponentType, typeof(FakeNonComparableItemComponent))
-        );
+            .Add(x => x.Items, items)
+            .Add(
+                x => x.ItemComponentType,
+                typeof(FakeNonComparableItemComponent)));
 
-        Assert.That(cut.FindAll("span").Count, Is.EqualTo(2));
-    }
-
-    [Test]
-    public void DataSection_ApplyFilters_WhenItemsNull()
-    {
-        IEnumerable<TestItem>? items = null;
-
-        Context!.Services.AddSingleton(CreateHttpClient(items!));
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
-
-        var cut = RenderComponent<DataSection<TestItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
-            .Add(x => x.ItemComponentType, typeof(FakeNonComparableItemComponent))
-        );
-
-        // Should still render all items once loaded
-        
-        Assert.That(cut.Markup, Does.Not.Contain("<div"));
+        cut.WaitForAssertion(() =>
+        {
+            Assert.That(cut.FindAll("span"), Has.Count.EqualTo(2));
+        });
     }
 
     private class FakeFilter(string name) : IFilter<NonComparableItem>
     {
-        public string Name {get; set;} = name;
+        public string Name { get; set; } = name;
+
         public bool Matches(NonComparableItem item)
         {
-        return item.Name == Name;
+            return item.Name == Name;
         }
     }
 
@@ -328,22 +328,28 @@ public class DataSectionTests : BunitTestBase
             new NonComparableItem { Name = "A" },
             new NonComparableItem { Name = "B" }
         };
-
-        Context!.Services.AddSingleton(CreateHttpClient(items));
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
+            
 
         var cut = RenderComponent<DataSection<NonComparableItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
-            .Add(x => x.ItemComponentType, typeof(FakeNonComparableItemComponent))
-            .Add(x => x.Filters, new FilterCollection<NonComparableItem>([new FakeFilter("A")]))
-        );
+            .Add(x => x.Items, items)
+            .Add(
+                x => x.ItemComponentType,
+                typeof(FakeNonComparableItemComponent))
+            .Add(
+                x => x.Filters,
+                new FilterCollection<NonComparableItem>(
+                    [new FakeFilter("A")] )));
 
-        // Should still render all items once loaded
-        
-        Assert.That(cut.Markup, Does.Contain("<div"));
-        Assert.That(cut.Markup, Does.Contain("A"));
-        Assert.That(cut.Markup, Does.Contain("B"));
-        Assert.That(cut.Markup, Does.Contain("</div>"));
+        cut.WaitForAssertion(() =>
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(cut.Markup, Does.Contain("<div"));
+                Assert.That(cut.Markup, Does.Contain("A"));
+                Assert.That(cut.Markup, Does.Contain("B"));
+                Assert.That(cut.Markup, Does.Contain("</div>"));
+            });
+        });
     }
 
     [Test]
@@ -355,24 +361,29 @@ public class DataSectionTests : BunitTestBase
             new NonComparableItem { Name = "B" }
         };
 
-        Context!.Services.AddSingleton(CreateHttpClient(items));
-        Context!.Services.AddSingleton(new JsonSerializerOptions(JsonSerializerDefaults.Web));
+        var dimension = new FilterDimension<NonComparableItem>(
+            "Name",
+            new FakeFilter("A"));
 
-        var dimension = new FilterDimension<NonComparableItem>("Name", new FakeFilter("A"));
         var collection = new DimensionalFilterCollection<NonComparableItem>();
         collection.AddDimension(dimension);
 
         var cut = RenderComponent<DataSection<NonComparableItem>>(p => p
-            .Add(x => x.JsonUrl, "/data.json")
-            .Add(x => x.ItemComponentType, typeof(FakeNonComparableItemComponent))
-            .Add(x => x.DimensionalFilters, collection)
-        );
+            .Add(x => x.Items, items)
+            .Add(
+                x => x.ItemComponentType,
+                typeof(FakeNonComparableItemComponent))
+            .Add(x => x.DimensionalFilters, collection));
 
-        // Should still render all items once loaded
-        
-        Assert.That(cut.Markup, Does.Contain("<div"));
-        Assert.That(cut.Markup, Does.Contain("A"));
-        Assert.That(cut.Markup, Does.Contain("B"));
-        Assert.That(cut.Markup, Does.Contain("</div>"));
+        cut.WaitForAssertion(() =>
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(cut.Markup, Does.Contain("<div"));
+                Assert.That(cut.Markup, Does.Contain("A"));
+                Assert.That(cut.Markup, Does.Contain("B"));
+                Assert.That(cut.Markup, Does.Contain("</div>"));
+            });
+        });
     }
 }

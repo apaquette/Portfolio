@@ -1,5 +1,41 @@
 [
     {
+        "Title": "Angry Animals",
+        "Description": "An Angry Birds-style game developed in Godot using C#, following a Udemy course as a guided learning project.",
+        "TechStack": [
+            "Godot",
+            "C#",
+            ".NET 8",
+            "Git",
+            "GitHub"
+        ],
+        "Categories": [
+            "Personal",
+            "Game"
+        ],
+        "Link": "https://apaquette.itch.io/angry-animals",
+        "ImageSource": null,
+        "Completed": "2026-09-07",
+        "IsFeatured": false
+    },{
+        "Title": "Tappy Plane",
+        "Description": "A Flappy Bird-style game developed in Godot using C#, following a Udemy course as a guided learning project.",
+        "TechStack": [
+            "Godot",
+            "C#",
+            ".NET 8",
+            "Git",
+            "GitHub"
+        ],
+        "Categories": [
+            "Personal",
+            "Game"
+        ],
+        "Link": "https://apaquette.itch.io/tappy-plane",
+        "ImageSource": null,
+        "Completed": "2026-08-27",
+        "IsFeatured": false
+    },{
         "Title": "A Silent Hero",
         "Description": "A narrative-driven, fable-themed side-scroller, in collaboration with Elis Sykorova",
         "TechStack": [
@@ -14,7 +50,8 @@
         ],
         "Link": "https://elisyko.itch.io/a-silent-hero",
         "ImageSource": null,
-        "Completed": "2026-02-19"
+        "Completed": "2026-02-19",
+        "IsFeatured": false
     },{
         "Title": "mynixos",
         "Description": "My personal NixOS configuration, developed as part of my transition from Windows 11.",
@@ -30,7 +67,8 @@
         ],
         "Link": "https://github.com/apaquette/mynixos",
         "ImageSource": null,
-        "Completed": "2025-12-10"
+        "Completed": "2025-12-10",
+        "IsFeatured": true
     },
     {
         "Title": "TDD Verification",
@@ -46,7 +84,8 @@
         ],
         "Link": "https://github.com/apaquette/Verification-Project",
         "ImageSource": null,
-        "Completed": "2023-11-06"
+        "Completed": "2023-11-06",
+        "IsFeatured": false
     },
     {
         "Title": "Jenkins Pipeline",
@@ -62,7 +101,8 @@
         ],
         "Link": "https://github.com/apaquette/Jenkins-Project",
         "ImageSource": null,
-        "Completed": "2023-11-29"
+        "Completed": "2023-11-29",
+        "IsFeatured": false
     },
     {
         "Title": "Secure App Development",
@@ -78,7 +118,8 @@
         ],
         "Link": "https://github.com/apaquette/Secure-App-Develoment-Project",
         "ImageSource": null,
-        "Completed": "2024-04-29"
+        "Completed": "2024-04-29",
+        "IsFeatured": true
     },
     {
         "Title": "Wator",
@@ -94,7 +135,8 @@
         ],
         "Link": "https://github.com/apaquette/Wator-Project",
         "ImageSource": null,
-        "Completed": "2023-11-20"
+        "Completed": "2023-11-20",
+        "IsFeatured": false
     },
     {
         "Title": "ML Notebooks",
@@ -111,7 +153,8 @@
         ],
         "Link": "https://github.com/apaquette/Machine-Learning-Notebooks",
         "ImageSource": null,
-        "Completed": "2024-04-15"
+        "Completed": "2024-04-15",
+        "IsFeatured": false
     },
     {
         "Title": "Code By Alex",
@@ -134,7 +177,8 @@
         ],
         "Link": "https://github.com/apaquette/Portfolio",
         "ImageSource": null,
-        "Completed": "2025-08-28"
+        "Completed": "2025-08-28",
+        "IsFeatured": true
     },
     {
         "Title": "Heisenberg Forest Prodcuts",
@@ -155,6 +199,7 @@
             "Web"
         ],
         "ImageSource": null,
-        "Completed": "2023-06-01"
+        "Completed": "2023-06-01",
+        "IsFeatured": false
     }
 ]
