@@ -40,7 +40,7 @@
                   git config --global user.email "alex.paquette@example.com"
 
                   exec fish
-                ''
+                '';
             };
         }
     );
