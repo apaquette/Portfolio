@@ -14,7 +14,7 @@ namespace Portfolio.Features.Projects;
 public partial class Projects : ComponentBase
 {
     private bool IsLoading { get; set; } = true;
-    [Inject] protected ProjectRepository ProjectRepository { get; set; } = default!;
+    [Inject] protected JsonResourceFetcher ResourceFetcher { get; set; } = default!;
     private DimensionalFilterCollection<Project>? projectFilters;
     private IEnumerable<Project>? projects;
 
@@ -27,7 +27,7 @@ public partial class Projects : ComponentBase
     {
         IsLoading = true;
         AssignFilters();
-        projects = await ProjectRepository.GetAllAsync();
+        projects = await ResourceFetcher.GetAllAsync<Project>();
 
         IsLoading = false;
     }

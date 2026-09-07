@@ -12,10 +12,7 @@ namespace Portfolio.Features.Experience;
 [ExcludeFromCodeCoverage]
 public partial class Experience : ComponentBase
 {
-    [Inject] protected IRepository<Models.Career.Experience> ExperienceRepository { get; set; } = default!;
-    [Inject] protected IRepository<Degree> DegreeRepository { get; set; } = default!;
-    [Inject] protected IRepository<Certification> CertificationRepository { get; set; } = default!;
-    [Inject] protected IRepository<Award> AwardRepository { get; set; } = default!;
+    [Inject] protected JsonResourceFetcher ResourceFetcher { get; set; } = default!;
     protected readonly SectionDefinition[] ExperienceSections = [
         new("Work History", typeof(DataSection<Models.Career.Experience>)),
         new("Education", typeof(DataSection<Degree>)),
@@ -31,10 +28,10 @@ public partial class Experience : ComponentBase
     protected override async Task OnInitializedAsync()
     {
         IsLoading = true;
-        workHistory = await ExperienceRepository.GetAllAsync();
-        degrees = await DegreeRepository.GetAllAsync();
-        certifications = await CertificationRepository.GetAllAsync();
-        awards = await AwardRepository.GetAllAsync();
+        workHistory = await ResourceFetcher.GetAllAsync<Models.Career.Experience>();
+        degrees = await ResourceFetcher.GetAllAsync<Degree>();
+        certifications = await ResourceFetcher.GetAllAsync<Certification>();
+        awards = await ResourceFetcher.GetAllAsync<Award>();
         IsLoading = false;
     }
 

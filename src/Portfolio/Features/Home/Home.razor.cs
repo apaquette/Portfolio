@@ -15,8 +15,8 @@ namespace Portfolio.Features.Home;
 [ExcludeFromCodeCoverage]
 public partial class Home : ComponentBase
 {
+    [Inject] protected JsonResourceFetcher ResourceFetcher { get; set; } = default!;
     protected bool IsLoading { get; set; } = true;
-    [Inject] protected ProjectRepository ProjectRepository { get; set; } = default!;
     protected readonly SectionDefinition[] Sections = [
         new(null, typeof(Hero)),
         new(null, typeof(Summary)),
@@ -33,7 +33,8 @@ public partial class Home : ComponentBase
     protected override async Task OnInitializedAsync()
     {
         IsLoading = true;
-        projects = await ProjectRepository.GetFeaturedAsync();
+        projects = await ResourceFetcher.GetAllAsync<Project>();
+        projects = [.. projects.Where(p => p.IsFeatured)];
         IsLoading = false;
     }
 

@@ -4,7 +4,6 @@ using System.Text.Json;
 using Bunit;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using Microsoft.Extensions.DependencyInjection;
 using Portfolio.UI.Composition;
 using Filtering.Interfaces;
 using Filtering.Core;

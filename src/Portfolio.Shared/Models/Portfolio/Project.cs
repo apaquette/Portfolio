@@ -27,6 +27,7 @@ public class Project : IComparable<Project>
             completionDate = value;
         }
     }
+    public bool IsFeatured { get; set; } = false;
 
 
     public int CompareTo(Project? other)
