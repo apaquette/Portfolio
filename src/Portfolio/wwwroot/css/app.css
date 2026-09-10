@@ -1,7 +1,9 @@
 :root{
-    --primary-color: #FF9E00;
-    --secondary-color: #c4c4c4;
+    --primary-color: #fdb849;
+    --secondary-color: #e5e5e5;
     --background-color: #14213D;
+    --link-color: #53f4ff;
+    --link-hover-color: #10ff6c;
 }
 
 @font-face {
@@ -34,7 +36,7 @@ html, body {
 }
 
 .card{
-    background-color: lightgrey;
+    background-color: var(--secondary-color);
     border-radius: 0.8rem;
 }
 
@@ -61,13 +63,13 @@ html, body {
 }
 
 a{
-    color: #53f4ff;
+    color: var(--link-color);
     text-decoration: none;
 }
 
 
 a:hover{
-    color: #10ff6c;
+    color: var(--link-hover-color);
     text-decoration: underline;
 }
 
@@ -215,7 +217,7 @@ h1, h2, h3, p{
 .scale:has(a.stretched-link):hover{
     transition: transform 0.3s ease;
     transform: scale(1.04);
-    box-shadow: 5px 5px 5px rgba(16, 255, 108, 0.8);
+    box-shadow: 5px 5px 5px var(--link-color);
 }
 
 /* custom button  */
