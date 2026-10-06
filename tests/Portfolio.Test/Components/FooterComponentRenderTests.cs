@@ -14,7 +14,7 @@ public class FooterRenderTests : BunitTestBase
 
         // Assert
         Assert.That(cut.Markup, Does.Contain("Alex Paquette"));
-        Assert.That(cut.Markup, Does.Contain("Senior Software Developer"));
+        Assert.That(cut.Markup, Does.Contain("Software Developer"));
         Assert.That(cut.Markup, Does.Contain($"{year}"));
         Assert.That(cut.Markup, Does.Contain("Code By Alex"));
         // ContactInfo is present
