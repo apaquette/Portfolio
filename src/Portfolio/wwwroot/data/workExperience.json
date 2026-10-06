@@ -3,7 +3,7 @@
         "Title": "Senior Software Developer",
         "Company": "Royal Bank of Canada (RBC)",
         "JobStart": "2026-03-02T00:00:00",
-        "JobEnd": null,
+        "JobEnd": "2026-10-02T00:00:00",
         "Description": "Design and develop enterprise software solutions focused on Python-based ETL and automation systems. Built modular pipelines to modernize legacy processes using SOLID principles, TDD, and design patterns. Lead vulnerability remediation efforts across multiple codebases while supporting production deployments, issue resolution, and continuous improvement initiatives.",
         "Skills": [
             "Python",

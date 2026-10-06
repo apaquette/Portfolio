@@ -86,7 +86,7 @@
         "Link": "https://github.com/apaquette/mynixos",
         "ImageSource": null,
         "Completed": "2025-12-10",
-        "IsFeatured": true
+        "IsFeatured": false
     },
     {
         "Title": "TDD Verification",
@@ -219,5 +219,24 @@
         "ImageSource": null,
         "Completed": "2023-06-01",
         "IsFeatured": false
+    },
+        {
+        "Title": "NixOS Server Infrastructure",
+        "Description": "Declarative infrastructure for a self-hosted server, built around NixOS, systemd, Caddy, PostgreSQL, sops-nix, and Restic.",
+        "TechStack": [
+            "Nix",
+            "NixOS",
+            "Linux",
+            "Caddy",
+            "PostgreSQL",
+            "sops-nix",
+            "Restic"
+        ],
+        "Categories":[
+            "Personal"
+        ],
+        "ImageSource": null,
+        "Completed": "2026-10-05",
+        "IsFeatured": true
     }
 ]
