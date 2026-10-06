@@ -220,7 +220,7 @@
         "Completed": "2023-06-01",
         "IsFeatured": false
     },
-        {
+    {
         "Title": "NixOS Server Infrastructure",
         "Description": "Declarative infrastructure for a self-hosted server, built around NixOS, systemd, Caddy, PostgreSQL, sops-nix, and Restic.",
         "TechStack": [
@@ -235,6 +235,7 @@
         "Categories":[
             "Personal"
         ],
+        "Link": "https://github.com/apaquette/nixos-server",
         "ImageSource": null,
         "Completed": "2026-10-05",
         "IsFeatured": true
