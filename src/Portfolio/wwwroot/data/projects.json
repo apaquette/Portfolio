@@ -137,7 +137,7 @@
         "Link": "https://github.com/apaquette/Secure-App-Develoment-Project",
         "ImageSource": null,
         "Completed": "2024-04-29",
-        "IsFeatured": true
+        "IsFeatured": false
     },
     {
         "Title": "Wator",
@@ -238,6 +238,26 @@
         "Link": "https://github.com/apaquette/nixos-server",
         "ImageSource": null,
         "Completed": "2026-10-05",
+        "IsFeatured": true
+    },
+    {
+        "Title": "ETLRelay",
+        "Description": "Open-source Python framework for building lightweight, composable ETL pipelines.",
+        "TechStack": [
+            "Python",
+            "Nix",
+            "Open-source",
+            "SOLID architecture",
+            "CI/CD",
+            "ETL"
+        ],
+        "Categories":[
+            "Personal",
+            "Open-source"
+        ],
+        "Link": "https://apaquette.github.io/ETLRelay",
+        "ImageSource": null,
+        "Completed": "2026-10-09",
         "IsFeatured": true
     }
 ]
